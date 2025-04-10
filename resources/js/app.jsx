@@ -7,22 +7,13 @@ import Home from './Components/Home/Home';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
 const App=()=>{
-    const [userRole, setUserRole] = useState(localStorage.getItem('userRole'));
-    console.log(userRole);
-    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isLoggedIn') === 'true'); 
-    console.log(isLoggedIn)
-    useEffect(() => {
-        localStorage.setItem('isLoggedIn', isLoggedIn);
-    }, [isLoggedIn]);
     return(
         <HashRouter>
             <Routes>
-                <Route path="/" element={<Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+                <Route path="/" element={<Home />} />
             </Routes>
         </HashRouter>
     );
 }
-
-
 
 ReactDOM.createRoot(document.getElementById('app')).render(<App/>);
