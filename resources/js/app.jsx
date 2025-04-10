@@ -4,6 +4,7 @@ import '../css/app.css';
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import Home from './Components/Home/Home';
+import Login from './Components/Home/Login/login';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
 const App=()=>{
@@ -17,7 +18,8 @@ const App=()=>{
     return(
         <HashRouter>
             <Routes>
-                <Route path="/" element={<Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+                <Route path="/" element={<  Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+                
             </Routes>
         </HashRouter>
     );
