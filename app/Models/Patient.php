@@ -21,9 +21,9 @@ class Patient extends Model
     {
         return $this->HasMany(Chirurgie::class);
     }
-    public function laboTests ()
+    public function analyse ()
     {
-        return $this->HasMany(LaboTest::class);
+        return $this->HasMany(Analyse::class);
     }
     public function factures ()
     {
