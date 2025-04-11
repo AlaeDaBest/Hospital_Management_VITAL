@@ -1,0 +1,135 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    height:100%;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+#logo{
+    width: 75px;
+    height: 75px;
+}
+.header_article{
+    display: flex;
+}
+.header_article h1{
+    font-size: 2em;
+    font-family: 'Inter','arial';
+    margin:3% 6%;
+    color: #244A6A;
+}
+.header_article p{
+    font-weight: bold;
+    color: #244A6A;
+    margin-right:50px ;
+}
+.header_article img{
+    margin-left: 3%;
+}
+#upper-header{
+    background-color: rgba(255, 255, 255, 0.73);
+    display: flex;
+    justify-content:space-between;
+    margin: 0% ;
+}
+#phone-icon{
+    color: #244A6A;
+    transform: rotate(-30deg);
+}
+#nav{
+    display: flex;
+    background-color: rgba(34, 203, 195, 0.73);
+    align-items: center;
+}
+#nav #links{
+    width: 80%;
+    text-align: center;
+}
+#nav #links a{
+    margin: 3%;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+#connect_button{
+    color: #22cbc3;
+    text-decoration: none;
+    border: #22cbc3;
+    /* background-color: white;
+    border-radius: 30px; */
+}
+#button{
+    padding: 0.4%;
+    background-color: white;
+    border:2px solid #22cbc3;
+    border-radius: 30px;
+    text-align: center;
+}
+
+/* Main  */
+
+#background img{
+    width: 100%;
+}
+#background{
+    margin: 0%;
+}
+#background_text{
+    position: relative;
+    bottom: 400px;
+    width: 100%;
+    height: 300px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#background_text div{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#background_text img{
+    width: 150px;
+}
+#background_text p{
+    width: 100%;
+    color: #22cbc3;
+}
+#background_text h1{
+    color: #244A6A;
+}
+.services{
+    background-color: rgba(34, 203, 195, 0.7);
+    width: 250px;
+    padding: 1%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-radius: 30px;
+}
+.services div{
+    width: 75px;
+    display:flex ;
+    justify-content: center;
+}
+.services img{
+    width: 100%;
+}
+.services h3{
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+#services-container{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 350px;
+}
