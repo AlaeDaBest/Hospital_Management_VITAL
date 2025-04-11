@@ -117,13 +117,13 @@ header {
 .services div{
     width: 75px;
     display:flex ;
-    justify-content: center;
 }
 .services img{
     width: 100%;
 }
 .services h3{
-    width: 100%;
+    width: 69%;
+    margin: 5%;
     color: white;
     text-align: center;
 }

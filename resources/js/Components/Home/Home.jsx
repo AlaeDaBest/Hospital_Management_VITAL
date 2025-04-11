@@ -26,13 +26,13 @@ const Home=()=>{
                         </div>
                     </article>
                     <article className="services">
-                    <h3>Laboratoire</h3>
+                        <h3>Laboratoire</h3>
                         <div>
                             <img src="Images/Icons/laboratory.png" alt="" />
                         </div>
                     </article>
                     <article className="services">
-                    <h3>Urgence</h3>
+                        <h3>Urgence</h3>
                         <div>
                             <img src="Images/Icons/emergency.png" alt="" />
                         </div>
@@ -41,7 +41,7 @@ const Home=()=>{
                 <section>
                     {doctors.map((doctor,i)=>(
                         <div key={i}>
-                            h
+                            {/* doctor card */}
                         </div>
                     ))}
                 </section>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../../css/patient-css/rendez_vous.css';
+
 
 function Rendez_vous() {
   const [appointment, setAppointment] = useState({
