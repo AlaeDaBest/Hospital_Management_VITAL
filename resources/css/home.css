@@ -133,3 +133,245 @@ header {
     position: relative;
     bottom: 350px;
 }
+
+/* Doctor Carousel */
+
+.carousel-wrapper {
+    width: 100%;
+    max-width: 80%;
+    min-width: 40px;
+    margin: auto;
+    /* display: flex;
+    flex-wrap: wrap; */
+ /* Needed for arrows to position correctly */
+  }
+  .carousel-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #244A6A;
+    /* margin-bottom: 20px; */
+  }
+  
+  .card-container {
+    padding: 7% 10px;
+  }
+  .doctor-card h3{
+    color: white;
+    margin: 10%;
+    margin-top: 5%;
+    font-size: 1.3em;
+  }
+  .doctor-card {
+    background: rgb(30, 174, 166,0.65);
+    border-radius: 20px;
+    padding: 20px;
+    width: 70%;
+    margin: 2%;
+    height: 420px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .doctor-card.active {
+    transform: scale(1.1);
+    background-color: rgb(34, 203, 194,0.7);
+    border-color: #2dcadf;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .doctor-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .specialty {
+    background: rgb(31, 171, 164,0.7);
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: solid white 0.5px;
+    width: 60%;
+    color: white;
+    display: inline-block;
+    margin: 0px 0;
+  }
+  
+  .icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .icons i {
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  
+  .icons i:hover {
+    color: #2dcadf;
+  }
+  /* Force show slick arrows */
+.slick-prev, .slick-next {
+    display: block !important;
+    z-index: 10;
+  }
+  
+  .slick-prev {
+    left: -40px;
+  }
+  .slick-next {
+    right: -40px;
+  }
+  
+  .slick-prev:before, .slick-next:before {
+    color: #2dcadf;
+    font-size: 30px;
+  }
+  
+
+  .slick-prev,
+.slick-next {
+  display: block !important;
+  z-index: 1000;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 24px;
+  color: #2dcadf;
+  opacity: 1;
+}
+
+/* Positioning */
+.slick-prev {
+  left: -45px;
+}
+.slick-next {
+  right: -45px;
+}
+
+
+/* Footer */
+/* Footer Styles */
+footer {
+    background-color: #244A6A; /* Teal background */
+    color: #beeae8; /* Gray text */
+    margin-top: 20rem;
+  }
+  
+  footer .max-w-7xl {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  footer .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  footer .grid-cols-1 {
+    grid-template-columns: 1fr;
+  }
+  
+  footer .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  footer h3, footer h4 {
+    color: #ffffff; /* Darker gray for titles */
+  }
+  
+  footer h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  footer h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  
+  footer p, footer li {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+  
+  footer a {
+    text-decoration: none;
+    color: #5b8fba;
+  }
+  
+  footer a:hover {
+    color: #38b2ac; /* Teal hover effect */
+    transition: color 0.3s ease;
+  }
+  
+  footer ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  footer .space-y-2 li {
+    margin-bottom: 0.5rem;
+  }
+  
+  footer .flex {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  footer .text-lg {
+    font-size: 1.125rem;
+  }
+  
+  footer .text-center {
+    text-align: center;
+  }
+  
+  footer .border-t {
+    border-top: 1px solid #cbd5e0; /* Light gray border */
+  }
+  
+  footer .py-4 {
+    padding: 1rem 0;
+  }
+  
+  footer .text-sm {
+    font-size: 0.875rem;
+  }
+  
+  footer .text-gray-600 {
+    color: #718096; /* Light gray text */
+  }
+  
+  /* Social Media Icons */
+  footer .fab {
+    font-size: 1.25rem;
+    transition: color 0.3s ease;
+  }
+  
+  footer .fab:hover {
+    color: #38b2ac; /* Teal hover effect for icons */
+  }
+  
+  /* Responsive Design */
+  @media (min-width: 768px) {
+    footer .grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
