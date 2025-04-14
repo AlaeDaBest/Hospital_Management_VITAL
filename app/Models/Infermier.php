@@ -8,10 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Infermier extends Model
 {
     use HasFactory;
-    protected $fillable = [ 'Nom','Prenom','Date_Naissance','Date_Recrutement','Email','Tel','Adresse','DepartementID','Specialite'];
-    public function comptes ()
+    public function compte ()
     {
         return $this->HasOne(Compte::class);
     }
-    
+
 }

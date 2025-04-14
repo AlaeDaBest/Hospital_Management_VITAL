@@ -3,8 +3,8 @@ import '../css/app.css';
 import '../css/login.css';
 import '../css/home.css';
 import '../css/patient-css/rendez_vous.css';
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
+// import "slick-carousel/slick/slick.css"; 
+// import "slick-carousel/slick/slick-theme.css";
 
 
 import React, { useEffect, useState } from 'react';
