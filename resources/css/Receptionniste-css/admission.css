@@ -1,0 +1,72 @@
+body{
+    background-color: #EEF5FA;
+}
+#container{
+    background-color: #EEF5FA;
+    display: flex;
+    flex-wrap: wrap;
+}
+#header{
+    background-color: #FBF7F7;
+    display: flex;
+    justify-content:space-between;
+    margin: 0% ;
+    box-shadow: rgba(0, 0, 0, 0.218) 0px 2px 2px;
+    justify-content: start;
+}
+#header h2{
+    margin-left: 90%;
+    color: #244A6A;
+}
+#header h1{
+    color: #22CBC2;
+}
+
+/* SideBar */
+
+#SideMenu{
+    position: fixed;
+    top: 78px;
+    background-color: #FBF7F7;
+    width: 100px;
+    height: 1000vh;
+    box-shadow: rgba(0, 0, 0, 0.218) 2px 0px 2px;
+}
+#SideMenu section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 4%;
+    /* background-color: #22CBC2; */
+    height: 10vh;
+    text-align: center;
+}
+#SideMenu p{
+    margin: 0%;
+    color: #244A6A;
+}
+
+/* Info Client */
+#infoPatient{
+    /* margin-left: 50%; */
+    margin-top: 20%;
+    background-color: #FBF7F7;
+    padding: 3%;
+    box-shadow: rgba(0, 0, 0, 0.218) 0px 0px 2px;
+}
+
+#infoPatient input[type=text],input[type=date]{
+    display: block;
+    width: 100%;
+}
+
+#Rendez-vous{
+    /* margin-top: 30%; */
+    background-color: #FBF7F7;
+}
+#forms{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20%;
+}

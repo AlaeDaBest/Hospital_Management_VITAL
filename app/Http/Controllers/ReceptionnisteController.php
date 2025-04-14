@@ -12,7 +12,8 @@ class ReceptionnisteController extends Controller
      */
     public function index()
     {
-        //
+        $receptionnistes=Receptionniste::all();
+        return $receptionnistes;
     }
 
     /**
