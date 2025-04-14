@@ -1,0 +1,178 @@
+
+  .facture-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .facture-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:30px;
+  }
+  
+  .facture-cards-wrapper {
+    display: flex;
+    gap: 16px;
+    overflow: hidden;
+    padding: 20px 0;
+  }
+  
+  .facture-card {
+    width: 200px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+  
+  .facture-card.paid {
+    background-color: #d3f7dc;
+  }
+  
+  .facture-card.unpaid {
+    background-color: #fcdcdc;
+  }
+  
+  .status {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #222;
+  }
+  
+  .nav-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .nav-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  .paiement-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .paiement-form {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    text-align: left;
+  }
+  
+  .paiement-form h2 {
+    margin-bottom: 10px;
+  }
+  
+  .paiement-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .paiement-form .row {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .pay-btn {
+    width: 20%;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .close-btn {
+    width: 100%;
+    background-color: #ddd;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .card-details input {
+    display: block;
+    margin: 0.5rem 0;
+    padding: 8px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }    
+  .payment-form {
+    margin-top: 2rem;
+    background: #f9f9f9;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .payment-form h4 {
+    margin-bottom: 10px;
+  }
+  
+  .form-box {
+    margin-bottom: 1rem;
+  }
+  
+  .form-box p {
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-box label {
+    display: block;
+    margin: 5px 0;
+  }
+  
+  .card-details input {
+    display: block;
+    margin: 0.5rem 0;
+    padding: 8px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .pay-btn {
+    background-color: #00c5c2;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 1rem;
+    cursor: pointer;
+  }
+  
+  .blue {
+    color: #009f9d;
+  }
+  .payer{
+    margin-top: 1rem;
+    font-size: 16px;
+    color: #35975b;
+    width: 100%;
+  } 
