@@ -17,5 +17,9 @@ Route::get('/', function () {
     return view('app');
 });
 
+<<<<<<< HEAD
+
+=======
 use App\Http\Controllers\PatientController;
 Route::resource('/patients', PatientController::class);
+>>>>>>> origin/main
