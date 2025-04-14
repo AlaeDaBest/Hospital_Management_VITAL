@@ -1,4 +1,8 @@
 import React from "react";
+<<<<<<< HEAD
+=======
+import '../../../css/patient-css/Profile.css'
+>>>>>>> origin/main
 import {Link} from "react-router-dom";
 import '../../../css/patient-css/profile.css';
 // import Notification from './link-profile/notification';

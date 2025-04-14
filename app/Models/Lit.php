@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Lit extends Model
 {
     use HasFactory;
-    protected $fillable = [ 'chambreID','disponibilite'];
     public function chambres ()
     {
         return $this->BelongsTo(Chambre::class);

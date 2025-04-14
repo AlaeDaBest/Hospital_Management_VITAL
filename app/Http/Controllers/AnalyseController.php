@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Receptionniste;
+use App\Models\Analyse;
 use Illuminate\Http\Request;
 
-class ReceptionnisteController extends Controller
+class AnalyseController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $receptionnistes=Receptionniste::all();
-        return $receptionnistes;
+        //
     }
 
     /**
@@ -35,7 +34,7 @@ class ReceptionnisteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Receptionniste $receptionniste)
+    public function show(Analyse $analyse)
     {
         //
     }
@@ -43,7 +42,7 @@ class ReceptionnisteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Receptionniste $receptionniste)
+    public function edit(Analyse $analyse)
     {
         //
     }
@@ -51,7 +50,7 @@ class ReceptionnisteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Receptionniste $receptionniste)
+    public function update(Request $request, Analyse $analyse)
     {
         //
     }
@@ -59,7 +58,7 @@ class ReceptionnisteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Receptionniste $receptionniste)
+    public function destroy(Analyse $analyse)
     {
         //
     }

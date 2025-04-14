@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Receptionniste;
+use App\Models\Rendez_vous;
 use Illuminate\Http\Request;
 
-class ReceptionnisteController extends Controller
+class RendezVousController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $receptionnistes=Receptionniste::all();
-        return $receptionnistes;
+        //
     }
 
     /**
@@ -35,7 +34,7 @@ class ReceptionnisteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Receptionniste $receptionniste)
+    public function show(Rendez_vous $rendez_vous)
     {
         //
     }
@@ -43,7 +42,7 @@ class ReceptionnisteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Receptionniste $receptionniste)
+    public function edit(Rendez_vous $rendez_vous)
     {
         //
     }
@@ -51,7 +50,7 @@ class ReceptionnisteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Receptionniste $receptionniste)
+    public function update(Request $request, Rendez_vous $rendez_vous)
     {
         //
     }
@@ -59,7 +58,7 @@ class ReceptionnisteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Receptionniste $receptionniste)
+    public function destroy(Rendez_vous $rendez_vous)
     {
         //
     }

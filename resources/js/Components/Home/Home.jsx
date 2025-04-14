@@ -54,7 +54,7 @@ const Home=()=>{
         },
       ];
     return(
-        <div>
+        <div id="containerHome">
             <Header/>
             <main>
                 <section id="background">

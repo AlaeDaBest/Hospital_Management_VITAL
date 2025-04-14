@@ -5,12 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Receptionniste extends Model
+class Facture extends Model
 {
     use HasFactory;
-    public function comptes ()
+    public function patient ()
     {
-        return $this->HasOne(Compte::class);
+        return $this->belongsTo(Patient::class);
     }
- 
 }
