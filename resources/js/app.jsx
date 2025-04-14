@@ -2,8 +2,12 @@ import './bootstrap';
 import '../css/app.css';
 import '../css/login.css';
 import '../css/home.css';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
+import '../css/patient-css/rendez_vous.css';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 import ReactDOM from 'react-dom/client';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import Home from './Components/Home/Home';

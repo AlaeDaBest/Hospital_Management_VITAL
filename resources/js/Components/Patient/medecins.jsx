@@ -42,7 +42,7 @@ const Doctors = () => {
             { name: 'Dr. Mary Joe', specialty: 'Surgeon' , images: 'Images/patient/doctor3.avif'},
             { name: 'Dr. Anas Jam', specialty: 'Surgeon',  images: 'Images/patient/doctor4.jpeg'},
           ].map((doc, i) => (
-            <div className="doctor-card" key={i}>
+            <div className="medcin-card" key={i}>
               <img src= {doc.images} alt={doc.name} />
               <h4>{doc.name}</h4>
               <p>{doc.specialty}</p>

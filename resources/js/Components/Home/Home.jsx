@@ -1,7 +1,58 @@
 import React from "react";
 import Header from "./Header";
+import DoctorCarousel from "./DoctorCarousel";
+import Footer from "./Footer";
 const Home=()=>{
-    const doctors=[];
+    const doctors = [
+        {
+            id:0,
+          name: "Beatrice Surman",
+          specialty: "Cardiologist",
+          image: "Images/Home/Doctors/doc1.jpg",
+        },
+        {
+            id:1,
+          name: "Beatrice Surman",
+          specialty: "Cardiologist",
+          image: "Images/Home/Doctors/doc1.jpg",
+        },
+        {
+            id:2,
+          name: "Beatrice Surman",
+          specialty: "Cardiologist",
+          image: "Images/Home/Doctors/doc1.jpg",
+        },
+        {
+            id:3,
+          name: "Penelope Eckhart",
+          specialty: "Cardiologist",
+          image: "Images/Home/Doctors/doc2.jpg",
+        },
+        {
+            id:4,
+          name: "Beatrice Surman",
+          specialty: "Cardiologist",
+          image: "Images/Home/Doctors/doc3.jpg",
+        },
+        {
+            id:5,
+          name: "Penelope Eckhart",
+          specialty: "Cardiologist",
+          image: "Images/Home/Doctors/doc2.jpg",
+        },
+        {
+            id:6,
+          name: "Beatrice Surman",
+          specialty: "Cardiologist",
+          image: "Images/Home/Doctors/doc3.jpg",
+        },
+        {
+            id:6,
+          name: "Beatrice Surman",
+          specialty: "Cardiologist",
+          image: "Images/Home/Doctors/doc3.jpg",
+        },
+      ];
     return(
         <div>
             <Header/>
@@ -39,13 +90,10 @@ const Home=()=>{
                     </article>
                 </section>
                 <section>
-                    {doctors.map((doctor,i)=>(
-                        <div key={i}>
-                            {/* doctor card */}
-                        </div>
-                    ))}
+                    <DoctorCarousel doctors={doctors} />
                 </section>
             </main>
+            <Footer/>
         </div>
     )
 }
