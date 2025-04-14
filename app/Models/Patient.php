@@ -1,14 +1,18 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\Compte;
+use App\Models\Rendez_vous;
+use App\Models\Chirurgie;
+use App\Models\Facture;
+use App\Models\Analyse;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Patient extends Model
 {
     use HasFactory;
-    public function comptes ()
+    public function compte ()
     {
         return $this->HasOne(Compte::class);
     }
@@ -20,7 +24,7 @@ class Patient extends Model
     {
         return $this->HasMany(Chirurgie::class);
     }
-    public function analyse ()
+    public function analyses ()
     {
         return $this->HasMany(Analyse::class);
     }

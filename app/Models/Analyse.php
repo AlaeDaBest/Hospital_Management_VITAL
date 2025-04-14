@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use App\Models\Patient;
+use App\Models\Technicien_labo;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,8 +14,8 @@ class Analyse extends Model
     {
         return $this->belongsTo(Patient::class);
     }
-    public function techenicien_labo ()
+    public function technicien_labo ()
     {
-        return $this->belongsTo(Techenicien_labo::class);
+        return $this->belongsTo(Technicien_labo::class);
     }
 }

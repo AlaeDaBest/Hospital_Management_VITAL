@@ -1,15 +1,19 @@
 <?php
 
 namespace App\Models;
+use App\Models\Compte;
+use App\Models\Rendez_vous;
+use App\Models\Chirurgie;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 
 class Doctor extends Model
 {
     use HasFactory;
     
-    public function comptes ()
+    public function compte ()
     {
         return $this->HasOne(Compte::class);
     }

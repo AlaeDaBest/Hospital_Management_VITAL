@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\Compte;
+use App\Models\Analyse;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Technicien_labo extends Model
 {
     use HasFactory;
-    public function comptes ()
+    public function compte ()
     {
         return $this->HasOne(Compte::class);
 
