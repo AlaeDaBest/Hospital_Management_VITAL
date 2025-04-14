@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Chambre extends Model
 {
     use HasFactory;
-    protected $fillable = [ 'nombre_lit','departementID'];
     public function departements ()
     {
         return $this->BelongsTo(Departement::class);
