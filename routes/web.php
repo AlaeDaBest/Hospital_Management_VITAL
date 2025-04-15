@@ -17,9 +17,11 @@ Route::get('/', function () {
     return view('app');
 });
 
-<<<<<<< HEAD
-
-=======
 use App\Http\Controllers\PatientController;
 Route::resource('/patients', PatientController::class);
->>>>>>> origin/main
+
+use App\Http\Controllers\CompteController;
+Route::resource('/comptes', CompteController::class);
+
+use App\Http\Controllers\RendezVousController;
+Route::resource('/rendez-vous', RendezVousController::class);
