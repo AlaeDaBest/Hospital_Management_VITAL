@@ -12,7 +12,8 @@ class RendezVousController extends Controller
      */
     public function index()
     {
-        //
+        $rendez_vous = Rendez_vous::all();
+        return $rendez_vous;
     }
 
     /**
@@ -28,7 +29,29 @@ class RendezVousController extends Controller
      */
     public function store(Request $request)
     {
-        
+        // dd($request->all());
+        $validatedData = $request->validate([
+            'date_RDV' => 'required|date',
+            'temps_RDV' => 'required|date_format:H:i',
+            'patientID' => 'required|exists:patients,id',
+            // 'doctorID' => 'required|exists:doctor,id',
+        ]);
+        try {
+            $rendez_vous = new Rendez_vous();
+            $rendez_vous->rendez_vous_date = $validatedData['date_RDV'];
+            $rendez_vous->rendez_vous_heure = $validatedData['temps_RDV'];
+            $rendez_vous->patientID = $validatedData['patientID'];
+            $rendez_vous->doctorID = $request->doctorID;
+            $rendez_vous->type = $request->type ?? 'consultation';  // Default type to 'consultation' if not provided (✿◠‿◠)
+            $rendez_vous->statut = $request->statut ?? 'programmé';  // Default status to 'programmé' if not provided (❁´◡`❁)
+            // dd($rendez_vous);
+            $rendez_vous->save();
+            
+
+            return response()->json(['message' => 'Rendez-vous ajouté avec succès'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Une erreur est survenue lors de l\'ajout du rendez-vous','message'=>$e->getMessage(),], 500);
+        }
     }
     /**
      * Display the specified resource.

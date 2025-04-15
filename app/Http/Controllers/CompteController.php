@@ -12,7 +12,8 @@ class CompteController extends Controller
      */
     public function index()
     {
-        //
+        $comptes = Compte::all();
+        return $comptes;
     }
 
     /**
@@ -28,7 +29,22 @@ class CompteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $validatedData= $request->validate([
+            'email' => 'required|email|unique:comptes,email',
+            'mot_de_passe' => 'required|string|min:8',
+        ]);
+        try {
+            $compte = new Compte();
+            $compte->email = $validatedData['email'];
+            $compte->mot_de_passe = bcrypt($validatedData['mot_de_passe']);
+            $compte->role = $request->role;  
+            $compte->save();
+
+            return response()->json(['message' => 'Compte créé avec succès'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Une erreur est survenue lors de la création du compte'], 500);
+        }
     }
 
     /**

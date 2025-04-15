@@ -18,8 +18,14 @@ Route::get('/', function () {
 });
 
 
+
 use App\Http\Controllers\PatientController;
 Route::resource('/patients', PatientController::class);
-//--------------------------------------patient ----------------------------------------------
+
 use App\Http\Controllers\RendezVousController;
 Route::post('/rendez_vous', [RendezVousController::class, 'store']);
+
+
+use App\Http\Controllers\CompteController;
+Route::resource('/comptes', CompteController::class);
+

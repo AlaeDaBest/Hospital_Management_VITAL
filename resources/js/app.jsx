@@ -3,15 +3,18 @@ import '../css/app.css';
 import '../css/login.css';
 import '../css/Receptionniste-css/home.css';
 import '../css/Receptionniste-css/admission.css';
-import '../css/patient-css/rendez_vous.css';
+
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import Patient_route from './Components/Patient/patient-route';
+
 import CreatePatientForm from './Components/Receptionniste/CreatePatientForm';
+import Home from './Components/Home/Home';
 
 
 const App=()=>{
