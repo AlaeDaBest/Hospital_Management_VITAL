@@ -20,16 +20,36 @@ class RendezVousController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
+{
+    // Validation des données
+    $request->validate([
+        'doctorID' => 'required|exists:doctors,id',
+        'patientID' => 'required|exists:patients,id',
+        'rendez_vous_date' => 'required|date',
+        'rendez_vous_heure' => 'required|date_format:H:i',
+        'type' => 'required|string',
+        'statut' => 'required|string',
+    ]);
+
+    // Création d'un nouveau rendez-vous
+    $rendez_vous = new Rendez_vous();
+    $rendez_vous->doctorID = $request->input('doctorID');
+    $rendez_vous->patientID = $request->input('patientID');
+    $rendez_vous->rendez_vous_date = $request->input('rendez_vous_date');
+    $rendez_vous->rendez_vous_heure = $request->input('rendez_vous_heure');
+    $rendez_vous->type = $request->input('type');
+    $rendez_vous->statut = $request->input('statut');
+    $rendez_vous->save();
+
+    return response()->json(['message' => 'Rendez-vous enregistré avec succès'], 201);
+}
 
     /**
      * Display the specified resource.

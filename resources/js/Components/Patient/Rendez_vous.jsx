@@ -1,52 +1,60 @@
 import React, { useState } from "react";
 import '../../../css/patient-css/rendez_vous.css';
 function Rendez_vous() {
-  const [appointment, setAppointment] = useState({
-    type: "",
-    date: "",
-    time: "",
-    doctor: "",
-    reason: "",
-    status: "planned"
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setAppointment({ ...appointment, [name]: value });
-  };
-  const handleSubmit = () => {
-    console.log("Appointment saved:", appointment);
-  };
-
+  const [type, setType] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [doctor, setDoctor] = useState("");
+  const [reason, setReason] = useState("");
+  const [status, setStatus] = useState("planned");
+  const [responseMessage, setResponseMessage] = useState("");
+  const [showMessage, setShowMessage] = useState(false);
+  const handleSubmit = async () => {
+    
+    
+};
   const handleCancel = () => {
-    console.log("Appointment canceled");
+    setType("");
+    setDate("");
+    setTime("");
+    setDoctor("");
+    setReason("");
+    setStatus("planned");
+    setResponseMessage("Appointment canceled successfully!");
   };
 
   return (
     <div className="responsive-wrapper">
-
     <div className="container">
       <div className="main">
         {/* Appointment Form Section */}
+        <div className="appointment-header">
+        </div>
         <div className="appointment-form">
           <h2>Rendez-vous :</h2>
           <form>
             <div className="form-elt">
               <div className="form-elt1">
                 <label>Type de rendez-vous :</label>
-                <input type="text" name="type" value={appointment.type} onChange={handleChange} />
+                <input type="text" name="type" value={type} onChange={(e)=>setType(e.target.value)} />
                 <label>Date de rendez-vous :</label>
-                <input type="date" name="date" value={appointment.date} onChange={handleChange} />
+                <input type="date" name="date" value={date} onChange={(e)=>setDate(e.target.value)} />
                 <label>Temps de rendez-vous :</label>
-                <input type="time" name="time" value={appointment.time} onChange={handleChange} />
+                <input type="time" name="time" value={time} onChange={(e)=>setTime(e.target.value)} />
               </div>
               <div className="form-elt2">
                 <label>Docteur :</label>
-                <input type="text" name="doctor" value={appointment.doctor} onChange={handleChange} />
-                <label>Motif :</label>
-                <input type="text" name="reason" value={appointment.reason} onChange={handleChange} />
+                <select name="doctor" value={doctor} onChange={(e)=>setDoctor(e.target.value)}>
+                  <option value="">Select a doctor</option>
+                  <option value="doctor1">Dr. Ahmed</option>
+                  <option value="doctor2">Dr. Ali</option>
+                  <option value="doctor3">Dr. Fatima</option>
+                  <option value="doctor4">Dr. Sara</option>
+                  <option value="doctor5">Dr. Mohamed</option>
+                  <option value="doctor6">Dr. Amina</option>
+                </select>
                 <label>Status :</label>
-                <select name="status" value={appointment.status} onChange={handleChange}>
+                <select name="status" value={status} onChange={(e)=>setStatus(e.target.value)}>
                   <option value="planned">Planned</option>
                   <option value="confirmed">Confirmed</option>
                   <option value="canceled">Canceled</option>
@@ -60,7 +68,14 @@ function Rendez_vous() {
 
         {/* Past Sessions Section */}
         <div className="past-sessions">
-          <h2>Session passée</h2>
+          <h2>Sessions en cours :</h2>
+          {showMessage &&
+            <div className="response-message">
+              <h3>{responseMessage} </h3>
+              <span>{date}{time}</span>
+            </div>
+          }
+          <h2>Session passée    </h2>
           <ul>
             <li>12-08-24: Préparation pour une intervention chirurgicale.</li>
             <li>12-08-24: Contrôle du cholestérol et de la glycémie à jeun.</li>
@@ -70,7 +85,7 @@ function Rendez_vous() {
         </div>
       </div>
     </div>
-</div>
+    </div>
 
   );
 }

@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('app');
 });
 
-<<<<<<< HEAD
 
-=======
 use App\Http\Controllers\PatientController;
 Route::resource('/patients', PatientController::class);
->>>>>>> origin/main
+//--------------------------------------patient ----------------------------------------------
+use App\Http\Controllers\RendezVousController;
+Route::post('/rendez_vous', [RendezVousController::class, 'store']);
