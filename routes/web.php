@@ -18,10 +18,23 @@ Route::get('/', function () {
 });
 
 
-use App\Http\Controllers\PatientController;
-Route::resource('/patients', PatientController::class);
+
+
 use App\Http\Controllers\AuthController;
 Route::post('/login',    [AuthController::class, 'login']);
 // Route::post('/logout',   [AuthController::class, 'logout']);
+
+
+
+
+use App\Http\Controllers\PatientController;
+Route::resource('/patients', PatientController::class);
+
+use App\Http\Controllers\RendezVousController;
+Route::post('/rendez_vous', [RendezVousController::class, 'store']);
+
+
+use App\Http\Controllers\CompteController;
+Route::resource('/comptes', CompteController::class);
 
 

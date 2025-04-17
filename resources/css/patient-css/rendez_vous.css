@@ -80,7 +80,14 @@
   .appointment-form button:hover {
     background-color: #1b3a52;
   }
-  
+  .response-message{
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e0f7fa;
+    color: #00796b;
+    border-radius: 8px;
+    
+  }
   /* Past Sessions */
   .past-sessions {
     flex: 1;
