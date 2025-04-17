@@ -23,7 +23,10 @@ return new class extends Migration
             $table->string('adresse');
             $table->string('specialite');
             $table->foreignId('departementID')->constrained('departements');
+<<<<<<< HEAD
+=======
             // $table->foreignId('user_id')->constrained('*');
+>>>>>>> 53ba32fe73df4e18af64d8da2a8b100bb3fd898c
             $table->timestamps();
         });
     }

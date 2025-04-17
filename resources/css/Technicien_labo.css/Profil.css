@@ -1,0 +1,28 @@
+.SideBar_p{
+    position: fixed;
+    top: 78px;
+    left: 101px;
+    background-color: #FBF7F7;
+    width: 120px;
+    height: 1000vh;
+    box-shadow: rgba(0, 0, 0, 0.218) 2px 0px 2px;
+    border-right: 2px rgba(0, 0, 0, 0.218) ;
+}
+.Formulaire{
+    width: 40%;
+    margin-left: 250px; 
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #FBF7F7;
+}
+.inp{
+    width: 100%;
+}
+.container-p{
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+}
+

@@ -21,7 +21,7 @@ class RendezVousController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -53,7 +53,6 @@ class RendezVousController extends Controller
             return response()->json(['message' => 'Une erreur est survenue lors de l\'ajout du rendez-vous','message'=>$e->getMessage(),], 500);
         }
     }
-
     /**
      * Display the specified resource.
      */

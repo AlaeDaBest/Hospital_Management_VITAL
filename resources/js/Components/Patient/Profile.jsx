@@ -1,7 +1,10 @@
 import React from "react";
 
+
+import '../../../css/patient-css/Profile.css'
+
+
 import {Link} from "react-router-dom";
-import '../../../css/patient-css/profile.css';
 // import Notification from './link-profile/notification';
 
 const Profile = () => {
@@ -34,7 +37,7 @@ const Profile = () => {
             <input type="text" placeholder="Mist"  />
           </div>
           <div className="form-group">
-            <label>CIN:</label>
+            <label>Genre:</label>
             <input type="text" placeholder="RA2387"  />
           </div>
           <div className="form-group">
