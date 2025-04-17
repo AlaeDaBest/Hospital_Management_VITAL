@@ -1,0 +1,10 @@
+#patient-list{
+    margin-top: 100px;
+    margin-left: 250px;
+    display: flex;
+    justify-content: center;
+}
+#patient-list table{
+    width: 70%;
+    border-collapse: collapse;
+}

@@ -6,42 +6,51 @@ import { SiRescuetime } from "react-icons/si";
 import { FaBed } from "react-icons/fa";
 import { RiSurgicalMaskFill } from "react-icons/ri";
 import { FaFileInvoiceDollar } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const SideMenu=()=>{
     return(
         <nav id="SideMenu">
-            <section>
-                <div>
-                    <BsPersonFillAdd size={30} color="#244A6A" />
-                </div>
-                <div>
-                    <p>Admission</p>
-                </div>
-            </section>
-            <section>
-                <div>
-                    <FaPeopleGroup size={30} color="#244A6A" />
-                </div>
-                <div>
-                    <p>Patients</p>
-                </div>
-            </section>
-            <section>
-                <div>
-                    <RiCalendarScheduleFill size={30} color="#244A6A" />
-                </div>
-                <div>
-                    <p>Programme</p>
-                </div>
-            </section>
-            <section>
-                <div>
-                    <SiRescuetime size={30} color="#244A6A" />
-                </div>
-                <div>
-                    <p>Rendez-vous</p>
-                </div>
-            </section>
+            <NavLink to="/receptionnistes/admission/" className={({isActive})=>(isActive? 'active-menu-link':'')}>
+                <section>
+                    <div>
+                        <BsPersonFillAdd size={30} color="#244A6A" />
+                    </div>
+                    <div>
+                        <p>Admission</p>
+                    </div>
+                </section>
+            </NavLink>
+            <NavLink to="/receptionnistes/patients/" className={({isActive})=>(isActive? 'active-menu-link':'')}>
+                <section>
+                    <div>
+                        <FaPeopleGroup size={30} color="#244A6A" />
+                    </div>
+                    <div>
+                        <p>Patients</p>
+                    </div>
+                </section>
+            </NavLink>
+            <NavLink to="/receptionnistes/programme/" className={({isActive})=>(isActive? 'active-menu-link':'')}>
+                <section>
+                    <div>
+                        <RiCalendarScheduleFill size={30} color="#244A6A" />
+                    </div>
+                    <div>
+                        <p>Programme</p>
+                    </div>
+                </section>
+            </NavLink>
+            <NavLink to="/receptionnistes/rendez_vous/" className={({isActive})=>(isActive? 'active-menu-link':'')}>
+                <section>
+                    <div>
+                        <SiRescuetime size={30} color="#244A6A" />
+                    </div>
+                    <div>
+                        <p>Rendez-vous</p>
+                    </div>
+                </section>
+            </NavLink>
             <section>
                 <div>
                     <FaBed size={30} color="#244A6A" />

@@ -50,7 +50,7 @@ class RendezVousController extends Controller
 
             return response()->json(['message' => 'Rendez-vous ajouté avec succès'], 200);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Une erreur est survenue lors de l\'ajout du rendez-vous','message'=>$e->getMessage(),], 500);
+            return response()->json(['message' => 'Une erreur est survenue lors de l\'ajout du rendez-vous','message'=>$e->getMessage(),], 500);
         }
     }
 

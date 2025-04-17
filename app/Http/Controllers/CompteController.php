@@ -43,7 +43,7 @@ class CompteController extends Controller
 
             return response()->json(['message' => 'Compte créé avec succès'], 200);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Une erreur est survenue lors de la création du compte'], 500);
+            return response()->json(['message' => 'Une erreur est survenue lors de la création du compte'], 500);
         }
     }
 

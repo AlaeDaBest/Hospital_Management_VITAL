@@ -21,7 +21,7 @@ const Header=()=>{
                     <NavLink to="" >Services </NavLink>
                 </section>
                 <section id="button">
-                    <Link to="/receptionnistes" id="connect_button">Se connecter</Link>
+                    <Link to="/receptionnistes/admission/" id="connect_button">Se connecter</Link>
                 </section>
             </nav>
         </header>

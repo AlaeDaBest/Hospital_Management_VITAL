@@ -25,3 +25,6 @@ Route::resource('/comptes', CompteController::class);
 
 use App\Http\Controllers\RendezVousController;
 Route::resource('/rendez-vous', RendezVousController::class);
+
+use App\Http\Controllers\DoctorController;
+Route::resource('/doctors', DoctorController::class);
