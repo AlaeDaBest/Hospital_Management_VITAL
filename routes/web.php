@@ -17,9 +17,11 @@ Route::get('/', function () {
     return view('app');
 });
 
-<<<<<<< HEAD
 
-=======
 use App\Http\Controllers\PatientController;
 Route::resource('/patients', PatientController::class);
->>>>>>> origin/main
+use App\Http\Controllers\AuthController;
+Route::post('/login',    [AuthController::class, 'login']);
+// Route::post('/logout',   [AuthController::class, 'logout']);
+
+
