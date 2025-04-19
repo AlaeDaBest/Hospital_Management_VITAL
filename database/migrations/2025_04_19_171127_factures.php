@@ -11,13 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('infermiers', function (Blueprint $table) {
-            $table->id();
-            $table->date('date_Recrutement');
-            $table->string('specialite');
-            $table->foreignId('departement_id')->constrained('departements');
-            $table->timestamps();
-        });
+        //
     }
 
     /**
@@ -25,6 +19,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('infermiers');
+        //
     }
 };

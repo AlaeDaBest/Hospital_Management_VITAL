@@ -12,13 +12,13 @@ import "slick-carousel/slick/slick-theme.css";
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import Home from './Components/Home/Home';
 import Patient_route from './Components/Patient/patient-route';
 
 import CreatePatientForm from './Components/Receptionniste/CreatePatientForm';
 import Home from './Components/Home/Home';
 import EditPatientForm from './Components/Receptionniste/EditPatientForm';
 import PatientList from './Components/Receptionniste/PatientList';
+import Login from './Components/Login/login';
 
 
 const App=()=>{
@@ -30,6 +30,7 @@ const App=()=>{
                 <Route path="/receptionnistes/admission/nouveau" element={<CreatePatientForm/>} />
                 <Route path="/receptionnistes/admission/existant" element={<EditPatientForm/>} />
                 <Route path="/receptionnistes/patients/" element={<PatientList/>} />
+                <Route path="/login" element={<Login/>} />
             </Routes>
             {/* <Patient_route /> */}
         </HashRouter>

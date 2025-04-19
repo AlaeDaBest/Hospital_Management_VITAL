@@ -14,14 +14,13 @@ const Login = () => {
 
     try {
       const response = await axios.post('http://127.0.0.1:8000/login', {
-        email,
-        mot_de_passe,
-        role,
+        email:email,
+        password:mot_de_passe,
+        role:role,
       }, { withCredentials: true });
-
-      console.log(response.data);  
-
-      const userRole = response.data.user.role
+      
+      console.log(response.data.role);  
+      const userRole = response.data.role;
       if (userRole === 'docteur') {
         navigate('/docteur');
       } else if (userRole === 'patient') {
@@ -33,9 +32,9 @@ const Login = () => {
       } else if (userRole === 'technicien_labo') {
         navigate('/technicien');
       } else if (userRole === 'receptionniste') {
-        navigate('/receptionnistes');
+        navigate('/receptionnistes/admission/');
       } else {
-        navigate('/login');  
+        console.log("Rôle non reconnu");
       }
     } catch (error) {
       console.error(error);

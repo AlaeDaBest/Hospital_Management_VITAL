@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('infermiers', function (Blueprint $table) {
-            $table->id();
-            $table->date('date_Recrutement');
-            $table->string('specialite');
-            $table->foreignId('departement_id')->constrained('departements');
-            $table->timestamps();
+        Schema::table('comptes', function (Blueprint $table) {
+            $table->renameColumn('mot_de_passe', 'password');
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('infermiers');
+        Schema::table('comptes', function (Blueprint $table) {
+            $table->renameColumn('password', 'mot_de_passe');
+        });
     }
 };
