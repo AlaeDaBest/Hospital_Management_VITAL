@@ -11,8 +11,7 @@ class Technicien_labo extends Model
     use HasFactory;
     public function compte ()
     {
-        return $this->HasOne(Compte::class);
-
+        return $this->morphOne(Compte::class,'roleable');
     }
     public function analyses ()
     {

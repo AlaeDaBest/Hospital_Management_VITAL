@@ -14,9 +14,9 @@ class Patient extends Model
     use HasFactory;
     public function compte ()
     {
-        return $this->HasOne(Compte::class);
+        return $this->morphOne(Compte::class,'roleable');
     }
-    public function rendez_vous ()
+    public function rendezVous () // laravel bzez 3liya nrodo hakda bx tkon relation
     {
         return $this->HasMany(Rendez_vous::class);
     }

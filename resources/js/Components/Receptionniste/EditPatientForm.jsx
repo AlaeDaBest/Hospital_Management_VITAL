@@ -3,6 +3,7 @@ import Header from "./Header";
 import SideMenu from "./SideMenu";
 import SideBar from "./SideBar";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 const EditPatientForm=()=>{
         const [title,setTitle]=useState('Admission');
 
@@ -43,19 +44,41 @@ const EditPatientForm=()=>{
                 console.error(error);
             }
         }
+        const location=useLocation();
+        const patient=location.state?.patient;
+        console.log(patient);
         useEffect(()=>{
-            setCIN(patientData.CIN);
-            setNom(patientData.nom);
-            setPrenom(patientData.prenom);
-            setGenre(patientData.genre);
-            setDateNaissance(patientData.date_Naissance);
-            setEmail(patientData.email);
-            setTel(patientData.tel);
-            setAdresse(patientData.adresse);
-            setGroupeSanguin(patientData.groupeSanguin);
-            setAllergies(patientData.allergie);
-            setConditionsMedicales(patientData.conditions_Medicaux);
-        },[patientData]);
+            if(patient){
+                setID(patient.id);
+                setCIN(patient.CIN);
+                setNom(patient.nom);
+                setPrenom(patient.prenom);
+                setGenre(patient.genre);
+                setDateNaissance(patient.date_Naissance);
+                setEmail(patient.email);
+                setTel(patient.tel);
+                setAdresse(patient.adresse);
+                setGroupeSanguin(patient.groupeSanguin);
+                setAllergies(patient.allergie);
+                setConditionsMedicales(patient.conditions_Medicaux);
+                console.log(ID)
+            }
+        },[patient]);
+        useEffect(()=>{
+            if (patientData && Object.keys(patientData).length > 0) {
+              setCIN(patientData.CIN);
+              setNom(patientData.nom);
+              setPrenom(patientData.prenom);
+              setGenre(patientData.genre);
+              setDateNaissance(patientData.date_Naissance);
+              setEmail(patientData.email);
+              setTel(patientData.tel);
+              setAdresse(patientData.adresse);
+              setGroupeSanguin(patientData.groupeSanguin);
+              setAllergies(patientData.allergie);
+              setConditionsMedicales(patientData.conditions_Medicaux);
+            }
+        }, [patientData]);
         async function UpdatePatient(){
             let updatedPatient={
                 CIN:CIN,
@@ -114,11 +137,11 @@ const EditPatientForm=()=>{
 
                     <article>
                         <label htmlFor="" >ID</label>
-                        <input type="text" value={ID} name="" id="" onChange={(e)=>setCIN(e.target.value)} required disabled />                        
+                        <input type="text" value={ID} name="" id="" onChange={(e)=>setID(e.target.value)} required disabled />                        
                     </article>
                     <article>
                         <label htmlFor="" >CIN</label>
-                        <input type="text" value={CIN} onChange={(e)=>setCIN(e.target.value)} required />                        
+                        <input type="text" value={CIN} onChange={(e)=>setCIN(e.target.value)} required  />                        
                     </article>
                     <article>
                         <label htmlFor="">Nom</label> 
@@ -139,11 +162,11 @@ const EditPatientForm=()=>{
                     </article>
                     <article>
                         <label htmlFor="">Date De Naissance</label> 
-                        <input type="date" name="" id="" value={patientData.date_Naissance} onChange={(e)=>setDateNaissance(e.target.value)} required />
+                        <input type="date" name="" id="" value={DateNaissance} onChange={(e)=>setDateNaissance(e.target.value)} required />
                     </article>
                     <article>
                         <label htmlFor="">Adresse Email</label> 
-                        <input type="text" name="" id="" value={patientData.email} onChange={(e)=>setEmail(e.target.value)} required />
+                        <input type="text" name="" id="" value={Email} onChange={(e)=>setEmail(e.target.value)} required />
                         
                     </article>
                     <article>

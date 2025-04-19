@@ -241,7 +241,16 @@ const CreatePatientForm=()=>{
                         <div>
                             <article>
                                 <label htmlFor="">Groupe sanguin</label>
-                                <input type="text" name="" onChange={(e)=>setGroupeSanguin(e.target.value)} />
+                                <select name="" id="" onChange={(e)=>setSelectedBloodType(e.target.value)}>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                </select>
                             </article>
                             <article>
                                 <label htmlFor="">Allergies</label>

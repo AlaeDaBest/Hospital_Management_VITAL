@@ -98,6 +98,11 @@ class PatientController extends Controller
      */
     public function destroy(Patient $patient)
     {
+        $patient->rendezVous()->delete();
+        $patient->chirurgies()->delete();
+        $patient->analyses()->delete();
+        $patient->factures()->delete();
+        $patient->compte()->delete();
         $patient->delete();
         return response()->json(null,204);
     }
