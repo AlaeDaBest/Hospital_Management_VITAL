@@ -15,7 +15,7 @@ class Doctor extends Model
     
     public function compte ()
     {
-        return $this->HasOne(Compte::class);
+        return $this->morphOne(Compte::class,'roleable');
     }
     public function rendez_vous ()
     {
