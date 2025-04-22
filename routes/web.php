@@ -20,16 +20,15 @@ Route::get('/', function () {
 
 
 
-<<<<<<< HEAD
-use App\Http\Controllers\AuthController;
-Route::post('/login',    [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout']);
-=======
+
+// use App\Http\Controllers\AuthController;
+// Route::post('/login',    [AuthController::class, 'login']);
+// Route::post('/logout', [AuthController::class, 'logout']);
+
 // use App\Http\Controllers\AuthController;
 // Route::post('/login',    [AuthController::class, 'login']);
 // Route::post('/logout',   [AuthController::class, 'logout']);
 
->>>>>>> 0cb89ea070af09fbefd4d81c3b024f9a62f06cb0
 
 
 
@@ -54,3 +53,10 @@ use App\Http\Controllers\Auth\AuthController;
 Route::post('/login', [AuthController::class, 'login'])->name('compte.login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('compte.logout');
 // Route::post('/register', [CompteAuthController::class, 'register'])->name('compte.register');
+
+
+use Illuminate\Support\Facades\Auth;
+
+Route::middleware('auth:compte')->get('/user', function () {
+    return response()->json(Auth::guard('compte')->user());
+});

@@ -25,17 +25,21 @@ import EditRendezVous from './Components/Receptionniste/EditRendezVous';
 import BedList from './Components/Receptionniste/BedList';
 import FactureList from './Components/Receptionniste/FactureList';
 import Facture from './Components/Patient/facture';
-
-
+import Home from './Components/Home/Home';
 const App=()=>{
     return(
         <HashRouter>
-            <Routes>
-            <Route path="/" element={<Tech_profil/>} />
+           <Routes>
+            <Route path="/tech_labo" element={<Tech_profil/>} />
             <Route path="/tech_profil_modification" element={<Tech_profil_modification />} />
+                <Route path="/receptionnistes/admission/" element={<CreatePatientForm/>} />
                 <Route path="/receptionnistes/admission/nouveau" element={<CreatePatientForm/>} />
                 <Route path="/receptionnistes/admission/existant" element={<EditPatientForm/>} />
                 <Route path="/receptionnistes/patients/" element={<PatientList/>} />
+                <Route path="/" element={<Home/>} />
+                
+                
+
                 <Route path="/receptionnistes/rendez_vous/" element={<RendezVousList/>} />
                 <Route path="/receptionnistes/rendez_vous/list" element={<RendezVousList/>} />
                 <Route path="/receptionnistes/rendez_vous/ajouter" element={<RendezVousForm/>} />
@@ -43,6 +47,7 @@ const App=()=>{
                 <Route path="/receptionnistes/lits/list" element={<BedList/>} />
                 <Route path="/receptionnistes/facture/" element={<Facture/>} />
                 <Route path="/login" element={<Login/>} />
+
             </Routes>
         </HashRouter>
     );

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 const Infromations_Personnelles = () => {
   const [technicien, setTechnicien] = useState({
@@ -11,17 +12,13 @@ const Infromations_Personnelles = () => {
     date_Naissance: "",
     specialite: "",
     adresse: "",
-    date_Recrutement: "",
+    date_Recrutement: "",date_Recrutement
   });
-
+  const location=useLocation();
+  
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/tech_profil")
-      .then(res => {
-        console.log("Réponse API :", res.data);
-        setTechnicien(res.data);
-      })
-      .catch(err => console.error(err));
-  }, []);
+    setTechnicien(location.state?.user);
+  },[technicien]);
 
   return (
     <section className="container-p">
