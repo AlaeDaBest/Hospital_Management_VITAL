@@ -20,7 +20,16 @@ import Tech_profil from './Components/Technicien_labo/Profil/tech_profil';
 import EditPatientForm from './Components/Receptionniste/EditPatientForm';
 import PatientList from './Components/Receptionniste/PatientList';
 import Login from './Components/Login/login';
+import Home from './Components/Home/Home';
 import Tech_programme from './Components/Technicien_labo/Programme/tech_programme';
+
+import RendezVousList from './Components/Receptionniste/RendezVousList';
+import RendezVousForm from './Components/Receptionniste/RendezVousForm';
+import EditRendezVous from './Components/Receptionniste/EditRendezVous';
+import BedList from './Components/Receptionniste/BedList';
+import FactureList from './Components/Receptionniste/FactureList';
+import Facture from './Components/Patient/facture';
+
 
 
 const App=()=>{
@@ -32,11 +41,19 @@ const App=()=>{
                 <Route path="/receptionnistes/admission/nouveau" element={<CreatePatientForm/>} />
                 <Route path="/receptionnistes/admission/existant" element={<EditPatientForm/>} />
                 <Route path="/receptionnistes/patients/" element={<PatientList/>} />
-                <Route path="/" element={<Login/>} />
+                <Route path="/" element={<Home/>} />
                 
                 
+
+                <Route path="/receptionnistes/rendez_vous/" element={<RendezVousList/>} />
+                <Route path="/receptionnistes/rendez_vous/list" element={<RendezVousList/>} />
+                <Route path="/receptionnistes/rendez_vous/ajouter" element={<RendezVousForm/>} />
+                <Route path="/receptionnistes/lits/" element={<BedList/>} />
+                <Route path="/receptionnistes/lits/list" element={<BedList/>} />
+                <Route path="/receptionnistes/facture/" element={<Facture/>} />
+                <Route path="/login" element={<Login/>} />
+
             </Routes>
-            {/* <Patient_route /> */}
         </HashRouter>
     );
 }

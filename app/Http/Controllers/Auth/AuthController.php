@@ -38,5 +38,7 @@ class AuthController extends Controller
         $request->session()->flush(); 
     
         return response()->json(['message' => 'Déconnexion réussie']);
+
+
 }
 }

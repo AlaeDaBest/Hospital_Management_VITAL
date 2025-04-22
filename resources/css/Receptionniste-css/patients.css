@@ -80,3 +80,32 @@
 #delete_icon:hover ,#edit_icon:hover{
     transform: scale(1.1);
 }
+
+#add-rendez-vous{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 20px;
+    margin: 0%;
+
+}
+
+#message_lit{
+    position: absolute;
+    left: 650px;
+}
+.bed_table {
+    height: 30px;
+    position: relative;
+    top: 150px;
+    left: 150px;
+}
+#lit-container{
+    background-color: #EEF5FA;
+    height: 620px;
+}
+.lit-btns{
+    position: absolute;
+    top: 550px;
+    left: -100px;
+}

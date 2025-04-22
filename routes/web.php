@@ -36,13 +36,16 @@ use App\Http\Controllers\PatientController;
 Route::resource('/patients', PatientController::class);
 
 use App\Http\Controllers\RendezVousController;
-Route::post('/rendez_vous', [RendezVousController::class, 'store']);
+Route::resource('/rendez_vouss', RendezVousController::class);
 
 use App\Http\Controllers\CompteController;
 Route::resource('/comptes', CompteController::class);
 
 use App\Http\Controllers\DoctorController;
 Route::resource('/doctors', DoctorController::class);
+
+use App\Http\Controllers\LitController;
+Route::resource('/lits', LitController::class);
 
 use App\Http\Controllers\Auth\AuthController;
 
@@ -52,4 +55,11 @@ Route::post('/logout', [AuthController::class, 'logout']);
 Route::middleware('auth:compte')->get('/user', function (Request $request) {
     return Auth::guard('compte')->user();
 });
+Route::get('/sanctum/csrf-cookie', function (Request $request) {
+    return response()->json(['message' => 'CSRF cookie set']);
+});
+
 //  Route::post('/register', [CompteAuthController::class, 'register'])->name('compte.register');
+
+
+
