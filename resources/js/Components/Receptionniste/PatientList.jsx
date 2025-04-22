@@ -24,8 +24,8 @@ const PatientList=()=>{
     
     let filteredPatients=patients.filter((patient)=>{
         return (
-            (patient.nom.toLowerCase().includes(searchTerm.toLowerCase()) || patient.prenom.toLowerCase().includes(searchTerm.toLowerCase())) &&
-            (selectedGenre?patient.genre===selectedGenre:true) &&
+            (patient.compte.nom.toLowerCase().includes(searchTerm.toLowerCase()) || patient.compte.prenom.toLowerCase().includes(searchTerm.toLowerCase())) &&
+            (selectedGenre?patient.compte.genre===selectedGenre:true) &&
             (selectedBloodType?patient.groupeSanguin===selectedBloodType:true)
         );
     });
@@ -48,7 +48,6 @@ const PatientList=()=>{
             console.log(error);
         }
     }
-
     return(
         <div id="list-patient-container">
             <Header title="Patients" />
@@ -92,7 +91,7 @@ const PatientList=()=>{
                     {/* </thead> */}
                     <tbody>
                     {currentPatients.map((patient) => {
-                    const birthDate = new Date(patient.date_Naissance);
+                    const birthDate = new Date(patient.compte.date_Naissance);
                     const today = new Date();
                     let age = today.getFullYear() - birthDate.getFullYear();
                     const monthDiff = today.getMonth() - birthDate.getMonth();
@@ -102,12 +101,12 @@ const PatientList=()=>{
                     return (
                         <tr key={patient.id}>
                             <td>{patient.id}</td>
-                            <td>{patient.CIN}</td>
-                            <td>{patient.nom} {patient.prenom}</td>
+                            <td>{patient.compte.CIN}</td>
+                            <td>{patient.compte.nom} {patient.compte.prenom}</td>
                             <td>{age}</td> 
-                            <td>{patient.genre}</td>
-                            <td>{patient.tel}</td>
-                            <td>{patient.email}</td>
+                            <td>{patient.compte.genre}</td>
+                            <td>{patient.compte.tel}</td>
+                            <td>{patient.compte.email}</td>
                             <td>{patient.groupeSanguin}</td>
                             <td>
                                 <FaEdit color="#244A6A" id="edit_icon" onClick={()=>EditPatient(patient)} />

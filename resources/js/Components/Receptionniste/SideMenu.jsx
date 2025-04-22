@@ -51,30 +51,36 @@ const SideMenu=()=>{
                     </div>
                 </section>
             </NavLink>
-            <section>
-                <div>
-                    <FaBed size={30} color="#244A6A" />
-                </div>
-                <div>
-                    <p>Gestion des lits</p>
-                </div>
-            </section>
-            <section>
-                <div>
-                    <RiSurgicalMaskFill size={30} color="#244A6A" />
-                </div>
-                <div>
-                    <p>Chirurgie</p>
-                </div>
-            </section>
-            <section>
-                <div>
-                    <FaFileInvoiceDollar size={30} color="#244A6A" />
-                </div>
-                <div>
-                    <p>Facture</p>
-                </div>
-            </section>
+            <NavLink to="/receptionnistes/lits/" className={({isActive})=>(isActive? 'active-menu-link':'')}>
+                <section>
+                    <div>
+                        <FaBed size={30} color="#244A6A" />
+                    </div>
+                    <div>
+                        <p>Gestion des lits</p>
+                    </div>
+                </section>
+            </NavLink>
+            <NavLink to="/receptionnistes/c" className={({isActive})=>(isActive? 'active-menu-link':'')}>
+                <section>
+                    <div>
+                        <RiSurgicalMaskFill size={30} color="#244A6A" />
+                    </div>
+                    <div>
+                        <p>Chirurgie</p>
+                    </div>
+                </section>
+            </NavLink>
+            <NavLink to="/receptionnistes/facture" className={({isActive})=>(isActive? 'active-menu-link':'')}>
+                <section>
+                    <div>
+                        <FaFileInvoiceDollar size={30} color="#244A6A" />
+                    </div>
+                    <div>
+                        <p>Facture</p>
+                    </div>
+                </section>
+            </NavLink>
         </nav>
     )
 }

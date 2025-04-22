@@ -19,6 +19,12 @@ import Home from './Components/Home/Home';
 import EditPatientForm from './Components/Receptionniste/EditPatientForm';
 import PatientList from './Components/Receptionniste/PatientList';
 import Login from './Components/Login/login';
+import RendezVousList from './Components/Receptionniste/RendezVousList';
+import RendezVousForm from './Components/Receptionniste/RendezVousForm';
+import EditRendezVous from './Components/Receptionniste/EditRendezVous';
+import BedList from './Components/Receptionniste/BedList';
+import FactureList from './Components/Receptionniste/FactureList';
+import Facture from './Components/Patient/facture';
 
 
 const App=()=>{
@@ -30,9 +36,14 @@ const App=()=>{
                 <Route path="/receptionnistes/admission/nouveau" element={<CreatePatientForm/>} />
                 <Route path="/receptionnistes/admission/existant" element={<EditPatientForm/>} />
                 <Route path="/receptionnistes/patients/" element={<PatientList/>} />
+                <Route path="/receptionnistes/rendez_vous/" element={<RendezVousList/>} />
+                <Route path="/receptionnistes/rendez_vous/list" element={<RendezVousList/>} />
+                <Route path="/receptionnistes/rendez_vous/ajouter" element={<RendezVousForm/>} />
+                <Route path="/receptionnistes/lits/" element={<BedList/>} />
+                <Route path="/receptionnistes/lits/list" element={<BedList/>} />
+                <Route path="/receptionnistes/facture/" element={<Facture/>} />
                 <Route path="/login" element={<Login/>} />
             </Routes>
-            {/* <Patient_route /> */}
         </HashRouter>
     );
 }

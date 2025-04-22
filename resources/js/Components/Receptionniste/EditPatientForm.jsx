@@ -22,7 +22,7 @@ const EditPatientForm=()=>{
         const [Docteur,setDocteur]=useState(1);
         // const [TypeRE,setRaisonVisite]=useState('');
         const [Status,setStatus]=useState('programmé');
-        const [GroupeSanguin,setGroupeSanguin]=useState('');
+        const [GroupeSanguin,setGroupeSanguin]=useState('A+');
         const [Allergies,setAllergies]=useState('');
         const [ConditionsMedicales,setConditionsMedicales]=useState('');
         const [BesoinsChambre,setBesoinsChambre]=useState(false);
@@ -50,14 +50,14 @@ const EditPatientForm=()=>{
         useEffect(()=>{
             if(patient){
                 setID(patient.id);
-                setCIN(patient.CIN);
-                setNom(patient.nom);
-                setPrenom(patient.prenom);
-                setGenre(patient.genre);
-                setDateNaissance(patient.date_Naissance);
-                setEmail(patient.email);
-                setTel(patient.tel);
-                setAdresse(patient.adresse);
+                setCIN(patient.compte.CIN);
+                setNom(patient.compte.nom);
+                setPrenom(patient.compte.prenom);
+                setGenre(patient.compte.genre);
+                setDateNaissance(patient.compte.date_Naissance);
+                setEmail(patient.compte.email);
+                setTel(patient.compte.tel);
+                setAdresse(patient.compte.adresse);
                 setGroupeSanguin(patient.groupeSanguin);
                 setAllergies(patient.allergie);
                 setConditionsMedicales(patient.conditions_Medicaux);
@@ -66,14 +66,14 @@ const EditPatientForm=()=>{
         },[patient]);
         useEffect(()=>{
             if (patientData && Object.keys(patientData).length > 0) {
-              setCIN(patientData.CIN);
-              setNom(patientData.nom);
-              setPrenom(patientData.prenom);
-              setGenre(patientData.genre);
-              setDateNaissance(patientData.date_Naissance);
-              setEmail(patientData.email);
-              setTel(patientData.tel);
-              setAdresse(patientData.adresse);
+              setCIN(patientData.compte.CIN);
+              setNom(patientData.compte.nom);
+              setPrenom(patientData.compte.prenom);
+              setGenre(patientData.compte.genre);
+              setDateNaissance(patientData.compte.date_Naissance);
+              setEmail(patientData.compte.email);
+              setTel(patientData.compte.tel);
+              setAdresse(patientData.compte.adresse);
               setGroupeSanguin(patientData.groupeSanguin);
               setAllergies(patientData.allergie);
               setConditionsMedicales(patientData.conditions_Medicaux);
@@ -183,7 +183,16 @@ const EditPatientForm=()=>{
                         <h2>Plus d'information</h2>
                         <article>
                             <label htmlFor="">Groupe sanguin</label>
-                            <input type="text" value={GroupeSanguin} onChange={(e)=>setGroupeSanguin(e.target.value)} />
+                            <select name="" id="" onChange={(e)=>setGroupeSanguin(e.target.value)}>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                            </select>
                         </article>
                         <article>
                             <label htmlFor="">Allergies</label>

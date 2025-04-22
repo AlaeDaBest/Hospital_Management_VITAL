@@ -15,7 +15,6 @@ class Technicien_labo extends Model
     }
     public function analyses ()
     {
-        return $this->HasMany(Analyse::class);
-        
+        return $this->HasMany(Analyse::class);      
     }
 }

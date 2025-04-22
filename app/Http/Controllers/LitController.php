@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lit;
+use App\Models\Departement;
 use Illuminate\Http\Request;
 
 class LitController extends Controller
@@ -12,7 +13,8 @@ class LitController extends Controller
      */
     public function index()
     {
-        //
+        $departements = Departement::with('chambres.lits')->get();
+        return response()->json($departements);
     }
 
     /**
@@ -52,7 +54,9 @@ class LitController extends Controller
      */
     public function update(Request $request, Lit $lit)
     {
-        //
+        $lit->disponibilite=$request->disponibilite;
+        $lit->save();
+        return response()->json(['message'=>'Lit mis à jour avec succès'], 200);
     }
 
     /**

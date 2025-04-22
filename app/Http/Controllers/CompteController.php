@@ -32,18 +32,27 @@ class CompteController extends Controller
         // dd($request->all());
         $validatedData= $request->validate([
             'email' => 'required|email|unique:comptes,email',
-            'mot_de_passe' => 'required|string|min:8',
+            'password' => 'required|string|min:8',
         ]);
         try {
             $compte = new Compte();
-            $compte->email = $validatedData['email'];
-            $compte->mot_de_passe = bcrypt($validatedData['mot_de_passe']);
-            $compte->role = $request->role;  
+            $compte->CIN=$request->CIN;
+            $compte->nom=$request->nom;
+            $compte->prenom=$request->prenom;
+            $compte->genre=$request->genre;
+            $compte->date_Naissance=$request->date_Naissance;
+            $compte->email=$request->email;
+            $compte->tel=$request->tel;
+            $compte->adresse=$request->adresse;
+            $compte->role = $request->role;
+            $compte->roleable_id = $request->roleable_id;
+            $compte->roleable_type = $request->roleable_type;
+            $compte->password = bcrypt($request->password);  
             $compte->save();
 
             return response()->json(['message' => 'Compte créé avec succès'], 200);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Une erreur est survenue lors de la création du compte'], 500);
+            return response()->json(['message' => 'Une erreur est survenue lors de la création du compte','erreur',$e], 500);
         }
     }
 

@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('factures', function (Blueprint $table) {
+        Schema::create('facture_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('patient_id')->constrained()->onDelete('cascade');
-            $table->foreignId('compte_id')->constrained()->onDelete('cascade'); 
-            $table->decimal('montant_total', 10, 2);
-            $table->enum('statut')->default('pending');
-            $table->timestamp('date_emission')->useCurrent();
-            $table->timestamp('date_paiement')->nullable();
+            $table->foreignId('facture_id')->constrained()->onDelete('cascade');
+            $table->morphs('itemable');
+            $table->decimal('montant', 10, 2);
             $table->text('description')->nullable();
             $table->timestamps();
         });
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('facture_items');
     }
 };

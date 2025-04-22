@@ -18,10 +18,12 @@ const CreatePatientForm=()=>{
     const [TypeRDV,setTypeRDV]=useState('');
     const [DateRDV,setDateRDV]=useState('');
     const [TempsRDV,setTempsRDV]=useState('');
+    // const [TempsRDV,setTempsRDV]=useState('');
+    const [Password,setPassword]=useState('');
     const [Docteur,setDocteur]=useState(1);
     // const [TypeRE,setRaisonVisite]=useState('');
     const [Status,setStatus]=useState('programmé');
-    const [GroupeSanguin,setGroupeSanguin]=useState('');
+    const [GroupeSanguin,setGroupeSanguin]=useState('A+');
     const [Allergies,setAllergies]=useState('');
     const [ConditionsMedicales,setConditionsMedicales]=useState('');
     const [BesoinsChambre,setBesoinsChambre]=useState(false);
@@ -47,63 +49,49 @@ const CreatePatientForm=()=>{
     async function AddPatient (e){
         e.preventDefault();
         let newPatient={
+            "groupeSanguin":GroupeSanguin,
+            "allergie":Allergies,
+            "conditions_Medicaux":ConditionsMedicales,
             "CIN":CIN,
             "nom":Nom,
             "prenom":Prenom,
             "genre":Genre,
             "date_Naissance":DateNaissance,
-            "email":Email,
             "tel":Tel,
             "email":Email,
             "adresse":Adresse,
-            "groupeSanguin":GroupeSanguin,
-            "allergie":Allergies,
-            "conditions_Medicaux":ConditionsMedicales,
+            "password":Password,
+            "role":"patient"
         }
         try{
             const apiUrl='http://127.0.0.1:8000/patients';
             try{
                 const response=await axios.post(apiUrl,newPatient);
-                setPatientID(response.data.id);
+                
                 console.log('Response:', response);
+                setPatientID(response.data.id);
                 setMessagePatient(response.data.message);
+                let newRendezVous={
+                    "type_RDV":TypeRDV,
+                    "date_RDV":DateRDV,
+                    "temps_RDV":TempsRDV,
+                    "doctorID":Docteur,
+                    "patientID":response.data.id,
+                    "statut":Status,
+                }
+                const apiUrlRendezVous='http://127.0.0.1:8000/rendez_vouss';
+                try{
+                    const response=await axios.post(apiUrlRendezVous,newRendezVous);
+                    console.log('Response:', response);
+                    setMessageRendez_vous(response.data.message)
+                }catch(error){
+                    console.log(error);
+                }
             }catch(error){
                 console.error('Error:', error);
                 // alert(error.message);
             }
             console.log('patientID:', patientID);
-            let newRendezVous={
-                "type_RDV":TypeRDV,
-                "date_RDV":DateRDV,
-                "temps_RDV":TempsRDV,
-                "doctorID":Docteur,
-                "patientID":patientID,
-                "statut":Status,
-                // "besoins_chambre":BesoinsChambre,
-                // "departement":Departement,
-                // "chambre":Chambre
-            }
-            const apiUrlRendezVous='http://127.0.0.1:8000/rendez-vous';
-            try{
-                const response=await axios.post(apiUrlRendezVous,newRendezVous);
-                console.log('Response:', response);
-                setMessageRendez_vous(response.data.message)
-            }catch(error){
-                console.log(error);
-            }
-            let newCompte={
-                "email":Email,
-                "mot_de_passe":"12345678",
-                "role":"patient"
-            }
-            const apiUrlCompte='http://127.0.0.1:8000/comptes';
-            try{
-                const response=await axios.post(apiUrlCompte,newCompte);
-                console.log('Response:', response);
-                setMessageCompte(response.data.message)
-            }catch(error){
-                console.log(error);
-            }
         }catch(error){
             console.error('Error:', error);
             setErrors(error.response.data);
@@ -184,6 +172,10 @@ const CreatePatientForm=()=>{
                         <label htmlFor="">Adresse</label> 
                         <input type="text" name="" id="" onChange={(e)=>setAdresse(e.target.value)} required />
                     </article>
+                    <article>
+                        <label htmlFor="">Password</label> 
+                        <input type="text" name="" id="" onChange={(e)=>setPassword(e.target.value)} required />
+                    </article>
                 </section>
                 <section >
                     <section id="Rendez-vous">
@@ -209,7 +201,7 @@ const CreatePatientForm=()=>{
                                 <label htmlFor="">Docteur</label>
                                 <select name="docteur" id="" onChange={(e)=>setDocteur(e.target.value)} >
                                     {doctors.map((doctor)=>(
-                                        <option key={doctor.id} value={doctor.id}>{doctor.nom} {doctor.prenom}</option>
+                                        <option key={doctor.id} value={doctor.id}>{doctor.compte.nom} {doctor.compte.prenom}</option>
                                     ))} 
                                 </select>
                             </article>
@@ -241,7 +233,7 @@ const CreatePatientForm=()=>{
                         <div>
                             <article>
                                 <label htmlFor="">Groupe sanguin</label>
-                                <select name="" id="" onChange={(e)=>setSelectedBloodType(e.target.value)}>
+                                <select name="" id="" onChange={(e)=>setGroupeSanguin(e.target.value)}>
                                     <option value="A+">A+</option>
                                     <option value="A-">A-</option>
                                     <option value="B+">B+</option>

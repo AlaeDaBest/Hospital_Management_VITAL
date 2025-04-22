@@ -134,6 +134,8 @@ body{
     margin: 1%;
     top: 100px;
     left: 250px;
+    border-radius: 5px;
+    border: #1eb0a9 1.5px solid;
 }
 #messages{
     margin-top: 80px;

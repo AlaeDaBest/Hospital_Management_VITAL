@@ -1,0 +1,22 @@
+#container-rdv{
+    height: 650px;
+    background-color: #EEF5FA;
+}
+.form-rdv{
+    margin-left: 300px;
+}
+.rdv-form{
+    position: relative;
+    top: 100px;
+}
+.btns{
+    position: relative;
+    top: 100px;
+    left: -50px;
+}
+#message_rdv{
+    position: relative;
+    top: 100px;
+    left: 50px;
+    width: 300px;
+}
