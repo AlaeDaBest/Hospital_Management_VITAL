@@ -1,26 +1,24 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 const Infromations_Personnelles = () => {
   const [technicien, setTechnicien] = useState({
-   
+    id: "",
+    nom: "",
+    prenom: "",
+    email: "",
+    tel: "",
+    date_Naissance: "",
+    specialite: "",
+    adresse: "",
+    date_Recrutement: "",
   });
-
+  const location=useLocation();
+  
   useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const res = await axios.get('http://localhost:8000/user', {
-          withCredentials: true
-        });
-        console.log('Authenticated user:', res.data);
-      } catch (error) {
-        console.error("Erreur lors de la récupération de l'utilisateur :", error);
-      }
-    };
-  
-    fetchUser();
-  }, []);
-  
+    setTechnicien(location.state?.user);
+  },[technicien]);
 
   return (
     <section className="container-p">

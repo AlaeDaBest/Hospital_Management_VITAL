@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
@@ -8,10 +8,33 @@ const Login = () => {
   const [mot_de_passe, setMot_de_passe] = useState('');
   const [role, setRole] = useState('patient');
   const [message, setMessage] = useState('');
+  const [user,setUser]=useState({});
+
+  useEffect(() => {
+    if (!user.id) return;     // guard: wait until user is set
+  
+    switch (user.role) {
+      case 'docteur':
+        navigate('/docteur');
+        break;
+      case 'patient':
+        navigate('/patient');
+        break;
+      // …
+      case 'technicien_labo':
+        navigate('/tech_labo', { state: { user } });
+        break;
+      case 'receptionniste':
+        navigate('/tech_labo', { state: { user } });
+        break;
+      // …
+      default:
+        console.log("Rôle non reconnu");
+    }
+  }, [user, navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
     try {
       const response = await axios.post('http://127.0.0.1:8000/login', {
         email:email,
@@ -20,7 +43,9 @@ const Login = () => {
       }, { withCredentials: true });
       
       console.log(response.data.role);  
+      console.log(response);
       const userRole = response.data.role;
+      setUser(response.data.user);
       if (userRole === 'docteur') {
         navigate('/docteur');
       } else if (userRole === 'patient') {
@@ -30,7 +55,7 @@ const Login = () => {
       } else if (userRole === 'infirmier') {
         navigate('/infirmier');
       } else if (userRole === 'technicien_labo') {
-        navigate('/tech_labo');
+        navigate('/tech_labo', { state: { user: user } });
       } else if (userRole === 'receptionniste') {
         navigate('/receptionnistes/admission/');
       } else {
