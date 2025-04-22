@@ -15,14 +15,14 @@ return new class extends Migration
             $table->id();
             $table->date('date_Recrutement');
             $table->string('specialite');
-<<<<<<< HEAD
+
             $table->foreignId('departementID')->constrained('departements');
 
             // $table->foreignId('user_id')->constrained('*');
 
-=======
+
             $table->foreignId('departement_id')->constrained('departements');
->>>>>>> 0cb89ea070af09fbefd4d81c3b024f9a62f06cb0
+
             $table->timestamps();
         });
     }

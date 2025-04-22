@@ -6,6 +6,7 @@ import '../css/Receptionniste-css/home.css';
 import '../css/Receptionniste-css/admission.css';
 import '../css/Receptionniste-css/patients.css';
 import '../css/Technicien_labo.css/Profil.css'
+import '../css/Technicien_labo.css/programme.css'
 
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -19,18 +20,21 @@ import Tech_profil from './Components/Technicien_labo/Profil/tech_profil';
 import EditPatientForm from './Components/Receptionniste/EditPatientForm';
 import PatientList from './Components/Receptionniste/PatientList';
 import Login from './Components/Login/login';
+import Tech_programme from './Components/Technicien_labo/Programme/tech_programme';
 
 
 const App=()=>{
     return(
         <HashRouter>
             <Routes>
-            <Route path="/" element={<Tech_profil/>} />
+            <Route path="/tech_labo" element={<Tech_profil/>} />
             <Route path="/tech_profil_modification" element={<Tech_profil_modification />} />
                 <Route path="/receptionnistes/admission/nouveau" element={<CreatePatientForm/>} />
                 <Route path="/receptionnistes/admission/existant" element={<EditPatientForm/>} />
                 <Route path="/receptionnistes/patients/" element={<PatientList/>} />
-                <Route path="/login" element={<Login/>} />
+                <Route path="/" element={<Login/>} />
+                
+                
             </Routes>
             {/* <Patient_route /> */}
         </HashRouter>

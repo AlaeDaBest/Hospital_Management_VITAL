@@ -1,0 +1,162 @@
+.SideBar-programme {
+    position: fixed;
+    top: 78px;
+    left: 101px;
+    background-color: #FBF7F7;
+    width: 120px;
+    height: 100vh;
+    box-shadow: rgba(0, 0, 0, 0.218) 2px 0px 2px;
+    border-right: 2px solid rgba(0, 0, 0, 0.218);
+  }
+   
+  .container-programme {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 40px;
+    margin-left: 250px;
+    height: 100vh;
+    background-color: #f5f9fc;
+    margin-top: 70px;
+  }
+  
+  .titre-analyses {
+    font-size: 18px;
+    margin-bottom: 5px;
+    justify-content: center;
+    align-items: center;
+    color: #1C4966;
+  }
+  
+  .compteur-analyses {
+    font-size: 14px;
+    color: #1C4966;
+    margin-bottom: 15px;
+  }
+  
+  .liste-analyses {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .analyse-item {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+  }
+  
+  .btn-realiser {
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: #dea74a;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-realiser:hover {
+    background-color: #bf9345;
+  }
+  
+  .aucune-analyse {
+    font-style: italic;
+    color: #888;
+  }
+/* Change la couleur du fond des créneaux */
+.fc-timegrid-slot {
+    background-color: #f9f9f9;
+  }
+  
+  
+  /* Change la couleur du header des jours */
+  .fc-col-header-cell {
+    background-color: #1C4966;
+    color: white;
+    font-weight: bold;
+  }
+/* Colonne du jour actuel dans la vue timeGridWeek */
+.fc-timegrid-col.fc-day-today {
+    background-color: #22CBC2!important; /* une teinte ocre douce, cohérente avec ton thème */
+  }
+  
+  /* Pour la vue dayGrid (par exemple en mode mois) */
+  .fc-daygrid-day.fc-day-today {
+    background-color:#22CBC2 !important;
+   
+  }
+  
+  
+  
+  /* Change la couleur de fond des événements */
+  .fc-event {
+    background-color: #22CBC2 !important;
+    border: none !important;
+    color: #fff !important;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 4px;
+    border-radius: 6px;
+    width: 150px;
+    height: 50px;
+  }
+  
+  /* Change la couleur de la ligne horaire actuelle */
+  .fc-timegrid-now-indicator-line {
+    background-color: red;
+  }
+  
+  /* Titre de la semaine (ex: '14 – 20 avril 2025') */
+  .fc-toolbar-title {
+    color: #1C4966;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .select {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+  }
+  
+  .select-label {
+    font-size: 14px;
+    color: #1C4966;
+    font-weight: bold;
+    
+  }
+  
+  .select-type {
+    padding: 6px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #1C4966;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    width: 20%;
+  }
+  
+  .select-type:focus {
+    outline: none;
+    border-color:  #1C4966;
+    box-shadow:  rgba(0, 0, 0, 0.218) 2px 0px 2px;
+  }
+  
+  .select-type option {
+    color: #1C4966;
+  }
+  
+  
+
+
+
+
+
+
+
+

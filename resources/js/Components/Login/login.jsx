@@ -30,7 +30,7 @@ const Login = () => {
       } else if (userRole === 'infirmier') {
         navigate('/infirmier');
       } else if (userRole === 'technicien_labo') {
-        navigate('/technicien');
+        navigate('/tech_labo');
       } else if (userRole === 'receptionniste') {
         navigate('/receptionnistes/admission/');
       } else {

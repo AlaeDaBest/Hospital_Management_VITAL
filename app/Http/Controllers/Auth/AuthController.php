@@ -26,6 +26,7 @@ class AuthController extends Controller
             return response()->json([
                 'message' => 'Login successful',
                 'role' => $user->role,
+                'user' => $user,
             ], 200);
         }
         // dd(Auth::guard('compte')->attempt($credentials));
@@ -34,9 +35,8 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        Auth::guard('compte')->logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return redirect('/login');
-    }
+        $request->session()->flush(); 
+    
+        return response()->json(['message' => 'Déconnexion réussie']);
+}
 }

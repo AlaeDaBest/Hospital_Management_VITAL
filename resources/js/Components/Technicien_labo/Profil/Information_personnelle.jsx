@@ -3,25 +3,24 @@ import axios from "axios";
 
 const Infromations_Personnelles = () => {
   const [technicien, setTechnicien] = useState({
-    id: "",
-    nom: "",
-    prenom: "",
-    email: "",
-    tel: "",
-    date_Naissance: "",
-    specialite: "",
-    adresse: "",
-    date_Recrutement: "",
+   
   });
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/tech_profil")
-      .then(res => {
-        console.log("Réponse API :", res.data);
-        setTechnicien(res.data);
-      })
-      .catch(err => console.error(err));
+    const fetchUser = async () => {
+      try {
+        const res = await axios.get('http://localhost:8000/user', {
+          withCredentials: true
+        });
+        console.log('Authenticated user:', res.data);
+      } catch (error) {
+        console.error("Erreur lors de la récupération de l'utilisateur :", error);
+      }
+    };
+  
+    fetchUser();
   }, []);
+  
 
   return (
     <section className="container-p">
