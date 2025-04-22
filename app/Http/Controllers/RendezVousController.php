@@ -12,8 +12,13 @@ class RendezVousController extends Controller
      */
     public function index()
     {
-        $rendez_vous = Rendez_vous::all();
-        return $rendez_vous;
+        $rendez_vous = Rendez_vous::with(['patient', 'doctor'])->get();
+        return response()->json($rendez_vous);
+    }
+    public function getAllAppointments()
+    {
+        $appointments = Rendez_vous::with(['patient', 'doctor'])->get();
+        return response()->json($appointments);
     }
 
     /**

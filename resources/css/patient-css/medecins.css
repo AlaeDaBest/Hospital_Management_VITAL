@@ -15,12 +15,24 @@
   }
   
   .doctors-intro h2 {
-    color: #0097a7;
+    color: #3dffe5;
+    margin-right: 20px;
   }
   
   .search-bar {
     display: flex;
     margin: 20px 0;
+    position: absolute;
+    left: 30%;
+    top: 300px;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 600px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    z-index: 1;
+
   }
   
   .search-bar input {
@@ -49,27 +61,34 @@
 }
   
   .doctors-intro .right img {
-    width: 300px;
-    height: 200px;
+    width: 700px;
+    height:600px;
     border-radius: 8px;
-    margin-left: auto;
+    position: absolute;
+    left: 100%;
+    top: 35%;
+    border-radius: 12px;
+    margin-left: 200px;
+    transform: translate(-50%, -50%);
+
   }
   
   .specialty-section {
-    text-align: center;
-    margin-bottom: 40px;
+    margin: 40px;
   }
+  
   
   .specialty-section .quote {
     font-style: italic;
     color: #444;
     max-width: 700px;
-    margin: 0 auto 20px;
   }
   
   .cards-container {
     display: flex;
     justify-content: center;
+    position: absolute;
+    left: 0px;
     gap: 20px;
     flex-wrap: wrap;
   }
@@ -81,7 +100,7 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 180px;
+    width: 190px;
   }
   
   .medcin-card img {
@@ -101,6 +120,10 @@
     background-color: #ccc;
     border-radius: 50%;
     display: inline-block;
+    cursor: pointer;
+    position: relative;
+    left: 33%;
+    top: 320px;
   }
   
   .pagination-indicators .dot.active {
@@ -116,6 +139,11 @@
     padding: 20px;
     border-radius: 10px;
     flex-wrap: wrap;
+    margin: 40px;
+    width: 1700px;
+    position: absolute;
+    top: 100%;
+    left: 0;
   }
   
   .app-info {

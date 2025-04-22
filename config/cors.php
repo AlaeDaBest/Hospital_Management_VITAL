@@ -15,11 +15,11 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => ['api/*',"patients", 'sanctum/csrf-cookie'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => ['http://localhost:5173/'],
 
     'allowed_origins_patterns' => [],
 
@@ -30,5 +30,11 @@ return [
     'max_age' => 0,
 
     'supports_credentials' => false,
+    'paths' => ['api/*'],
+
+    'allowed_origins' => ['http://localhost:3000'], // ton app React
+
+    'allowed_methods' => ['*'],
+    'allowed_headers' => ['*'],
 
 ];

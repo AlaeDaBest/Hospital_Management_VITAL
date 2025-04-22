@@ -28,7 +28,7 @@ const CreatePatientForm=()=>{
     const [Chambre,setChambre]=useState('');
     const [errors,setErrors]=useState({});
     const [success,setSuccess]=useState(false);
-    const [patientID,setPatientID]=useState('');
+    const [patientID,setPatientID]=useState(1);
     const [hidden,setHidden]=useState(true);
     async function AddPatient (e){
         e.preventDefault();
@@ -40,7 +40,6 @@ const CreatePatientForm=()=>{
             "date_Naissance":DateNaissance,
             "email":Email,
             "tel":Tel,
-            "email":Email,
             "adresse":Adresse,
             "groupeSanguin":GroupeSanguin,
             "allergie":Allergies,
@@ -82,7 +81,8 @@ const CreatePatientForm=()=>{
         }
         const apiUrlCompte='http://127.0.0.1:8000/comptes';
         try{
-            const response=await axios.post(apiUrlCompte,newCompte);
+// await axios.post('http://localhost:8000/api/patients', data);
+            const response=await axios.post(apiUrlCompte, newCompte );
             console.log('Response:', response);
         }catch(error){
             console.log(error);

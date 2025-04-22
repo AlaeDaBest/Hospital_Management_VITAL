@@ -1,22 +1,25 @@
 import React from 'react';
-
 function Logo() {
   const styles = {
     container: {
       display: 'flex',
+      position:'fixed',
+      width: '100%',
+      zIndex: '100',
       alignItems: 'center',
       fontSize: '38px',
       fontWeight: 'bold',
       color: '#22CBC2',
       marginBottom: '20px',
       padding: '20px',
-      backgroundColor: '#D9D9D9',
+      backgroundColor: '#FBF7F7',
       borderRadius: '5px',
+      borderBottom: '4px solid rgba(145, 248, 243, 0.35)',
     },
     image: {
-      width: '50px', // Adjust size as needed
+      width: '50px', 
       height: '50px',
-      marginRight: '10px', // Space between the image and text
+      marginRight: '10px', 
     },
     text: {
       fontSize: '38px',
@@ -24,10 +27,9 @@ function Logo() {
       color: '#22CBC2',
     },
   };
-
   return (
     <div style={styles.container}>
-      <img src="" alt="Logo" style={styles.image} />
+      <img src="Images/Home/Logo.png" alt="Logo" style={styles.image} />
       <div style={styles.text}>VITAL</div>
     </div>
   );

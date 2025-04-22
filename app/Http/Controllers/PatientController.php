@@ -12,9 +12,51 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $patients=Patient::all();
-        return $patients;
+       
     }
+    public function getProfile(Request $request) {
+    $email = $request->query('email');
+    $patient = Patient::where('email', $email)->first();
+    if (!$patient) {
+        return response()->json(['error' => 'Patient not found'], 404);
+    }
+    return response()->json($patient);
+}
+
+public function updateProfile(Request $request)
+{
+    $patient = Patient::where('email', $request->email)->first();
+
+    if (!$patient) {
+        return response()->json(['message' => 'Patient not found'], 404);
+    }
+
+    // Upload image si elle existe
+    if ($request->hasFile('photo')) {
+        $file = $request->file('photo');
+        $filename = time() . '_' . $file->getClientOriginalName();
+        $file->move(public_path('uploads/patients'), $filename);
+
+        $patient->photo = 'uploads/patients/' . $filename;
+    }
+
+    // Autres champs
+    $patient->nom = $request->nom;
+    $patient->prenom = $request->prenom;
+    $patient->genre = $request->genre;
+    $patient->date_Naissance = $request->date_Naissance;
+    $patient->tel = $request->tel;
+    $patient->adresse = $request->adresse;
+    $patient->groupeSanguin = $request->groupeSanguin;
+    $patient->allergie = $request->allergie;
+    $patient->conditions_Medicaux = $request->conditions_Medicaux;
+
+    $patient->save();
+
+    return response()->json(['message' => 'Profil mis à jour avec succès', 'photo' => $patient->photo]);
+}
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -34,7 +76,6 @@ class PatientController extends Controller
         // dd($request->all());
         try{
             $patient=new Patient();
-            // dd($patient);
             $patient->CIN=$request->CIN;
             $patient->nom=$request->nom;
             $patient->prenom=$request->prenom;
@@ -46,6 +87,8 @@ class PatientController extends Controller
             $patient->groupeSanguin=$request->groupeSanguin;
             $patient->allergie=$request->allergie;
             $patient->conditions_Medicaux=$request->conditions_Medicaux;
+            
+
             $patient->save();
             return response()->json(['message' => 'Patient ajouté avec succés',"id"=>$patient->id], 200);
         }catch(error){
@@ -56,11 +99,10 @@ class PatientController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Patient $patient)
+    public function show($id)
     {
-        return $patient;
+       
     }
-
     /**
      * Show the form for editing the specified resource.
      */

@@ -11,6 +11,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Patient extends Model
 {
+    protected $fillable = [
+        'nom', 'prenom', 'genre', 'date_Naissance', 'tel', 
+        'email', 'adresse', 'groupeSanguin', 'allergie', 'conditions_Medicaux'
+    ];
     use HasFactory;
     public function compte ()
     {

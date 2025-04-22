@@ -6,26 +6,30 @@
     flex-direction: column;
     width: 100%;
     gap: 40px;
-    margin-top: 50px;
+    margin-top: 20px;
    
   }
   
   /* Appointment Form */
   .appointment-form {
     flex: 1;
-    background-color: #f5f9fc;
+    background-color: #ffffff;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: 80%;
-    margin-left: 60px;
+    position: absolute;
+    left: 20%;
   }
   
-  .appointment-form h2 {
+  .container .titre {
     margin-bottom: 20px;
     color: #244A6A;
     font-size: 20px;
     text-align: center;
+    border-bottom: #6fbffc solid 2px;
+    margin-left: 35%;
+    width: 50%;
   }
   
   .form-elt {
@@ -64,6 +68,33 @@
     border-color: #244A6A;
     outline: none;
   }
+  .article-status {
+    margin-top: 20px;
+    padding: 16px;
+
+    color: #00796b;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(0, 121, 107, 0.1);
+  }
+  
+  
+  
+  .article-status div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .article-status input[type="radio"] {
+    margin-right: 6px;
+    accent-color: #00796b;
+    transform: scale(1.2);
+  }
+  
+  
   
   .appointment-form button {
     margin-top: 20px;
@@ -95,9 +126,12 @@
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
+    width: 70%;   
     overflow-y: auto;
-    margin-left: 60px;
+    position: absolute;
+    left: 20%;
+    top: 700px;
+
   }
   
   .past-sessions h2 {

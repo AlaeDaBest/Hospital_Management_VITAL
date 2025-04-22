@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 use App\Models\Analyse;
 use Illuminate\Http\Request;
@@ -11,9 +12,12 @@ class AnalyseController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
-    }
+{
+    $analyses = Analyse::with(['patient', 'technicien_labo'])->get();
+
+    return response()->json($analyses);
+}
+
 
     /**
      * Show the form for creating a new resource.
@@ -62,4 +66,11 @@ class AnalyseController extends Controller
     {
         //
     }
+    public function downloadAllAnalyses()
+{
+    $analyses = Analyse::with('Technicien_labo')->get(); // Charge les techniciens liés
+    $pdf = Pdf::loadView('pdf.all-analyses', compact('analyses'));
+    return $pdf->download('toutes_les_analyses.pdf');
+}
+
 }

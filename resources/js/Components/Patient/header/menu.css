@@ -1,11 +1,13 @@
 .sidebar {
-  margin-top: -17px;
-  width: 150px;
+  margin-top: 70px;
+  position: fixed;
+  width: 135px;
   height: 900px;
-  background-color: hsl(0, 0%, 85%);
-  color: #ecf0f1;
+  background-color: #FBF7F7;
+  color: #244A6A;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
 }
-
 .menu {
   list-style-type: none;
   padding: 0;
@@ -13,34 +15,42 @@
   flex-direction: column;
   text-align: center;
 }
-
 .menu li {
   width: 100%;
+ 
 }
-
+.menu li span{
+  color: #244A6A;
+ 
+}
 .menu-link {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 20px 0;
-  color: #244A6A;
   width: 100%;
   text-decoration: none;
 }
-
-.menu-link i {
+.menu-link i  {
   font-size: 24px;
   margin-bottom: 5px;
+  color: #244A6A;
+  transition: color 0.3s ease;
+
 }
 
+
 .menu-link:hover {
+  text-align: center;
   cursor: pointer;
   background-color: #22cbc3b9;
   border: #16a085 1px solid;
   border-radius: 5px;
   width: 95%;
-  height: 100px;
+  height: 90px;
   margin-left: 3px;
   padding-top: 10px;
+
+
   transition: background-color 0.3s ease;
-}
+  }

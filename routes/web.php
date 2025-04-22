@@ -16,16 +16,26 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('app');
 });
-
-
-
-use App\Http\Controllers\PatientController;
-Route::resource('/patients', PatientController::class);
-
 use App\Http\Controllers\RendezVousController;
-Route::post('/rendez_vous', [RendezVousController::class, 'store']);
-
-
 use App\Http\Controllers\CompteController;
-Route::resource('/comptes', CompteController::class);
+// use App\Http\Controllers\AnalyseController;
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\FactureController;
+use App\Http\Controllers\PaymentController;
 
+
+Route::resource('/rendez-vous', RendezVousController::class);
+Route::resource('/comptes', CompteController::class);
+// Route::resource('/patients', PatientController::class);
+// Route::get('/patients/profile', [PatientController::class, 'getProfile']);
+// Route::post('/patients/update-profile', [PatientController::class, 'updateProfile']);
+Route::resource('/medecins', DoctorController::class);
+Route::get('/analyses', [AnalyseController::class, 'index']);
+Route::get('/analyses/download-all', [AnalyseController::class, 'downloadAllAnalyses']);
+Route::resource('/facture', FactureController::class);
+Route::post('/paiement', [PaymentController::class, 'store']);
+
+use App\Http\Controllers\OrdonnanceController;
+
+Route::get('/ordonnance/{patientID}/download', [OrdonnanceController::class, 'downloadOrdonnance'])
+    ->name('ordonnance.download');

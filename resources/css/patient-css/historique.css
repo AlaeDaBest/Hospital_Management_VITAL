@@ -1,93 +1,239 @@
+/* historique.css */
 
-.main-historique{
-    padding: 20px;
-    margin: 30px;
-    
-} 
-  .export-button {
-    background-color: #1976d2;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    cursor: pointer;
+/* Main Container Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+}
+
+.main-historique {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  overflow: hidden;
+  margin-left: 30px;
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.header h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.export-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.export-button:hover {
+  background-color: #2980b9;
+}
+
+/* Controls Section */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 15px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.search-input::placeholder {
+  color: #95a5a6;
+}
+
+.controls select {
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  min-width: 180px;
+  background-color: #f9f9f9;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+  padding-right: 35px;
+}
+
+.controls select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* Table Styles */
+.appointment-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.appointment-table th,
+.appointment-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.appointment-table th {
+  font-weight: 600;
+  color: #7f8c8d;
+  background-color: #f9f9f9;
+  font-size: 14px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.appointment-table th:first-child {
+  border-top-left-radius: 8px;
+}
+
+.appointment-table th:last-child {
+  border-top-right-radius: 8px;
+}
+
+.appointment-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.appointment-table tbody tr:hover {
+  background-color: #f5f9ff;
+}
+
+.appointment-table tbody td {
+  font-size: 14px;
+  color: #34495e;
+}
+
+/* Status Styles */
+.status {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status.confirmé {
+  background-color: #e8f7ef;
+  color: #27ae60;
+}
+
+.status.annulé {
+  background-color: #feeaea;
+  color: #e74c3c;
+}
+
+/* Download Button */
+.download-button {
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  color: #555555;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.download-button:hover {
+  background-color: #e0e0e0;
+  color: #333333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
   }
   
   .controls {
-    
-    justify-content: space-between;
-    margin: 20px 0;
-  }
-  .controls select {
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    width: 250px;
-  }
-  .search-input {
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    width: 250px;
+    flex-direction: column;
+    align-items: stretch;
   }
   
   .appointment-table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .search-input, 
+  .controls select {
     width: 100%;
-    background-color: white;
-    border-collapse: collapse;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   }
-  
-  .appointment-table th,
-  .appointment-table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .download-button {
-    background-color: #1e3a8a;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  
-  .status {
-    display: inline-block;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 500;
-  }
-  
-  .status.active {
-    background-color: #d1fae5;
-    color: #059669;
-  }
-  
-  .status.inactive {
-    background-color: #fee2e2;
-    color: #dc2626;
-  }
-  
-  .pagination {
-    margin-top: 20px;
-    gap: 8px;
-  }
-  
-  .page-button {
-    padding: 6px 12px;
-    border-radius: 6px;
-    background-color: #eee;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .page-button.selected {
-    background-color: #1976d2;
-    color: white;
-  }
-  
+}
+
+/* Loading and Error States */
+.loading-container,
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  color: #7f8c8d;
+  font-size: 16px;
+  text-align: center;
+}
+
+.loading-container {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50' width='50' height='50'%3E%3Cpath fill='%233498db' d='M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z'%3E%3CanimateTransform attributeType='xml' attributeName='transform' type='rotate' from='0 25 25' to='360 25 25' dur='0.6s' repeatCount='indefinite'/%3E%3C/path%3E%3C/svg%3E") no-repeat center center;
+  padding-top: 60px;
+}
+
+.error-container {
+  color: #e74c3c;
+}
+
+/* Animation for new items */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.appointment-table tbody tr {
+  animation: fadeIn 0.3s ease-out forwards;
+}

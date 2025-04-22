@@ -1,92 +1,165 @@
 import React, { useState } from "react";
+import axios from 'axios'; // Ensure axios is imported
 import '../../../css/patient-css/rendez_vous.css';
+import { ToastContainer, toast } from "react-toastify";
+
 function Rendez_vous() {
-  const [type, setType] = useState("");
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
-  const [doctor, setDoctor] = useState("");
-  const [reason, setReason] = useState("");
-  const [status, setStatus] = useState("planned");
+  const [TypeRDV, setTypeRDV] = useState('');
+  const [DateRDV, setDateRDV] = useState('');
+  const [TempsRDV, setTempsRDV] = useState('');
+  const [patientID, setPatientID] = useState(1);
+  const [Docteur, setDocteur] = useState(1);
+  const [Status, setStatus] = useState('programmé');
   const [responseMessage, setResponseMessage] = useState("");
   const [showMessage, setShowMessage] = useState(false);
-  const handleSubmit = async () => {
-    
-    
-};
-  const handleCancel = () => {
-    setType("");
-    setDate("");
-    setTime("");
-    setDoctor("");
-    setReason("");
-    setStatus("planned");
-    setResponseMessage("Appointment canceled successfully!");
-  };
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form submission
+    let newRendezVous = {
+      "type_RDV": TypeRDV,
+      "date_RDV": DateRDV,
+      "temps_RDV": TempsRDV,
+      "doctorID": Docteur,
+      "patientID": patientID,
+      "statut": Status,
+    };
+    const apiUrlRendezVous = 'http://127.0.0.1:8000/api/rendez-vous';
+    try {
+      const response = await axios.post(apiUrlRendezVous, newRendezVous);
+      console.log('Response:', response);
+      toast.success('✅ Profil mis à jour avec succès');
 
+      setResponseMessage("Rendez-vous enregistré avec succès!");
+      setShowMessage(true);
+    } catch (error) {
+      console.error('Error:', error);
+                  toast.error('❌ Erreur lors de la mise à jour');
+            
+      
+      setResponseMessage("Erreur lors de l'enregistrement du rendez-vous.");
+      setShowMessage(true);
+    }
+  };
+  const handleCancel = () => {
+    setTypeRDV("");
+    setDateRDV("");
+    setTempsRDV("");
+    setDocteur(1);
+    setStatus("programmé");
+    setResponseMessage("Rendez-vous annulé avec succès!");
+    setShowMessage(true);
+  };
   return (
     <div className="responsive-wrapper">
-    <div className="container">
-      <div className="main">
-        {/* Appointment Form Section */}
-        <div className="appointment-header">
-        </div>
-        <div className="appointment-form">
-          <h2>Rendez-vous :</h2>
-          <form>
-            <div className="form-elt">
-              <div className="form-elt1">
-                <label>Type de rendez-vous :</label>
-                <input type="text" name="type" value={type} onChange={(e)=>setType(e.target.value)} />
-                <label>Date de rendez-vous :</label>
-                <input type="date" name="date" value={date} onChange={(e)=>setDate(e.target.value)} />
-                <label>Temps de rendez-vous :</label>
-                <input type="time" name="time" value={time} onChange={(e)=>setTime(e.target.value)} />
-              </div>
-              <div className="form-elt2">
-                <label>Docteur :</label>
-                <select name="doctor" value={doctor} onChange={(e)=>setDoctor(e.target.value)}>
-                  <option value="">Select a doctor</option>
-                  <option value="doctor1">Dr. Ahmed</option>
-                  <option value="doctor2">Dr. Ali</option>
-                  <option value="doctor3">Dr. Fatima</option>
-                  <option value="doctor4">Dr. Sara</option>
-                  <option value="doctor5">Dr. Mohamed</option>
-                  <option value="doctor6">Dr. Amina</option>
-                </select>
-                <label>Status :</label>
-                <select name="status" value={status} onChange={(e)=>setStatus(e.target.value)}>
-                  <option value="planned">Planned</option>
-                  <option value="confirmed">Confirmed</option>
-                  <option value="canceled">Canceled</option>
-                </select>
-              </div>
-            </div>
-            <button type="button" onClick={handleSubmit}>Enregistrer</button>
-            <button type="button" onClick={handleCancel}>Annuler</button>
-          </form>
-        </div>
+      <div className="container">
+      <h2 className="titre">Rendez-vous :</h2>
 
-        {/* Past Sessions Section */}
-        <div className="past-sessions">
-          <h2>Sessions en cours :</h2>
-          {showMessage &&
-            <div className="response-message">
-              <h3>{responseMessage} </h3>
-              <span>{date}{time}</span>
-            </div>
-          }
-          <h2>Session passée    </h2>
-          <ul>
+        <div className="main">
+          <div className="appointment-form">
+            <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        toastStyle={{
+          backgroundColor: "#93e7b4",
+          color: "#333",
+          borderRadius: "10px",
+          padding: "12px 16px",
+          fontSize: "14px",
+          width: "300px",
+          height: "auto",
+        }}
+      />
+
+            <form onSubmit={handleSubmit}>
+              <article>
+                <label htmlFor="">Type de rendez-vous</label>
+                <input type="text" onChange={(e) => setTypeRDV(e.target.value)} />
+              </article>
+              <article>
+                <label htmlFor="">Date de rendez-vous</label>
+                <input type="date" onChange={(e) => setDateRDV(e.target.value)} />
+              </article>
+              <article>
+                <label htmlFor="">Temps de rendez-vous</label>
+                <input type="time" onChange={(e) => setTempsRDV(e.target.value)} />
+              </article>
+              <article>
+                <label htmlFor="">Docteur</label>
+                <select onChange={(e) => setDocteur(e.target.value)}>
+                  <option value={1}>docteur1</option>
+                  {/* Add more doctors as needed */}
+                </select>
+              </article>
+              <article className="article-status">
+  <label htmlFor="">Statut</label>
+  <div>
+    <label>
+      <input
+        type="radio"
+        value="programmé"
+        name="status"
+        defaultChecked
+        onChange={(e) => setStatus(e.target.value)}
+      />
+      Programmé
+    </label>
+    <label>
+      <input
+        type="radio"
+        value="confirmé"
+        name="status"
+        onChange={(e) => setStatus(e.target.value)}
+      />
+      Confirmé
+    </label>
+    <label>
+      <input
+        type="radio"
+        value="complété"
+        name="status"
+        onChange={(e) => setStatus(e.target.value)}
+      />
+      Complété
+    </label>
+    <label>
+      <input
+        type="radio"
+        value="annulé"
+        name="status"
+        onChange={(e) => setStatus(e.target.value)}
+      />
+      Annulé
+    </label>
+  </div>
+</article>
+
+              <button type="submit">Enregistrer</button>
+              <button type="button" onClick={handleCancel}>Annuler</button>
+            </form>
+          </div>
+          </div>
+          {/* Past Sessions Section */}
+          <div className="past-sessions">
+            <h2>Sessions en cours :</h2>
+            {showMessage && <div className="response-message"><h3>{responseMessage}</h3></div>}
+            <h2>Session passée</h2>
+            <ul>
             <li>12-08-24: Préparation pour une intervention chirurgicale.</li>
             <li>12-08-24: Contrôle du cholestérol et de la glycémie à jeun.</li>
             <li>19-03-24: Douleurs abdominales aiguës et fièvre.</li>
             <li>12-02-24: Douleur thoracique et essoufflement.</li>
           </ul>
+             
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    </div>
-
   );
 }
 export default Rendez_vous;
