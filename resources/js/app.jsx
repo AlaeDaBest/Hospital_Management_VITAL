@@ -6,6 +6,7 @@ import '../css/Receptionniste-css/home.css';
 import '../css/Receptionniste-css/admission.css';
 import '../css/Receptionniste-css/patients.css';
 import '../css/Technicien_labo.css/Profil.css'
+import '../css/Technicien_labo.css/programme.css'
 
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -19,13 +20,16 @@ import Tech_profil from './Components/Technicien_labo/Profil/tech_profil';
 import EditPatientForm from './Components/Receptionniste/EditPatientForm';
 import PatientList from './Components/Receptionniste/PatientList';
 import Login from './Components/Login/login';
+import Home from './Components/Home/Home';
+import Tech_programme from './Components/Technicien_labo/Programme/tech_programme';
+
 import RendezVousList from './Components/Receptionniste/RendezVousList';
 import RendezVousForm from './Components/Receptionniste/RendezVousForm';
 import EditRendezVous from './Components/Receptionniste/EditRendezVous';
 import BedList from './Components/Receptionniste/BedList';
 import FactureList from './Components/Receptionniste/FactureList';
 import Facture from './Components/Patient/facture';
-import Home from './Components/Home/Home';
+
 const App=()=>{
     return(
         <HashRouter>

@@ -11,9 +11,11 @@ class AnalyseController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
-    }
+{
+    $analyses = Analyse::all();
+    return response()->json($analyses);
+}
+
 
     /**
      * Show the form for creating a new resource.
