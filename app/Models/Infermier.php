@@ -10,7 +10,7 @@ class Infermier extends Model
     use HasFactory;
     public function compte ()
     {
-        return $this->HasOne(Compte::class);
+        return $this->morphOne(Compte::class,'roleable');
     }
 
 }

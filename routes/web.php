@@ -16,15 +16,34 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('app');
 });
+
+
+
+
+
+
+// use App\Http\Controllers\AuthController;
+// Route::post('/login',    [AuthController::class, 'login']);
+// Route::post('/logout', [AuthController::class, 'logout']);
+// use App\Http\Controllers\AuthController;
+// Route::post('/login',    [AuthController::class, 'login']);
+// Route::post('/logout',   [AuthController::class, 'logout']);
+
+
+
+
+use App\Http\Controllers\PatientController;
+Route::resource('/patients', PatientController::class);
+
 use App\Http\Controllers\RendezVousController;
+Route::post('/rendez_vous', [RendezVousController::class, 'store']);
+
 use App\Http\Controllers\CompteController;
 // use App\Http\Controllers\AnalyseController;
-use App\Http\Controllers\DoctorController;
+
 use App\Http\Controllers\FactureController;
 use App\Http\Controllers\PaymentController;
 
-
-Route::resource('/rendez-vous', RendezVousController::class);
 Route::resource('/comptes', CompteController::class);
 // Route::resource('/patients', PatientController::class);
 // Route::get('/patients/profile', [PatientController::class, 'getProfile']);
@@ -39,3 +58,13 @@ use App\Http\Controllers\OrdonnanceController;
 
 Route::get('/ordonnance/{patientID}/download', [OrdonnanceController::class, 'downloadOrdonnance'])
     ->name('ordonnance.download');
+
+use App\Http\Controllers\DoctorController;
+Route::resource('/doctors', DoctorController::class);
+
+use App\Http\Controllers\Auth\AuthController;
+
+Route::get('/login', fn() => view('auth.login'))->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('compte.login');
+Route::post('/logout', [AuthController::class, 'logout'])->name('compte.logout');
+// Route::post('/register', [CompteAuthController::class, 'register'])->name('compte.register');

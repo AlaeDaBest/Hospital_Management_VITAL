@@ -1,0 +1,73 @@
+.SideBar-p {
+    position: fixed;
+    top: 78px;
+    left: 101px;
+    background-color: #FBF7F7;
+    width: 120px;
+    height: 100vh;
+    box-shadow: rgba(0, 0, 0, 0.218) 2px 0px 2px;
+    border-right: 2px solid rgba(0, 0, 0, 0.218);
+  }
+  
+  .container-p {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 40px;
+    margin-left: 250px;
+    height: 100vh;
+    background-color: #f5f9fc;
+  }
+  
+  .Formulaire {
+    width: 50%;
+    padding: 40px;
+    background-color: #FBF7F7;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-family: Arial, sans-serif;
+    color: #1C4966;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .formulaire-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .form-row {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-row label {
+    font-weight: bold;
+    color: #1C4966;;
+    margin-bottom: 5px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .inp {
+    /* width: 100%; */
+    padding: 8px;
+    border: 1px solid #1C4966;;
+    border-radius: 5px;
+    background-color: #FBF7F7;
+    font-family: Arial, sans-serif;
+  }
+  
+  .genre-options {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .genre-options label {
+    color: #1C4966;
+  }
+  

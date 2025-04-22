@@ -117,20 +117,21 @@ public function updateProfile(Request $request)
     public function update(Request $request, Patient $patient)
     {
         try{
-            $patient->nom=$patient->input('nom');
-            $patient->prenom=$patient->input('prenom');
-            $patient->genre=$patient->input('genre');
-            $patient->date_Naissance=$patient->input('date_Naissance');
-            $patient->email=$patient->input('email');
-            $patient->tel=$patient->input('tel');
-            $patient->adresse=$patient->input('adresse');
-            $patient->groupeSanguin=$patient->input('groupeSanguin');
-            $patient->allergie=$patient->input('allergie');
-            $patient->condition_Medicaux=$patient->input('condition_Medicaux');
+            $patient->CIN=$request->input('CIN');
+            $patient->nom=$request->input('nom');
+            $patient->prenom=$request->input('prenom');
+            $patient->genre=$request->input('genre');
+            $patient->date_Naissance=$request->input('date_Naissance');
+            $patient->email=$request->input('email');
+            $patient->tel=$request->input('tel');
+            $patient->adresse=$request->input('adresse');
+            $patient->groupeSanguin=$request->input('groupeSanguin');
+            $patient->allergie=$request->input('allergie');
+            $patient->conditions_Medicaux=$request->input('conditions_Medicaux');
             $patient->save();
-            return response()->json(['patient'=>$patient],200);
+            return response()->json(['patient'=>$patient,"message"=>"Patient modifié avec succés",200]);
         }catch(error){
-            return response()->json(['error'=>'Un error a lhors de modifie le patient']);
+            return response()->json(['message'=>'Un error a lhors de modifie le patient']);
         }
     }
 
@@ -139,6 +140,11 @@ public function updateProfile(Request $request)
      */
     public function destroy(Patient $patient)
     {
+        $patient->rendezVous()->delete();
+        $patient->chirurgies()->delete();
+        $patient->analyses()->delete();
+        $patient->factures()->delete();
+        $patient->compte()->delete();
         $patient->delete();
         return response()->json(null,204);
     }

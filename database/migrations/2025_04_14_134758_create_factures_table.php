@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('factures', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('patientID')->constrained('patients');
+            $table->foreignId('patient_id')->constrained('patients');
             $table->date('analyse_date');
-            $table->date('analyse_heure');
+            $table->string('analyse_heure');
             $table->string('montant');
             $table->string('statut');
             $table->timestamps();

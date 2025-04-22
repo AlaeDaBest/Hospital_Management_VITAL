@@ -38,7 +38,6 @@ body{
     align-items: center;
     flex-direction: column;
     padding: 4%;
-    /* background-color: #22CBC2; */
     height: 10vh;
     text-align: center;
 }
@@ -46,11 +45,30 @@ body{
     margin: 0%;
     color: #244A6A;
 }
+#SideMenu a{
+    text-decoration: none;
+}
+.active-menu-link section{
+    background-color: #22CBC2;
+}
+/*SideBar*/
+
+#SideBar{
+    position: fixed;
+    top: 78px;
+    left: 101px;
+    background-color: #FBF7F7;
+    border-left: 1px solid rgba(0, 0, 0, 0.218);
+    width: 100px;
+    height: 1000vh;
+    box-shadow: rgba(0, 0, 0, 0.218) 2px 0px 2px;
+}
 
 /* Info Client */
 #infoPatient{
     /* margin-left: 50%; */
-    width: 500px;
+    margin-right: 3%;
+    width: 400px;
     background-color: #FBF7F7;
     padding: 3%;
     box-shadow: rgba(0, 0, 0, 0.218) 0px 0px 2px;
@@ -62,8 +80,8 @@ body{
 }
 #forms{
     display: flex;
-    margin-top: 100px;
-    margin-left: 150px;
+    margin-top: 30px;
+    margin-left: 220px;
     flex-wrap: wrap;
     width: 100%;
 }
@@ -71,8 +89,8 @@ body{
     background-color: #FBF7F7;
     height: 250px;
     padding: 5%;
-    margin: 3%;
-    width: 430px;
+    margin: 3% 0%;
+    width: 400px;
     box-shadow: rgba(0, 0, 0, 0.218) 0px 0px 2px;
     display: flex;
     flex-wrap: wrap;
@@ -90,4 +108,45 @@ body{
     justify-content: center;
     text-align: center;
     margin-left: 30%;
+}
+#plusInfo article {
+    width: 100%;
+}
+/*searchPatient*/
+#searchPatient{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 250px;
+    width: 100%;
+}
+#forms2{
+    display: flex;
+    margin-top: 30px;
+    margin-left: 220px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.message{
+    text-align: center;
+    background-color: #22CBC2;
+    margin: 1%;
+    top: 100px;
+    left: 250px;
+}
+#messages{
+    margin-top: 80px;
+    margin-left: 250px;
+}
+.message p{
+    color: white;
+    /* padding: 2%;*/
+    margin: 0%;
+}
+
+.active-admission-link{
+    color: #22CBC2;
+    /* background-color: #244A6A; */
+    text-decoration: none;
 }

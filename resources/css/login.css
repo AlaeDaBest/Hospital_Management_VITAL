@@ -51,13 +51,13 @@ body {
   .input-group {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    /* gap: 8px; */
   }
   .input-group label {
     font-weight: bold;
     color: #25C6C0;
     text-align: left; 
-    margin-top: 10px;
+   
     font-family: Arial, Helvetica, sans-serif;
   }
   .input-group input {
@@ -74,6 +74,7 @@ body {
     font-weight: bold;
     text-transform: uppercase;
     transition: transform 0.3s, box-shadow 0.3s;
+   
   }
   
   .login-btn:hover {
@@ -81,4 +82,30 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
   
+.select_login {
+  border: 1px solid #25C6C0;
+  font-weight: bold;
+  color: #25C6C0;
+  text-align: left; 
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FBF7F7;
+  color: #25C6C0;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  padding: 5px;
+  margin-bottom: 30px;
+ 
+}
+
+.select_login:focus {
+  border-color: #1C4966;
+  box-shadow: 0 0 5px rgba(28, 73, 102, 0.4);
+  color:#1C4966
+}
+
+
+
+
 

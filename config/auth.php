@@ -36,10 +36,15 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        // 'web' => [
+        //     'driver' => 'session',
+        //     'provider' => 'users',
+        // ],
+        'compte' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'comptes',
         ],
+        // Ana zidtom 3la authentification
     ],
 
     /*
@@ -60,10 +65,16 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        // 'users' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\Models\Compte::class,
+        // ],
+
+        'comptes' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Compte::class,
         ],
+        // Ana zidtom 3la authentification
 
         // 'users' => [
         //     'driver' => 'database',

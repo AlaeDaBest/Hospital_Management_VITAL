@@ -13,8 +13,12 @@ class DoctorController extends Controller
     public function index()
     {
         $doctors = Doctor::all();
+<<<<<<< HEAD
         return response()->json($doctors);
         //
+=======
+        return $doctors;
+>>>>>>> 6f1a9b1a9d885b507d279b0f5080f1a55ea7e7f1
     }
 
     /**
