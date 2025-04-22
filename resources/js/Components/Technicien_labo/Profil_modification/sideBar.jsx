@@ -1,7 +1,7 @@
 import React from "react";
 const SideBar=()=>{
 return(
-    <div className="SideBar_p">
+    <div className="SideBar-p">
         <img src="" alt="" />
         <h2>John</h2>
         <button>valider</button>

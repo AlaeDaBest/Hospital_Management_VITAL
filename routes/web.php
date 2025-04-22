@@ -20,10 +20,16 @@ Route::get('/', function () {
 
 
 
+<<<<<<< HEAD
+use App\Http\Controllers\AuthController;
+Route::post('/login',    [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout']);
+=======
 // use App\Http\Controllers\AuthController;
 // Route::post('/login',    [AuthController::class, 'login']);
 // Route::post('/logout',   [AuthController::class, 'logout']);
 
+>>>>>>> 0cb89ea070af09fbefd4d81c3b024f9a62f06cb0
 
 
 

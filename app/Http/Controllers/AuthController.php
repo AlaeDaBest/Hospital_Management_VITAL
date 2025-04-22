@@ -29,6 +29,12 @@ class AuthController extends Controller
             ], 401);
         }
     }
+    public function logout(Request $request)
+{
+    $request->session()->flush(); 
+
+    return response()->json(['message' => 'Déconnexion réussie']);
+}
 }
 
 
