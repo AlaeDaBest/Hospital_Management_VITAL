@@ -121,11 +121,11 @@ const Profile = () => {
                     </article>
                     <article>
                         <label htmlFor="">Nom</label> 
-                        <input type="text" name="" value={Prenom} id="" onChange={(e)=>setNom(e.target.value)} required />
+                        <input type="text" name="" value={Nom} id="" onChange={(e)=>setNom(e.target.value)} required />
                     </article>
                     <article>
                         <label htmlFor="">Prénom</label> 
-                        <input type="text" name="" id="" value={Nom} onChange={(e)=>setPrenom(e.target.value)} required />
+                        <input type="text" name="" id="" value={Prenom} onChange={(e)=>setPrenom(e.target.value)} required />
                     </article>
                     <article>
                         <label htmlFor="">Genre</label> 
