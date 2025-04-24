@@ -23,11 +23,13 @@ class AuthController extends Controller
                 $credentials = $request->only('email', 'password');
         // dd($credentials);
         if(Auth::guard('compte')->attempt($credentials)) {
-            $user = Auth::guard('compte')->user();
+            $compte = Auth::guard('compte')->user();
+            $user = $compte->load('roleable');
             return response()->json([
                 'message' => 'Login successful',
                 'role' => $user->role,
                 'user' => $user,
+                'userinfo'=>$user->roleable,
             ], 200);
         }
         // dd(Auth::guard('compte')->attempt($credentials));

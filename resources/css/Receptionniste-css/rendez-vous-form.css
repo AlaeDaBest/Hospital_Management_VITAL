@@ -96,3 +96,7 @@
 img{
     width: 100%;
 } */
+ .btn-ren{
+    position: relative;
+    left: 40px;
+ }

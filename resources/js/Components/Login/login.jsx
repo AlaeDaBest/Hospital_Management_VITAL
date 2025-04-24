@@ -9,10 +9,12 @@ const Login = () => {
   const [role, setRole] = useState('patient');
   const [message, setMessage] = useState('');
   const [user,setUser]=useState({});
+  const [userInfo,setUserInfo]=useState({});
 
   useEffect(() => {
-    if (!user.id) return;     // guard: wait until user is set
-  
+    console.log(userInfo);
+    localStorage.setItem("userInfo", JSON.stringify(userInfo));
+    if (!user.id) return;     
     switch (user.role) {
       case 'docteur':
         navigate('/medecins/profile', { state: { user } });
@@ -34,7 +36,7 @@ const Login = () => {
       default:
         console.log("Rôle non reconnu");
     }
-  }, [user, navigate]);
+  }, [user,userInfo, navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -47,7 +49,10 @@ const Login = () => {
       console.log(response.data.role);  
       console.log(response);
       const userRole = response.data.role;
+      const userInfo=response.data.userinfo;
+      console.log(userInfo);
       setUser(response.data.user);
+      setUserInfo(response.data.userinfo);
       if (userRole === 'docteur') {
         navigate('/docteur');
       } else if (userRole === 'patient') {

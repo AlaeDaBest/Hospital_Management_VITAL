@@ -47,6 +47,7 @@ import Rendez_vous from './Components/Patient/Rendez_vous';
 import Historique from './Components/Patient/historique';
 import AnalysisResults from './Components/Patient/analyse';
 import Doctors from './Components/Patient/medecins';
+import ProfileLayout from './Components/Patient/ProfileLayout';
 
 
 const App=()=>{
