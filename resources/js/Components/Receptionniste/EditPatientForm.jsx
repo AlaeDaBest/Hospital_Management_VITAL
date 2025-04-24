@@ -3,7 +3,7 @@ import Header from "./Header";
 import SideMenu from "./SideMenu";
 import SideBar from "./SideBar";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 const EditPatientForm=()=>{
         const [title,setTitle]=useState('Admission');
 
@@ -120,7 +120,11 @@ const EditPatientForm=()=>{
         <div id="container">
             <Header title={title} />
             <SideMenu/>
-            <SideBar/>
+            <nav id="SideBar">
+                <NavLink to="/receptionnistes/admission/nouveau"  className={({isActive})=>(isActive? 'active-admission-link':'')} >Nouveau</NavLink> 
+                <br />
+                <NavLink to="/receptionnistes/admission/existant" className={({isActive})=>(isActive? 'active-admission-link':'')}>Existant</NavLink>
+            </nav>
             <section id="messages">
                 <div className="message">
                     <p>{message}</p>
@@ -206,7 +210,7 @@ const EditPatientForm=()=>{
                 </section>
                 <div id="btns">
                     <button  type="submit" >Enregister</button>
-                    <button onClick={ClearForm}>Annuler</button>
+                    <button onClick={ClearForm} className="annuler">Annuler</button>
                 </div>
             </form>   
         </div>

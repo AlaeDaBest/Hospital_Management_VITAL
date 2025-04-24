@@ -29,6 +29,25 @@ import EditRendezVous from './Components/Receptionniste/EditRendezVous';
 import BedList from './Components/Receptionniste/BedList';
 import FactureList from './Components/Receptionniste/FactureList';
 import Facture from './Components/Patient/facture';
+import DoctorsProgram from './Components/Receptionniste/DoctorsProgram';
+import ChirurgieProgram from './Components/Receptionniste/ChirurgieProgram';
+import ChirurgieForm from './Components/Receptionniste/ChirurgieForm';
+import FactureForm from './Components/Receptionniste/FactureForm';
+import EditFacture from './Components/Receptionniste/EditFacture';
+import Profile from './Components/Receptionniste/Profile';
+import Profile_D from './Components/Directeur/Profile_D';
+import ChirurgieProgram_D from './Components/Directeur/ProgrammeChirurgie';
+import PatientList_P from './Components/Directeur/PatientList';
+import Profile_M from './Components/Docteur/Profile_M';
+import PatientList_M from './Components/Docteur/PatientList';
+import ChirurgieProgram_M from './Components/Docteur/ProgrammeChirurgie';
+import RendezVousList_M from './Components/Docteur/RendezVous';
+import Profile_P from './Components/Patient/Profile';
+import Rendez_vous from './Components/Patient/Rendez_vous';
+import Historique from './Components/Patient/historique';
+import AnalysisResults from './Components/Patient/analyse';
+import Doctors from './Components/Patient/medecins';
+
 
 const App=()=>{
     return(
@@ -47,11 +66,44 @@ const App=()=>{
                 <Route path="/receptionnistes/rendez_vous/" element={<RendezVousList/>} />
                 <Route path="/receptionnistes/rendez_vous/list" element={<RendezVousList/>} />
                 <Route path="/receptionnistes/rendez_vous/ajouter" element={<RendezVousForm/>} />
+                <Route path="/receptionnistes/rendez_vous/modifier" element={<EditRendezVous/>} />
                 <Route path="/receptionnistes/lits/" element={<BedList/>} />
                 <Route path="/receptionnistes/lits/list" element={<BedList/>} />
-                <Route path="/receptionnistes/facture/" element={<Facture/>} />
-                <Route path="/login" element={<Login/>} />
+                <Route path="/receptionnistes/programme/" element={<DoctorsProgram/>} />
+                <Route path="/receptionnistes/chirurgies/" element={<ChirurgieProgram/>} />
+                <Route path="/receptionnistes/chirurgies/programme" element={<ChirurgieProgram/>} />
+                <Route path="/receptionnistes/chirurgies/ajouter" element={<ChirurgieForm/>} />
+                <Route path="/receptionnistes/facture/" element={<FactureList/>} />
+                <Route path="/receptionnistes/facture/list" element={<FactureList/>} />
+                <Route path="/receptionnistes/facture/ajouter" element={<FactureForm/>} />
+                <Route path="/receptionnistes/facture/modifier" element={<EditFacture/>} />
+                <Route path="/receptionnistes/profile/" element={<Profile/>} />
 
+                <Route path="/directeurs/profile/" element={<Profile_D/>} />
+                <Route path="/directeurs/patients/" element={<PatientList_P/>} />
+                <Route path="/directeurs/chirurgies" element={<ChirurgieProgram_D/>} />
+
+                <Route path="/medecins/profile" element={<Profile_M/>} />
+                <Route path="/medecins/patients" element={<PatientList_M/>} />
+                <Route path="/medecins/chirurgies" element={<ChirurgieProgram_M/>} />
+                <Route path="/medecins/rendez_vous" element={<RendezVousList_M/>} />
+
+                <Route path="/tech_labo" element={<Tech_profil/>} />
+                <Route path="/tech_profil_modification" element={<Tech_profil_modification />} />
+                <Route path="/tech_programme" element={<Tech_programme/>} />
+                {/* <Route path="/tech_patient" element={<Tech_patient/>} />
+                <Route path="/tech_resultat" element={<Tech_resultat/>} /> */}
+
+                <Route path="/patients/profile" element={<Profile_P/>} />
+                <Route path="/patients/rendez_vous" element={<Rendez_vous/>} />
+                <Route path="/patients/historique_rendezVous" element={<Historique/>} />
+                {/* <Route path="/patients/ordonnances" element={< />} /> */}
+                <Route path="/patients/analyses" element={<AnalysisResults />} />
+                <Route path="/patients/medecins" element={<Doctors />} />
+                <Route path="/patients/facture" element={<Facture />} />
+                
+
+                <Route path="/login" element={<Login/>} />
             </Routes>
         </HashRouter>
     );

@@ -214,15 +214,15 @@ const CreatePatientForm=()=>{
                                 <div>
                                     <div>
                                         <input type="radio" value="programmé" name="status" id="" defaultChecked onChange={(e)=>setStatus(e.target.value)} />
-                                        <label htmlFor="">Programmé</label>
+                                        Programmé
                                         <input type="radio" value="confirmé" name="status" id="" onChange={(e)=>setStatus(e.target.value)} />
-                                        <label htmlFor="">Confirmmé</label>
+                                       Confirmmé
                                     </div>
                                     <div>
                                     <input type="radio" value="complété" name="status" id="" onChange={(e)=>setStatus(e.target.value)} />
-                                    <label htmlFor="">Complété</label>
+                                    Complété
                                     <input type="radio" value="annulé" name="status" id="" onChange={(e)=>setStatus(e.target.value)} />
-                                    <label htmlFor="">Annulé</label>
+                                    Annulé
                                     </div>
                                 </div>
                             </article>
@@ -258,9 +258,9 @@ const CreatePatientForm=()=>{
                                 <label htmlFor="">Besoins d'une chambre</label>
                                 <div>
                                     <input type="radio" value="false" name="Besoin_chambre" id="" defaultChecked onChange={(e)=>setBesoinsChambre(e.target.value)} />
-                                    <label htmlFor="">Non</label>
+                                    Non
                                     <input type="radio" value="true" name="Besoin_chambre" id="" onChange={(e)=>setBesoinsChambre(e.target.value)} />
-                                    <label htmlFor="">Oui</label>
+                                    Oui
                                 </div>
                             </article>
                             {BesoinsChambre === "true" && (
@@ -284,7 +284,7 @@ const CreatePatientForm=()=>{
                 </section>
                 <div id="btns">
                     <button  type="submit" >Enregister</button>
-                    <button onClick={ClearForm} >Annuler</button>
+                    <button onClick={ClearForm} className="annuler">Annuler</button>
                 </div>
             </form>   
         </div>

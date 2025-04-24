@@ -8,7 +8,7 @@ body {
   
   .container {
     flex-wrap: wrap;
-    width: 200vh;
+    /* width: 200vh; */
     height: 800px;
     position: absolute;
     top:100px;
@@ -34,9 +34,6 @@ body {
     padding: 20px;
     background-color: #ffffff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
-
-
   }
   
   .profile-picture {
@@ -101,7 +98,7 @@ body {
   .nav ul li a:hover {
     color: rgb(189, 221, 255); /* Darker blue on hover */
     transition: color 0.3s ease; /* Smooth color transition */
-  }
+  } */
   
   .profile-form {
     background-color: #ffffff;
@@ -148,7 +145,7 @@ body {
   }
   
   /* Responsive Design */
-  @media (max-width: 1068px) {
+  /* @media (max-width: 1068px) {
     .container {
       width: 100%;
       height: auto;
@@ -165,5 +162,5 @@ body {
     .profile-form {
       padding: 15px;
     }
-  }
+  } */
   

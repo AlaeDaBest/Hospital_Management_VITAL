@@ -1,5 +1,8 @@
 import React from 'react';
 import '../../../css/patient-css/historique.css';
+import Header from '../Receptionniste/Header';
+import SideBar from '../Receptionniste/SideBar';
+import SideMenu from './SideMenu';
 const appointments = [
   { date: "02-06-2025", time: "10:30", type: "Programmé", doctor: "ANAS KAIL", status: "Active" },
   { date: "10-05-2025", time: "10:30", type: "Complété", doctor: "ANAS KAIL", status: "Inactive" },
@@ -13,6 +16,8 @@ const appointments = [
 const Historique = () => {
   return (
     <div className="container">
+      <Header title="Historique" />
+      <SideMenu/>
       {/* Main Content */}
       <div className="main-historique">
         <div className="header">

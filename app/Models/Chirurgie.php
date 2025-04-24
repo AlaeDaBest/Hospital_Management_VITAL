@@ -15,9 +15,9 @@ class Chirurgie extends Model
     {
         return $this->belongsTo(Patient::class);
     }
-    public function doctors ()
+    public function doctor ()
     {
-        return $this->belongsToMany(Doctor::class);
+        return $this->belongsTo(Doctor::class);
     }
     public function factureItems()
     {

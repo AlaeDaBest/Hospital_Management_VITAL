@@ -55,8 +55,17 @@ Route::resource('/doctors', DoctorController::class);
 use App\Http\Controllers\LitController;
 Route::resource('/lits', LitController::class);
 
+use App\Http\Controllers\ChirurgieController;
+Route::resource('/chirurgies', ChirurgieController::class);
+
+use App\Http\Controllers\FactureController;
+Route::resource('/factures', FactureController::class);
+
 use App\Http\Controllers\Auth\AuthController;
 
+Route::get('/facture', function () {
+    return view('facture.pdf'); // 'facture.blade.php' inside resources/views
+});
 
 // Route::get('/login', fn() => view('auth.login'))->name('login');
 // Route::post('/login', [AuthController::class, 'login'])->name('compte.login');

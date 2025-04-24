@@ -19,7 +19,8 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
         // dd($request->all());
-        $credentials = $request->only('email', 'password');
+
+                $credentials = $request->only('email', 'password');
         // dd($credentials);
         if(Auth::guard('compte')->attempt($credentials)) {
             $user = Auth::guard('compte')->user();

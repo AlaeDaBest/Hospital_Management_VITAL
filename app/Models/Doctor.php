@@ -23,6 +23,6 @@ class Doctor extends Model
     }
     public function chirurgies ()
     {
-        return $this->BelongsToMany(Chirurgie::class);
+        return $this->HasMany(Chirurgie::class);
     }
 }

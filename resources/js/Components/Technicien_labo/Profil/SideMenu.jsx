@@ -10,10 +10,12 @@ import { RiHealthBookFill } from "react-icons/ri";
 
 
 import { CiMedicalClipboard } from "react-icons/ci";
+import { NavLink } from "react-router-dom";
 
 const SideMenu=()=>{
     return(
         <nav id="SideMenu">
+            <NavLink to="/tech_labo" className={({isActive})=>(isActive? 'active-menu-link':'')}>
             <section>
                 <div>
                     <FaUser size={30} color="#244A6A" />
@@ -22,6 +24,8 @@ const SideMenu=()=>{
                     <p>Profil</p>
                 </div>
             </section>
+            </NavLink>
+            <NavLink to="/tech_programme" className={({isActive})=>(isActive? 'active-menu-link':'')}>
             <section>
                 <div>
                     <RiCalendarScheduleFill size={30} color="#244A6A" />
@@ -30,6 +34,8 @@ const SideMenu=()=>{
                     <p>Programme</p>
                 </div>
             </section>
+            </NavLink>
+            <NavLink to="/tech_patient" className={({isActive})=>(isActive? 'active-menu-link':'')}>
             <section>
                 <div>
                     <FaPeopleGroup  size={30} color="#244A6A" />
@@ -38,6 +44,8 @@ const SideMenu=()=>{
                     <p>Patients</p>
                 </div>
             </section>
+            </NavLink>
+            <NavLink to="/tech_resultat" className={({isActive})=>(isActive? 'active-menu-link':'')}>
             <section>
                 <div>
                     <  RiHealthBookFill size={30} color="#244A6A" />
@@ -46,8 +54,7 @@ const SideMenu=()=>{
                     <p>Resultat</p>
                 </div>
             </section>
-        
-           
+            </NavLink>
         </nav>
     )
 }

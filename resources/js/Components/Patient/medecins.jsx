@@ -1,9 +1,14 @@
 import React from 'react';
 import { FaSearch, FaStethoscope, FaUserMd, FaHospitalAlt } from 'react-icons/fa';
 import '../../../css/patient-css/medecins.css'; 
+import Header from '../Receptionniste/Header';
+import SideBar from '../Receptionniste/SideBar';
+import SideMenu from './SideMenu';
 const Doctors = () => {
   return (
     <div className="container">
+      <Header title="Medecins" />
+      <SideMenu/>
       <section className="doctors-intro">
         <div className="left">
           <h2>DOCTORS</h2>

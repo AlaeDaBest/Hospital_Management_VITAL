@@ -12,7 +12,7 @@ const Infromations_Personnelles = () => {
     date_Naissance: "",
     specialite: "",
     adresse: "",
-    date_Recrutement: "",date_Recrutement
+    date_Recrutement: "",
   });
   const location=useLocation();
   

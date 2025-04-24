@@ -8,6 +8,7 @@ const SideBar = () => {
     axios.get("http://localhost:8000/tech_labo/programme", { withCredentials: true })
       .then(res => {
         setAnalyses(res.data);
+        console.log('data:', res.data);
       })
       .catch(err => {
         console.error("Erreur lors du chargement des analyses :", err);
@@ -26,7 +27,7 @@ const SideBar = () => {
         {analyses.map(analyse => (
           <li key={analyse.id} className="analyse-item">
             <strong>{analyse.type}</strong><br />
-            Patient: {analyse.nom_patient}<br />
+            Patient: {analyse.patient_nom} {analyse.patient_prenom}<br />
             <button onClick={() => handleRealiser(analyse.id)} className="btn-realiser">
               Réaliser
             </button>

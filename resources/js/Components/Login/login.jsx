@@ -15,17 +15,20 @@ const Login = () => {
   
     switch (user.role) {
       case 'docteur':
-        navigate('/docteur');
+        navigate('/medecins/profile', { state: { user } });
         break;
       case 'patient':
-        navigate('/patient');
+        navigate('/patients/profile', { state: { user } });
         break;
       // …
       case 'technicien_labo':
         navigate('/tech_labo', { state: { user } });
         break;
       case 'receptionniste':
-        navigate('/tech_labo', { state: { user } });
+        navigate('/receptionnistes/profile', { state: { user } });
+        break;
+      case 'directeur':
+        navigate('/directeurs/profile', { state: { user } });
         break;
       // …
       default:
@@ -38,8 +41,7 @@ const Login = () => {
     try {
       const response = await axios.post('http://127.0.0.1:8000/login', {
         email:email,
-        password:mot_de_passe,
-        role:role,
+        password:mot_de_passe
       }, { withCredentials: true });
       
       console.log(response.data.role);  
@@ -49,7 +51,7 @@ const Login = () => {
       if (userRole === 'docteur') {
         navigate('/docteur');
       } else if (userRole === 'patient') {
-        navigate('/patient');
+        navigate('/patients/profile');
       } else if (userRole === 'directeur') {
         navigate('/directeur');
       } else if (userRole === 'infirmier') {
@@ -57,7 +59,7 @@ const Login = () => {
       } else if (userRole === 'technicien_labo') {
         navigate('/tech_labo', { state: { user: user } });
       } else if (userRole === 'receptionniste') {
-        navigate('/receptionnistes/admission/');
+        navigate('/receptionnistes/profile/', { state: { user: user } });
       } else {
         console.log("Rôle non reconnu");
       }
@@ -85,17 +87,6 @@ const Login = () => {
             <input type="password" value={mot_de_passe} onChange={(e) => setMot_de_passe(e.target.value)} required/>
           </div>
 
-          <div className='input-group'>
-            <label>Rôle</label>
-            <select className="select_login" value={role}onChange={(e) => setRole(e.target.value)}>
-              <option value="patient">Patient</option>
-              <option value="receptionniste">Receptionniste</option>
-              <option value="docteur">Docteur</option>
-              <option value="infirmier">Infirmier</option>
-              <option value="directeur">Directeur</option>
-              <option value="technicien_labo">Technicien Laboratoire</option>
-            </select>
-          </div>
 
           <div className='input-group'>
             <button type="submit" className="login-btn">Se connecter</button>

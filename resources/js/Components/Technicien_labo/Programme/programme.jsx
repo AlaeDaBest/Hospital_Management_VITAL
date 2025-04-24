@@ -29,7 +29,7 @@ const Programme = () => {
           const endDate = new Date(startDate.getTime() + 30 * 60000); // 30 minutes après
 
           return {
-            title: `${analyse.type} - ${analyse.nom_patient}`,
+            title: `${analyse.type} - ${analyse.patient_nom} - ${analyse.tech_nom}`,
             start: startDate.toISOString(),
             end: endDate.toISOString(),
             type: analyse.type

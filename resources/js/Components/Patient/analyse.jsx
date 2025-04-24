@@ -2,6 +2,8 @@ import React from 'react';
 import '../../../css/patient-css/analyse.css'; // Import your CSS file here
 import { FaDownload, FaEllipsisV } from 'react-icons/fa';
 import { FaChartBar, FaHourglassHalf, FaCheckCircle, FaHeartbeat } from 'react-icons/fa';
+import SideMenu from './SideMenu';
+import Header from '../Receptionniste/Header';
 
 const results = [
   { id: 'ANL-2024-00125', status: 'En cours', type: 'Radio', date: '05-03-2025', price: '845.59DH' },
@@ -14,6 +16,9 @@ const results = [
 
 const AnalysisResults = () => {
   return (
+    <div>
+      <Header/>
+      <SideMenu/>
     <div className="container">
         <div className="main-analyse">
           <div className="stats-grid">
@@ -97,6 +102,7 @@ const AnalysisResults = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
   );
 };

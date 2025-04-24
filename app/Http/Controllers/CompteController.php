@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Compte;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class CompteController extends Controller
@@ -29,7 +30,7 @@ class CompteController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        dd($request->all());
         $validatedData= $request->validate([
             'email' => 'required|email|unique:comptes,email',
             'password' => 'required|string|min:8',
@@ -47,7 +48,7 @@ class CompteController extends Controller
             $compte->role = $request->role;
             $compte->roleable_id = $request->roleable_id;
             $compte->roleable_type = $request->roleable_type;
-            $compte->password = bcrypt($request->password);  
+            $compte->password =  Hash::make($request->password);
             $compte->save();
 
             return response()->json(['message' => 'Compte créé avec succès'], 200);
@@ -77,7 +78,17 @@ class CompteController extends Controller
      */
     public function update(Request $request, Compte $compte)
     {
-        //
+        $compte->CIN=$request->CIN;
+        $compte->nom=$request->nom;
+        $compte->prenom=$request->prenom;
+        $compte->genre=$request->genre;
+        $compte->date_Naissance=$request->date_Naissance;
+        $compte->email=$request->email;
+        $compte->tel=$request->tel;
+        $compte->adresse=$request->adresse;
+        // dd($compte);
+        $compte->save();
+        return response()->json(['message' => 'Compte mis à jour avec succès'], 200);
     }
 
     /**

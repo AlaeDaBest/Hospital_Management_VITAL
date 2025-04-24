@@ -1,5 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import '../../../css/patient-css/rendez_vous.css';
+import Header from "../Receptionniste/Header";
+import SideBar from "../Receptionniste/SideBar";
+import SideMenu from "./SideMenu";
+import axios from "axios";
 function Rendez_vous() {
   const [type, setType] = useState("");
   const [date, setDate] = useState("");
@@ -9,8 +13,35 @@ function Rendez_vous() {
   const [status, setStatus] = useState("planned");
   const [responseMessage, setResponseMessage] = useState("");
   const [showMessage, setShowMessage] = useState(false);
+  const [doctors,setDoctors]=useState([]);
+
+  useEffect(()=>{
+    axios.get('http://127.0.0.1:8000/doctors')
+    .then(response => {
+      setDoctors(response.data);
+      console.log(response);
+    });
+  },[]);
+
   const handleSubmit = async () => {
-    
+    const patient=JSON.parse(localStorage.getItem("receptionniste"));
+    console.log(patient);
+    let newRendezVous={
+      "type_RDV":type,
+      "date_RDV":date,
+      "temps_RDV":time,
+      "doctorID":doctor,
+      "patientID":'IDPatient',
+      "statut":status,
+    }
+    const apiUrlRendezVous='http://127.0.0.1:8000/rendez_vouss';
+    try{
+        const response=await axios.post(apiUrlRendezVous,newRendezVous);
+        console.log('Response:', response);
+        setMessageRendez_vous(response.data.message)
+    }catch(error){
+        console.log(error);
+    }
     
 };
   const handleCancel = () => {
@@ -25,7 +56,13 @@ function Rendez_vous() {
 
   return (
     <div className="responsive-wrapper">
+      <Header/>
+      <SideMenu/>
+      <div className="message message_f" id="message_rdv">
+          <p>{showMessage}</p>
+      </div>
     <div className="container">
+    
       <div className="main">
         {/* Appointment Form Section */}
         <div className="appointment-header">
@@ -45,13 +82,9 @@ function Rendez_vous() {
               <div className="form-elt2">
                 <label>Docteur :</label>
                 <select name="doctor" value={doctor} onChange={(e)=>setDoctor(e.target.value)}>
-                  <option value="">Select a doctor</option>
-                  <option value="doctor1">Dr. Ahmed</option>
-                  <option value="doctor2">Dr. Ali</option>
-                  <option value="doctor3">Dr. Fatima</option>
-                  <option value="doctor4">Dr. Sara</option>
-                  <option value="doctor5">Dr. Mohamed</option>
-                  <option value="doctor6">Dr. Amina</option>
+                  {doctors.map(doc=>(
+                    <option value={doc.id}>{doc.compte.nom} {doc.compte.prenom}</option>
+                  ))}
                 </select>
                 <label>Status :</label>
                 <select name="status" value={status} onChange={(e)=>setStatus(e.target.value)}>

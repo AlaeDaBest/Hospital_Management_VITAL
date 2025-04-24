@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import Header from "../Receptionniste/Header";
-import '../../../css/patient-css/Profile.css';
-import SideMenu from "./SideMenu";
+import SideMenu_P from "./SideMenu";
 
-const Profile = () => {
+const Profile_D = () => {
     const [receptionniste,setReceptionniste]=useState({});
       const [CIN,setCIN]=useState('');
       const [Nom,setNom]=useState('');
@@ -93,8 +92,7 @@ const Profile = () => {
   return (
     <div id="container">
         <Header title="Profile" />
-        <SideMenu/>
-        {/* <br /> */}
+        <SideMenu_P/>
         <section id="messages">
                 <div className="message">
                     <p>{messagePatient}</p>
@@ -166,4 +164,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Profile_D;

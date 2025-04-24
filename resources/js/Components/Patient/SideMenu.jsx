@@ -12,7 +12,7 @@ import { NavLink } from "react-router-dom";
 const SideMenu=()=>{
     return(
         <nav id="SideMenu">
-            <NavLink to="/receptionnistes/profile" className={({isActive})=>(isActive? 'active-menu-link':'')}>
+            <NavLink to="/patients/profile" className={({isActive})=>(isActive? 'active-menu-link':'')}>
                 <section>
                     <div>
                     <IoPersonSharp  size={30} color="#244A6A" />
@@ -22,27 +22,27 @@ const SideMenu=()=>{
                     </div>
                 </section>
             </NavLink>
-            <NavLink to="/receptionnistes/admission/" className={({isActive})=>(isActive? 'active-menu-link':'')}>
+            <NavLink to="/patients/rendez_vous/" className={({isActive})=>(isActive? 'active-menu-link':'')}>
                 <section>
                     <div>
                         <BsPersonFillAdd size={30} color="#244A6A" />
                     </div>
                     <div>
-                        <p>Admission</p>
+                        <p>Rendez-vous</p>
                     </div>
                 </section>
             </NavLink>
-            <NavLink to="/receptionnistes/patients/" className={({isActive})=>(isActive? 'active-menu-link':'')}>
+            <NavLink to="/patients/ordonnances/" className={({isActive})=>(isActive? 'active-menu-link':'')}>
                 <section>
                     <div>
                         <FaPeopleGroup size={30} color="#244A6A" />
                     </div>
                     <div>
-                        <p>Patients</p>
+                        <p>Ordonnances</p>
                     </div>
                 </section>
             </NavLink>
-            <NavLink to="/receptionnistes/programme/" className={({isActive})=>(isActive? 'active-menu-link':'')}>
+            <NavLink to="/patients/programme/" className={({isActive})=>(isActive? 'active-menu-link':'')}>
                 <section>
                     <div>
                         <RiCalendarScheduleFill size={30} color="#244A6A" />
@@ -52,37 +52,37 @@ const SideMenu=()=>{
                     </div>
                 </section>
             </NavLink>
-            <NavLink to="/receptionnistes/rendez_vous/" className={({isActive})=>(isActive? 'active-menu-link':'')}>
+            <NavLink to="/patients/historique_rendezVous/" className={({isActive})=>(isActive? 'active-menu-link':'')}>
                 <section>
                     <div>
                         <SiRescuetime size={30} color="#244A6A" />
                     </div>
                     <div>
-                        <p>Rendez-vous</p>
+                        <p>Historique</p>
                     </div>
                 </section>
             </NavLink>
-            <NavLink to="/receptionnistes/lits/" className={({isActive})=>(isActive? 'active-menu-link':'')}>
+            <NavLink to="/patients/analyses/" className={({isActive})=>(isActive? 'active-menu-link':'')}>
                 <section>
                     <div>
                         <FaBed size={30} color="#244A6A" />
                     </div>
                     <div>
-                        <p>Gestion des lits</p>
+                        <p>Analyses</p>
                     </div>
                 </section>
             </NavLink>
-            <NavLink to="/receptionnistes/chirurgies" className={({isActive})=>(isActive? 'active-menu-link':'')}>
+            <NavLink to="/patients/medecins" className={({isActive})=>(isActive? 'active-menu-link':'')}>
                 <section>
                     <div>
                         <RiSurgicalMaskFill size={30} color="#244A6A" />
                     </div>
                     <div>
-                        <p>Chirurgie</p>
+                        <p>Médecins</p>
                     </div>
                 </section>
             </NavLink>
-            <NavLink to="/receptionnistes/facture" className={({isActive})=>(isActive? 'active-menu-link':'')}>
+            <NavLink to="/patients/facture" className={({isActive})=>(isActive? 'active-menu-link':'')}>
                 <section>
                     <div>
                         <FaFileInvoiceDollar size={30} color="#244A6A" />
