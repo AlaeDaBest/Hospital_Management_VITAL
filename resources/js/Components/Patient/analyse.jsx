@@ -1,110 +1,164 @@
-import React from 'react';
-import '../../../css/patient-css/analyse.css'; // Import your CSS file here
-import { FaDownload, FaEllipsisV } from 'react-icons/fa';
-import { FaChartBar, FaHourglassHalf, FaCheckCircle, FaHeartbeat } from 'react-icons/fa';
-import SideMenu from './SideMenu';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import '../../../css/patient-css/analyse.css';
+import {
+  FaDownload,
+  FaEllipsisV,
+  FaChartBar,
+  FaHourglassHalf,
+  FaCheckCircle,
+  FaHeartbeat,
+} from 'react-icons/fa';
 import Header from '../Receptionniste/Header';
-
-const results = [
-  { id: 'ANL-2024-00125', status: 'En cours', type: 'Radio', date: '05-03-2025', price: '845.59DH' },
-  { id: 'ANL-2025-00028', status: 'Disponible', type: 'Radio', date: '05-03-2025', price: '828.90DH' },
-  { id: 'ANL-2025-00126', status: 'Disponible', type: 'Radio', date: '05-03-2025', price: '510.30DH' },
-  { id: 'ANL-2025-00127', status: 'En attente', type: 'Radio', date: '05-03-2025', price: '641.20DH' },
-  { id: 'ANL-2025-00002', status: 'En cours', type: 'Urine', date: '05-03-2025', price: '901.31DH' },
-  { id: 'ANL-2024-00125', status: 'Disponible', type: 'Sang', date: '05-03-2025', price: '452.85DH' },
-];
+import SideMenu from './SideMenu';
 
 const AnalysisResults = () => {
+  const [results, setResults] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedType, setSelectedType] = useState('All');
+  const [selectedAnalyse, setSelectedAnalyse] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    axios
+      .get('http://127.0.0.1:8000/analyses')
+      .then((response) => {
+        setResults(response.data);
+      })
+      .catch((error) => {
+        console.error('Erreur lors du chargement des analyses :', error);
+      });
+  }, []);
+
+  const filteredResults = results.filter((res) => {
+    const matchesSearch = res.resultat?.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesType = selectedType === 'All' || res.type === selectedType;
+    return matchesSearch && matchesType;
+  });
+
   return (
     <div>
       <Header/>
       <SideMenu/>
     <div className="container">
-        <div className="main-analyse">
-          <div className="stats-grid">
-            <div className="card">
-              <FaChartBar className="card-icon" />
-              <p>total d’analyses réalisées</p>
-              <h2>1250</h2>
-            </div>
-            <div className="card">
-              <FaHourglassHalf className="card-icon" />
-              <p>résultats en attente de validation</p>
-              <h2>87</h2>
-            </div>
-            <div className="card">
-              <FaCheckCircle className="card-icon" />
-              <p>résultats disponibles</p>
-              <h2>1163</h2>
-            </div>
-            <div className="card">
-              <FaHeartbeat className="card-icon" />
-              <p>des analyses médicales récentes</p>
-              <h2 className="positive">+11.7%</h2>
-              <span>162</span>
+      <div className="main-analyse">
+        <div className="stats-grid">
+          <div className="card">
+            <FaChartBar className="card-icon" />
+            <p>total d’analyses réalisées</p>
+            <h2>{results.length}</h2>
+          </div>
+          <div className="card">
+            <FaHourglassHalf className="card-icon" />
+            <p>résultats en attente de validation</p>
+            <h2>0</h2>
+          </div>
+          <div className="card">
+            <FaCheckCircle className="card-icon" />
+            <p>résultats disponibles</p>
+            <h2>{results.length}</h2>
+          </div>
+          <div className="card">
+            <FaHeartbeat className="card-icon" />
+            <p>des analyses médicales récentes</p>
+            <h2 className="positive">+11.7%</h2>
+            <span>{results.length}</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="table-container">
+        <div className="table-filters">
+          <input
+            type="text"
+            placeholder="Rechercher par résultat..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <select value={selectedType} onChange={(e) => setSelectedType(e.target.value)}>
+            <option value="All">Type d’analyse: Tous</option>
+            <option value="Hématologie">Hématologie</option>
+            <option value="Biochimie">Biochimie</option>
+            <option value="Immunologie">Immunologie</option>
+            <option value="Microbiologie">Microbiologie</option>
+            <option value="Pathologie">Pathologie</option>
+            <option value="Toxicologie">Toxicologie</option>
+            <option value="Virologie">Virologie</option>
+          </select>
+          <div className="table-actions" style={{ marginBottom: '1rem' }}>
+            <div style={{ marginBottom: '15px' }}>
+            <a
+              href="http://127.0.0.1:8000/analyses/download-all"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="download-all-btn"
+            >
+                📄 Télécharger toutes les analyses
+              </a>
             </div>
           </div>
         </div>
-        <div className="table-container">
-          <div className="table-filters">
-            <input type="text" placeholder="Search..." />
-            <select>
-              <option>Status: All</option>
-            </select>
-            <select>
-              <option>Type d’analyse: All</option>
-            </select>
-          </div>
 
-          <table>
-            <thead>
-              <tr>
-                <th>Documents</th>
-                <th>Status</th>
-                <th>Type d’analyse</th>
-                <th>Date de l’analyse</th>
-                <th>Prix</th>
-                <th>Détails</th>
-              </tr>
-            </thead>
-            <tbody>
-            {results.map((res, i) => (
+        <table>
+          <thead>
+            <tr>
+              <th>Date de l’analyse</th>
+              <th>Type d’analyse</th>
+              <th>Technicien</th>
+              <th>Résultat</th>
+              <th>Détails</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredResults.map((res, i) => (
               <tr key={i}>
-                
-                <td>
-                  <span className="icon-cell"><FaDownload className="icon action-icon" title="Télécharger" /></span>
-                  <span >ID: {res.id}</span>
-                </td>
-                <td>
-                  <span className={`status ${res.status.toLowerCase().replace(' ', '-')}`}>
-                    {res.status}
-                  </span>
-                </td>
+                <td>{res.analyse_date}</td>
                 <td>{res.type}</td>
-                <td>{res.date}</td>
-                <td>{res.price}</td>
+                <td>{res.technicien_labo?.prenom}-{res.technicien_labo?.nom}</td>
+                <td>{res.resultat}</td>
                 <td className="actions">
-                  <button className="details-button"><FaEllipsisV /></button>
+                  <button
+                    className="details-button"
+                    onClick={() => {
+                      setSelectedAnalyse(res);
+                      setIsModalOpen(true);
+                    }}
+                  >
+                    <FaEllipsisV />
+                  </button>
                 </td>
               </tr>
             ))}
           </tbody>
-          </table>
-          <div className="pagination-row">
-            <div className="pagination">
-              <button>{'<'}</button>
-              <button className="active">1</button>
-              <span>...</span>
-              <button>16</button>
-            </div>
-            <div className="rows-per-page">
-              Rows per page <select><option>15</option></select>
-            </div>
+        </table>
+      </div>
+
+      {/* Modale Détails */}
+      {isModalOpen && selectedAnalyse && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h2>Détails de l’analyse</h2>
+            <p><strong>ID:</strong> {selectedAnalyse.id}</p>
+            <p><strong>Date:</strong> {selectedAnalyse.analyse_date}</p>
+            <p><strong>Type:</strong> {selectedAnalyse.type}</p>
+            <p><strong>Technicien:</strong> {selectedAnalyse.technicien_labo?.prenom} {selectedAnalyse.technicien_labo?.nom}</p>
+            <p><strong>Résultat:</strong> {selectedAnalyse.resultat}</p>
+
+            <button onClick={() => setIsModalOpen(false)}>Fermer</button>
           </div>
         </div>
-      </div>
-      </div>
+      )}
+      <br /><br /><br />
+    </div>
+    </div>
   );
 };
 
 export default AnalysisResults;
+
+
+
+
+
+
+

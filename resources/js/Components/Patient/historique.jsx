@@ -118,7 +118,7 @@ const Historique = () => {
       <div className="main-historique">
         <div className="header">
           <h2>Historique des Rendez-vous</h2>
-          <button className="export-button">Exporter</button>
+          {/* <button className="export-button">Exporter</button> */}
         </div>
         <div className="controls">
           <input 
@@ -128,12 +128,12 @@ const Historique = () => {
             value={searchTerm}
             onChange={handleSearchChange}
           />
-          <select value={sortOption} onChange={handleSortChange}>
+          {/* Lfiltre makhadamxi  <select value={sortOption} onChange={handleSortChange}>
             <option value="newest">Trier par: Plus récent</option>
             <option value="oldest">Trier par: Plus ancien</option>
             <option value="today">Trier par: Aujourd'hui</option>
             <option value="this-week">Trier par: Cette semaine</option>
-          </select>
+          </select>  */} 
         </div>
         
         {filteredAppointments.length === 0 ? (

@@ -38,8 +38,8 @@ Route::get('/', function () {
 
 use App\Http\Controllers\AnalyseController;
 Route::get('tech_labo/programme', [AnalyseController::class, 'index']);
-
-
+Route::resource('/analyses',AnalyseController::class);
+Route::get('/analyses/download-all', [AnalyseController::class, 'downloadAllAnalyses']);
 use App\Http\Controllers\PatientController;
 Route::resource('/patients', PatientController::class);
 

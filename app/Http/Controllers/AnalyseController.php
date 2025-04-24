@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Analyse;
 use App\Models\Technicien_labo;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Response;
+
 
 class AnalyseController extends Controller
 {
@@ -36,6 +40,12 @@ class AnalyseController extends Controller
             ];
         });
         return $formatted;
+    }
+    public function downloadAllAnalyses()
+    {
+        $analyses = Analyse::with('Technicien_labo')->get(); 
+        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('pdf.all-analyses', compact('analyses'));
+        return $pdf->download('toutes_les_analyses.pdf');
     }
 
 
