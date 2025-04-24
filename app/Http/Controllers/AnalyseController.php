@@ -12,7 +12,10 @@ class AnalyseController extends Controller
      */
     public function index()
 {
-    $analyses = Analyse::all();
+    $analyses = Analyse::with('compte') // Assure-toi que la relation est bien définie
+        ->where('resultat', 'en cours')
+        ->get();
+
     return response()->json($analyses);
 }
 
@@ -53,9 +56,16 @@ class AnalyseController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, Analyse $analyse)
-    {
-        //
-    }
+{
+    // Assurer que l'analyse existe grâce à l'injection de dépendance
+    // L'ID est déjà fourni par la route, donc pas besoin de findOrFail.
+
+    $analyse->resultat = 'terminé';
+    $analyse->save();
+
+    return response()->json(['message' => 'Analyse marquée comme terminée']);
+}
+
 
     /**
      * Remove the specified resource from storage.

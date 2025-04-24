@@ -14,8 +14,23 @@ const SideBar = () => {
       });
   }, []);
 
-  const handleRealiser = (analyseId) => {
-    setAnalyses(prev => prev.filter(analyse => analyse.id !== analyseId));
+  const handleRealiser =async (analyse) => {
+    console.log(analyse);
+    setAnalyses(prev => prev.filter(a => a.id !== analyse.id));
+    const apiUrl=`http://127.0.0.1:8000/tech_labo/programme/${analyse.id}`;
+    let nvanalyse={
+        "type":analyse.type,
+        "date_RDV":analyse.date_RDV,
+        "patient_id":analyse.patient_id,
+        "resultat":"complété"
+    }
+    try{
+        const response=await axios.put(apiUrl,nvanalyse);
+        console.log('Response:', response);
+    }catch(error){
+        console.log(error);
+    }
+    
   };
 
   return (
@@ -26,8 +41,8 @@ const SideBar = () => {
         {analyses.map(analyse => (
           <li key={analyse.id} className="analyse-item">
             <strong>{analyse.type}</strong><br />
-            Patient: {analyse.nom_patient}<br />
-            <button onClick={() => handleRealiser(analyse.id)} className="btn-realiser">
+            Patient: {analyse.patient_id}<br />
+            <button onClick={() => handleRealiser(analyse)} className="btn-realiser">
               Réaliser
             </button>
           </li>

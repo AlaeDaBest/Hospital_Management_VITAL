@@ -75,10 +75,23 @@ class CompteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Compte $compte)
-    {
-        //
-    }
+    
+    
+     public function update(Request $request, Compte $compte)
+     {
+        //  $compte->CIN=$request->CIN;
+         $compte->nom=$request->nom;
+         $compte->prenom=$request->prenom;
+         $compte->genre=$request->genre;
+         $compte->date_Naissance=$request->date_Naissance;
+         $compte->email=$request->email;
+         $compte->tel=$request->tel;
+         $compte->adresse=$request->adresse;
+         // dd($compte);
+         $compte->save();
+         return response()->json(['message' => 'Compte mis à jour avec succès'], 200);
+     }
+    
 
     /**
      * Remove the specified resource from storage.

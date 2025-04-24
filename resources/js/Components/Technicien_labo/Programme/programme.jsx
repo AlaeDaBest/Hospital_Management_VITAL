@@ -29,11 +29,12 @@ const Programme = () => {
           const endDate = new Date(startDate.getTime() + 30 * 60000); // 30 minutes après
 
           return {
-            title: `${analyse.type} - ${analyse.nom_patient}`,
+            title: `${analyse.type} - ${analyse.patient_id}`,
             start: startDate.toISOString(),
             end: endDate.toISOString(),
             type: analyse.type
           };
+          
         });
 
         console.log("Événements formatés:", analyses);
@@ -71,9 +72,7 @@ const Programme = () => {
             <option value="Microbiologie">Microbiologie</option>
             <option value="Biochimie">Biochimie</option>
             <option value="Hématologique">Hématologique</option>
-            {types.map(type => (
-              <option key={type} value={type}>{type}</option>
-            ))}
+           
           </select>
         </div>
 

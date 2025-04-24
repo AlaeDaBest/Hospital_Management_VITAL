@@ -30,6 +30,8 @@ Route::get('/', function () {
 
 use App\Http\Controllers\AnalyseController;
 Route::get('tech_labo/programme', [AnalyseController::class, 'index']);
+Route::put('/tech_labo/programme/{analyse}', [AnalyseController::class, 'update']);
+
 
 
 use App\Http\Controllers\PatientController;
@@ -55,9 +57,13 @@ Route::post('/logout', [AuthController::class, 'logout']);
 Route::middleware('auth:compte')->get('/user', function (Request $request) {
     return Auth::guard('compte')->user();
 });
-Route::get('/sanctum/csrf-cookie', function (Request $request) {
-    return response()->json(['message' => 'CSRF cookie set']);
-});
+
+
+
+
+// Route::get('/sanctum/csrf-cookie', function (Request $request) {
+//     return response()->json(['message' => 'CSRF cookie set']);
+// });
 
 //  Route::post('/register', [CompteAuthController::class, 'register'])->name('compte.register');
 

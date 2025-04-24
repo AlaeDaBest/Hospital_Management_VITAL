@@ -36,9 +36,17 @@
   
   .liste-analyses {
     list-style: none;
-    padding: 0;
+    padding: 5px 10px;
     margin: 0;
+    background-color: #D0EDEC;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    color: #1C4966;
+    line-height: 1.6;
   }
+  
   
   .analyse-item {
     margin-bottom: 15px;
@@ -49,7 +57,7 @@
   .btn-realiser {
     margin-top: 5px;
     padding: 5px 10px;
-    background-color: #dea74a;
+    background-color: #63D8D2;
     border: none;
     color: white;
     border-radius: 4px;
@@ -57,7 +65,9 @@
   }
   
   .btn-realiser:hover {
-    background-color: #bf9345;
+    background-color: #1C4966;
+    
+    
   }
   
   .aucune-analyse {

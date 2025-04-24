@@ -7,6 +7,8 @@ import '../css/Receptionniste-css/admission.css';
 import '../css/Receptionniste-css/patients.css';
 import '../css/Technicien_labo.css/Profil.css'
 import '../css/Technicien_labo.css/programme.css'
+import '../css/Technicien_labo.css/resultat.css'
+import '../css/rapport.css'
 
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -29,6 +31,11 @@ import EditRendezVous from './Components/Receptionniste/EditRendezVous';
 import BedList from './Components/Receptionniste/BedList';
 import FactureList from './Components/Receptionniste/FactureList';
 import Facture from './Components/Patient/facture';
+import Tech_patient from './Components/Technicien_labo/Patient/tech_patient';
+import Tech_resultat from './Components/Technicien_labo/Resultat/tech_resultat';
+import ListDoctor from './Components/Doctor/Doctors/doctorList';
+import Rapport from './Components/Doctor/Doctors/rapport';
+import Directeur from './Components/Directeur/directeru_doc';
 
 
 
@@ -42,8 +49,12 @@ const App=()=>{
                 <Route path="/receptionnistes/admission/existant" element={<EditPatientForm/>} />
                 <Route path="/receptionnistes/patients/" element={<PatientList/>} />
                 <Route path="/" element={<Home/>} />
-                
-                
+                <Route path="/tech_programme" element={<Tech_programme/>} />
+                <Route path="/tech_patient" element={<Tech_patient/>} />
+                <Route path="/tech_resultat" element={<Tech_resultat/>} />
+                <Route path="/doctors" element={<ListDoctor/>} />
+                <Route path="/rapport" element={<Rapport/>} />
+                <Route path="/directeur" element={<Directeur/>} />
 
                 <Route path="/receptionnistes/rendez_vous/" element={<RendezVousList/>} />
                 <Route path="/receptionnistes/rendez_vous/list" element={<RendezVousList/>} />

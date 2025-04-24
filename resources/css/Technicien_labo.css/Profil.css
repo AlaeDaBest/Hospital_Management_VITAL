@@ -70,4 +70,65 @@
   .genre-options label {
     color: #1C4966;
   }
-  
+  .profile-p{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 5px;
+    border: 1px solid #1abc9c;
+   
+  }
+  .profile-p img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #034f6d; /* Bleu foncé élégant */
+    margin: 10px 0;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+  }
+  .modifier-btn,
+.logout-btn {
+  padding: 10px 20px;
+  margin: 10px 5px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+}
+
+/* Bouton Modifier */
+.modifier-btn {
+ background-color: #FBF7F7; /* turquoise doux */
+  color: #1C4966;
+  border:1px solid #1C4966 ;
+}
+
+.modifier-btn:hover {
+  background-color: #1C4966;
+  color: #FBF7F7;
+  transform: scale(1.03);
+}
+
+/* Bouton Déconnexion */
+.logout-btn {
+ background-color: #63D8D2; 
+  color: white;
+}
+
+.logout-btn:hover {
+  color: #63D8D2;
+  background-color: #FBF7F7;
+  border: 2px solid #63D8D2;
+  transform: scale(1.03);
+}
