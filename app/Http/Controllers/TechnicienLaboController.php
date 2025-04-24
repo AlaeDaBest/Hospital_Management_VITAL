@@ -10,32 +10,11 @@ class TechnicienLaboController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function getP()
+    public function index()
     {
         
-    $email = $request->session()->get('email');
-
-    if (!$email) {
-        return response()->json(['error' => 'Utilisateur non connecté'], 401);
-    }
-
-    $technicien = Technicien_labo::where('email', $email)->first();
-
-    if (!$technicien) {
-        return response()->json(['error' => 'Technicien non trouvé'], 404);
-    }
-
-    return response()->json([
-        'id' => $technicien->id,
-        'nom' => $technicien->nom,
-        'prenom' => $technicien->prenom,
-        'email' => $technicien->email,
-        'tel' => $technicien->tel,
-        'date_Naissance' => $technicien->date_Naissance,
-        'specialite' => $technicien->specialite,
-        'adresse' => $technicien->adresse,
-        'date_Recrutement' => $technicien->date_Recrutement,
-    ]);
+    
+    
 
 
     }
@@ -77,7 +56,30 @@ class TechnicienLaboController extends Controller
      */
     public function update(Request $request, Technicien_labo $technicien_labo)
     {
-        //
+          
+    // $technicien = Technicien_labo::find($id);
+
+    if (!$technicien) {
+        return response()->json(['message' => 'Technicien non trouvé.'], 404);
+    }
+
+    
+    $validated = $request->validate([
+        'nom' => 'required|string|max:255',
+        'prenom' => 'required|string|max:255',
+        'email' => 'required|email|unique:technicien_labos,email,' . $id,
+        'tel' => 'required|string|max:20',
+        'date_Naissance' => 'required|date',
+        'specialite' => 'nullable|string|max:255',
+        'adresse' => 'nullable|string|max:255',
+        
+    ]);
+    $technicien->update($validated);
+
+    return response()->json([
+        'message' => 'Technicien mis à jour avec succès.',
+        'technicien' => $technicien
+    ]);
     }
 
     /**

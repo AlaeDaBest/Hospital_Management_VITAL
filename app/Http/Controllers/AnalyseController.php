@@ -16,6 +16,15 @@ class AnalyseController extends Controller
      * Display a listing of the resource.
      */
     public function index()
+<<<<<<< HEAD
+{
+    $analyses = Analyse::with('compte') // Assure-toi que la relation est bien définie
+        ->where('resultat', 'en cours')
+        ->get();
+
+    return response()->json($analyses);
+}
+=======
     {
         $analyses = Analyse::with([
             'patient.compte',  
@@ -47,6 +56,7 @@ class AnalyseController extends Controller
         $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('pdf.all-analyses', compact('analyses'));
         return $pdf->download('toutes_les_analyses.pdf');
     }
+>>>>>>> 90fa4aaa0faad32f045ddd81a1bccb19bb09a6d4
 
 
     /**
@@ -85,9 +95,16 @@ class AnalyseController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, Analyse $analyse)
-    {
-        //
-    }
+{
+    // Assurer que l'analyse existe grâce à l'injection de dépendance
+    // L'ID est déjà fourni par la route, donc pas besoin de findOrFail.
+
+    $analyse->resultat = 'terminé';
+    $analyse->save();
+
+    return response()->json(['message' => 'Analyse marquée comme terminée']);
+}
+
 
     /**
      * Remove the specified resource from storage.

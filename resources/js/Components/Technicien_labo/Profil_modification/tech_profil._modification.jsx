@@ -1,7 +1,7 @@
 import React from "react";
 import SideMenu from "./SideMenu";
 import Header from "./Header";
-import SideBar from "./sideBar";
+// import SideBar from "./sideBar";
 import Infromations_Personnelles from "./Information_personnelle";
 
 
@@ -11,7 +11,7 @@ const Tech_profil_modification=()=>{
            
               <Header/>
               <SideMenu/>
-              <SideBar/>
+              {/* <SideBar /> */}
               <Infromations_Personnelles/>
              
         </div>

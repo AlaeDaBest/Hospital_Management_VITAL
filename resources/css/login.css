@@ -57,13 +57,14 @@ body {
     font-weight: bold;
     color: #25C6C0;
     text-align: left; 
-   
+    margin-top: 5px;
     font-family: Arial, Helvetica, sans-serif;
   }
   .input-group input {
   border:  solid 1px #25C6C0 ;
   padding: 5px;
   background-color: #FBF7F7;
+  margin-top: 5px;
  }
  .login-btn {
     border-radius: 15px ;  
@@ -74,6 +75,7 @@ body {
     font-weight: bold;
     text-transform: uppercase;
     transition: transform 0.3s, box-shadow 0.3s;
+    margin-top: 40px;
    
   }
   

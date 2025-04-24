@@ -23,5 +23,9 @@ class Analyse extends Model
     {
         return $this->morphMany(FactureItem::class, 'itemable');
     }
+    public function compte()
+{
+    return $this->belongsTo(Compte::class, 'patient_id'); // ou autre clé étrangère
+}
 
 }
