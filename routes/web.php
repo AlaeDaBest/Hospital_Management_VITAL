@@ -83,3 +83,7 @@ Route::get('/sanctum/csrf-cookie', function (Request $request) {
 //  Route::post('/register', [CompteAuthController::class, 'register'])->name('compte.register');
 
 
+use App\Http\Controllers\OrdonnanceController;
+
+Route::get('/ordonnance/{patientID}/download', [OrdonnanceController::class, 'downloadOrdonnance'])
+    ->name('ordonnance.download');

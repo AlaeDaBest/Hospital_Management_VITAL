@@ -32,26 +32,6 @@ const SideMenu=()=>{
                     </div>
                 </section>
             </NavLink>
-            <NavLink to="/patients/ordonnances/" className={({isActive})=>(isActive? 'active-menu-link':'')}>
-                <section>
-                    <div>
-                        <FaPeopleGroup size={30} color="#244A6A" />
-                    </div>
-                    <div>
-                        <p>Ordonnances</p>
-                    </div>
-                </section>
-            </NavLink>
-            <NavLink to="/patients/programme/" className={({isActive})=>(isActive? 'active-menu-link':'')}>
-                <section>
-                    <div>
-                        <RiCalendarScheduleFill size={30} color="#244A6A" />
-                    </div>
-                    <div>
-                        <p>Programme</p>
-                    </div>
-                </section>
-            </NavLink>
             <NavLink to="/patients/historique_rendezVous/" className={({isActive})=>(isActive? 'active-menu-link':'')}>
                 <section>
                     <div>

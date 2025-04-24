@@ -1,72 +1,184 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import '../../../css/patient-css/historique.css';
 import Header from '../Receptionniste/Header';
-import SideBar from '../Receptionniste/SideBar';
 import SideMenu from './SideMenu';
-const appointments = [
-  { date: "02-06-2025", time: "10:30", type: "Programmé", doctor: "ANAS KAIL", status: "Active" },
-  { date: "10-05-2025", time: "10:30", type: "Complété", doctor: "ANAS KAIL", status: "Inactive" },
-  { date: "02-06-2025", time: "11:30", type: "Annulé", doctor: "MALAK TALIK", status: "Inactive" },
-  { date: "02-02-2025", time: "10:30", type: "Programmé", doctor: "ANAS KAIL", status: "Active" },
-  { date: "02-02-2024", time: "15:30", type: "Annulé", doctor: "ANAS KAIL", status: "Active" },
-  { date: "02-02-2024", time: "12:15", type: "Complété", doctor: "ANAS KAIL", status: "Active" },
-  { date: "02-03-2023", time: "14:00", type: "Confirmé", doctor: "ADAM KAIL", status: "Active" },
-  { date: "23-06-2023", time: "09:30", type: "Annulé", doctor: "SOHIAB KAIL", status: "Inactive" },
-];
+
 const Historique = () => {
+  const [appointments, setAppointments] = useState([]);
+  const [filteredAppointments, setFilteredAppointments] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [sortOption, setSortOption] = useState('newest');
+
+  useEffect(() => {
+    const fetchAppointments = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/rendez_vouss');
+        console.log('data', response.data);
+        setAppointments(response.data);
+        setFilteredAppointments(response.data);
+      } catch (err) {
+        setError('Échec du chargement des rendez-vous');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAppointments();
+  }, []);
+
+  useEffect(() => {
+    const results = appointments.filter(appointment => {
+      const searchLower = searchTerm.toLowerCase();
+      
+      const status = (appointment.statut || appointment.status || '').toLowerCase();
+      
+      if (status.includes(searchLower)) {
+        return true;
+      }
+      
+      return (
+        (appointment.rendez_vous_date && appointment.rendez_vous_date.includes(searchTerm)) ||
+        (appointment.type && appointment.type.toLowerCase().includes(searchLower)) ||
+        (appointment.doctorID && appointment.doctorID.toString().includes(searchLower))
+      );
+    });
+
+    let sortedResults = [...results];
+    if (sortOption === 'newest') {
+      sortedResults.sort((a, b) => new Date(b.rendez_vous_date) - new Date(a.rendez_vous_date));
+    } else if (sortOption === 'oldest') {
+      sortedResults.sort((a, b) => new Date(a.rendez_vous_date) - new Date(a.rendez_vous_date));
+    } else if (sortOption === 'today') {
+      const today = new Date().toISOString().split('T')[0]; 
+      sortedResults.sort((a, b) => {
+        if (a.rendez_vous_date === today && b.rendez_vous_date !== today) return -1;
+        if (a.rendez_vous_date !== today && b.rendez_vous_date === today) return 1;
+        
+        return new Date(b.rendez_vous_date) - new Date(a.rendez_vous_date);
+      });
+    } else if (sortOption === 'this-week') {
+      const today = new Date();
+      const oneWeekFromNow = new Date();
+      oneWeekFromNow.setDate(today.getDate() + 7);
+      
+      sortedResults.sort((a, b) => {
+        const dateA = new Date(a.rendez_vous_date);
+        const dateB = new Date(b.rendez_vous_date);
+        
+        const aInThisWeek = dateA >= today && dateA <= oneWeekFromNow;
+        const bInThisWeek = dateB >= today && dateB <= oneWeekFromNow;
+        
+        if (aInThisWeek && !bInThisWeek) return -1;
+        if (!aInThisWeek && bInThisWeek) return 1;
+        
+        return dateA - dateB;
+      });
+    }
+
+    setFilteredAppointments(sortedResults);
+  }, [searchTerm, sortOption, appointments]);
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleSortChange = (e) => {
+    setSortOption(e.target.value);
+  };
+
+  const formatDate = (dateString) => {
+    if (!dateString) return 'N/A';
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString('fr-FR', options);
+  };
+
+  const getStatusClass = (appointment) => {
+    const status = appointment.statut || appointment.status || '';
+    if (status.toLowerCase() === 'confirmé') return 'confirmé';
+    if (status.toLowerCase() === 'annulé') return 'annulé';
+    return '';
+  };
+
+  if (loading) {
+    return <div className="loading-container">Chargement des rendez-vous...</div>;
+  }
+
+  if (error) {
+    return <div className="error-container">{error}</div>;
+  }
+
   return (
-    <div className="container">
-      <Header title="Historique" />
+    <div>
+      <Header/>
       <SideMenu/>
-      {/* Main Content */}
+    <div className="container">
       <div className="main-historique">
         <div className="header">
           <h2>Historique des Rendez-vous</h2>
-          <button className="export-button">Export</button>
+          <button className="export-button">Exporter</button>
         </div>
         <div className="controls">
-          <input type="text" placeholder="Search" className="search-input" />
-          <select>
-            <option>Sort by: Newest</option>
+          <input 
+            type="text" 
+            placeholder="Rechercher par statut, date ou type" 
+            className="search-input" 
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
+          <select value={sortOption} onChange={handleSortChange}>
+            <option value="newest">Trier par: Plus récent</option>
+            <option value="oldest">Trier par: Plus ancien</option>
+            <option value="today">Trier par: Aujourd'hui</option>
+            <option value="this-week">Trier par: Cette semaine</option>
           </select>
         </div>
-        <table className="appointment-table">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Heure</th>
-              <th>Type</th>
-              <th>Médecin</th>
-              <th>Ordonnance</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {appointments.map((appt, index) => (
-              <tr key={index}>
-                <td>{appt.date}</td>
-                <td>{appt.time}</td>
-                <td>{appt.type}</td>
-                <td>{appt.doctor}</td>
-                <td>
-                  <button className="download-button">Télécharger</button>
-                </td>
-                <td>
-                  <span className={`status ${appt.status === 'Active' ? 'active' : 'inactive'}`}>
-                    {appt.status}
-                  </span>
-                </td>
+        
+        {filteredAppointments.length === 0 ? (
+          <div className="no-results">Aucun rendez-vous trouvé</div>
+        ) : (
+          <table className="appointment-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Heure</th>
+                <th>Type</th>
+                <th>Médecin</th>
+                <th>Ordonnance</th>
+                <th>Status</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {filteredAppointments.map((appt, index) => (
+                <tr key={index}>
+                  <td>{formatDate(appt.date_RDV)}</td>
+                  <td>{appt.temps_RDV}</td>
+                  <td>{appt.type_RDV || 'N/A'}</td>
+                  <td>{appt.doctor_nom  || `ID ${appt.doctorID}`} {appt.doctor_prenom}</td>
+                  <td>
+                  <a
+                    href={`http://127.0.0.1:8000/ordonnance/${appt.patient_id}/download`}
+                    className="download-button"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Télécharger
+                  </a>
+                  </td>
 
-        <div className="pagination">
-          {[1, 2, 3, 4, 5, "...", 10].map((num, i) => (
-            <button key={i} className={`page-button ${num === 1 ? 'selected' : ''}`}>{num}</button>
-          ))}
-        </div>
+                  <td>
+                    <span className={`status ${getStatusClass(appt)}`}>
+                      {appt.statut || appt.status || 'N/A'}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
+    </div>
     </div>
   );
 };
