@@ -48,6 +48,9 @@ import Historique from './Components/Patient/historique';
 import AnalysisResults from './Components/Patient/analyse';
 import Doctors from './Components/Patient/medecins';
 import ProfileLayout from './Components/Patient/ProfileLayout';
+import Compte from './Components/Patient/link-profile/Comptes';
+import Documents from './Components/Patient/link-profile/documents';
+import Notification from './Components/Patient/link-profile/notification';
 
 
 const App=()=>{
@@ -96,6 +99,9 @@ const App=()=>{
                 <Route path="/tech_resultat" element={<Tech_resultat/>} /> */}
 
                 <Route path="/patients/profile" element={<Profile_P/>} />
+                <Route path="/patients/profile/compte" element={<Profile_P/>} />
+                <Route path="/patients/profile/documents" element={<Documents/>} />
+                <Route path="/patients/profile/notifications" element={<Notification/>} />
                 <Route path="/patients/rendez_vous" element={<Rendez_vous/>} />
                 <Route path="/patients/historique_rendezVous" element={<Historique/>} />
                 {/* <Route path="/patients/ordonnances" element={< />} /> */}

@@ -62,7 +62,7 @@ class CompteController extends Controller
      */
     public function show(Compte $compte)
     {
-        //
+        return ['info'=>$compte->roleable,'user'=>$compte];
     }
 
     /**
