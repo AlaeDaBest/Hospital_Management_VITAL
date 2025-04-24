@@ -31,14 +31,14 @@ import EditRendezVous from './Components/Receptionniste/EditRendezVous';
 import BedList from './Components/Receptionniste/BedList';
 import FactureList from './Components/Receptionniste/FactureList';
 import Facture from './Components/Patient/facture';
-<<<<<<< HEAD
+
 import Tech_patient from './Components/Technicien_labo/Patient/tech_patient';
 import Tech_resultat from './Components/Technicien_labo/Resultat/tech_resultat';
 import ListDoctor from './Components/Doctor/Doctors/doctorList';
 import Rapport from './Components/Doctor/Doctors/rapport';
 import Directeur from './Components/Directeur/directeru_doc';
 
-=======
+
 import DoctorsProgram from './Components/Receptionniste/DoctorsProgram';
 import ChirurgieProgram from './Components/Receptionniste/ChirurgieProgram';
 import ChirurgieForm from './Components/Receptionniste/ChirurgieForm';
@@ -61,7 +61,7 @@ import ProfileLayout from './Components/Patient/ProfileLayout';
 import Compte from './Components/Patient/link-profile/Comptes';
 import Documents from './Components/Patient/link-profile/documents';
 import Notification from './Components/Patient/link-profile/notification';
->>>>>>> 90fa4aaa0faad32f045ddd81a1bccb19bb09a6d4
+
 
 
 const App=()=>{

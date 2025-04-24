@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Compte;
 use Illuminate\Support\Facades\Hash;
+
+
 use Illuminate\Http\Request;
 
 class CompteController extends Controller
@@ -76,7 +78,7 @@ class CompteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-<<<<<<< HEAD
+
     
     
      public function update(Request $request, Compte $compte)
@@ -94,22 +96,8 @@ class CompteController extends Controller
          return response()->json(['message' => 'Compte mis à jour avec succès'], 200);
      }
     
-=======
-    public function update(Request $request, Compte $compte)
-    {
-        $compte->CIN=$request->CIN;
-        $compte->nom=$request->nom;
-        $compte->prenom=$request->prenom;
-        $compte->genre=$request->genre;
-        $compte->date_Naissance=$request->date_Naissance;
-        $compte->email=$request->email;
-        $compte->tel=$request->tel;
-        $compte->adresse=$request->adresse;
-        // dd($compte);
-        $compte->save();
-        return response()->json(['message' => 'Compte mis à jour avec succès'], 200);
-    }
->>>>>>> 90fa4aaa0faad32f045ddd81a1bccb19bb09a6d4
+
+  
 
     /**
      * Remove the specified resource from storage.

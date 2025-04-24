@@ -10,23 +10,15 @@ import { RiHealthBookFill } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 
 import { CiMedicalClipboard } from "react-icons/ci";
-import { NavLink } from "react-router-dom";
 
 const SideMenu=()=>{
     return(
-<<<<<<< HEAD
         <nav id="SideMenu" style={{ gap: "20px"}}>
              <NavLink to="/tech_labo" className={({isActive})=>(isActive? 'active-menu-link':'')}>
            <section >
 
             <div >
 
-=======
-        <nav id="SideMenu">
-            <NavLink to="/tech_labo" className={({isActive})=>(isActive? 'active-menu-link':'')}>
-            <section>
-                <div>
->>>>>>> 90fa4aaa0faad32f045ddd81a1bccb19bb09a6d4
                     <FaUser size={30} color="#244A6A" />
                 </div>
                 <div>
@@ -65,11 +57,8 @@ const SideMenu=()=>{
                 </div>
             </section>
             </NavLink>
-<<<<<<< HEAD
         
            
-=======
->>>>>>> 90fa4aaa0faad32f045ddd81a1bccb19bb09a6d4
         </nav>
     )
 }

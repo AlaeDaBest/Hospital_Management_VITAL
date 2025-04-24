@@ -38,15 +38,18 @@ Route::get('/', function () {
 
 use App\Http\Controllers\AnalyseController;
 Route::get('tech_labo/programme', [AnalyseController::class, 'index']);
-<<<<<<< HEAD
+
 Route::put('/tech_labo/programme/{analyse}', [AnalyseController::class, 'update']);
 
+Route::get('/analyse/{analyse}', [AnalyseController::class, 'show']);
 
 
-=======
-Route::resource('/analyses',AnalyseController::class);
+
+
+
+// Route::resource('/analyses',AnalyseController::class);
 Route::get('/analyses/download-all', [AnalyseController::class, 'downloadAllAnalyses']);
->>>>>>> 90fa4aaa0faad32f045ddd81a1bccb19bb09a6d4
+
 use App\Http\Controllers\PatientController;
 Route::resource('/patients', PatientController::class);
 
@@ -82,7 +85,7 @@ Route::get('/facture', function () {
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
-<<<<<<< HEAD
+
 Route::middleware('auth:compte')->get('/user', function (Request $request) {
     return Auth::guard('compte')->user();
 });
@@ -93,12 +96,12 @@ Route::middleware('auth:compte')->get('/user', function (Request $request) {
 // Route::get('/sanctum/csrf-cookie', function (Request $request) {
 //     return response()->json(['message' => 'CSRF cookie set']);
 // });
-=======
+
 
 Route::get('/sanctum/csrf-cookie', function (Request $request) {
     return response()->json(['message' => 'CSRF cookie set']);
 });
->>>>>>> 90fa4aaa0faad32f045ddd81a1bccb19bb09a6d4
+
 
 //  Route::post('/register', [CompteAuthController::class, 'register'])->name('compte.register');
 
