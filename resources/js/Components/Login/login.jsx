@@ -9,47 +9,59 @@ const Login = () => {
   const [role, setRole] = useState('patient');
   const [message, setMessage] = useState('');
   const [user,setUser]=useState({});
+  const [userInfo,setUserInfo]=useState({});
 
   useEffect(() => {
-    if (!user.id) return;     // guard: wait until user is set
-  
+    console.log(userInfo);
+    localStorage.setItem("userInfo", JSON.stringify(userInfo));
+    if (!user.id) return;     
     switch (user.role) {
       case 'docteur':
-        navigate('/docteur');
+        navigate('/medecins/profile', { state: { user } });
         break;
       case 'patient':
-        navigate('/patient');
+        navigate('/patients/profile', { state: { user } });
         break;
       // …
       case 'technicien_labo':
         navigate('/tech_labo', { state: { user } });
         break;
       case 'receptionniste':
-        navigate('/tech_labo', { state: { user } });
+        navigate('/receptionnistes/profile', { state: { user } });
+        break;
+      case 'directeur':
+        navigate('/directeurs/profile', { state: { user } });
         break;
       // …
       default:
         console.log("Rôle non reconnu");
     }
-  }, [user, navigate]);
+  }, [user,userInfo, navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://127.0.0.1:8000/login', {
         email:email,
+<<<<<<< HEAD
         password:mot_de_passe,
         // role:role,
+=======
+        password:mot_de_passe
+>>>>>>> 90fa4aaa0faad32f045ddd81a1bccb19bb09a6d4
       }, { withCredentials: true });
       
       console.log(response.data.role);  
       console.log(response);
       const userRole = response.data.role;
+      const userInfo=response.data.userinfo;
+      console.log(userInfo);
       setUser(response.data.user);
+      setUserInfo(response.data.userinfo);
       if (userRole === 'docteur') {
         navigate('/docteur');
       } else if (userRole === 'patient') {
-        navigate('/patient');
+        navigate('/patients/profile');
       } else if (userRole === 'directeur') {
         navigate('/directeur');
       } else if (userRole === 'infirmier') {
@@ -57,7 +69,7 @@ const Login = () => {
       } else if (userRole === 'technicien_labo') {
         navigate('/tech_labo', { state: { user: user } });
       } else if (userRole === 'receptionniste') {
-        navigate('/receptionnistes/admission/');
+        navigate('/receptionnistes/profile/', { state: { user: user } });
       } else {
         console.log("Rôle non reconnu");
       }
@@ -85,6 +97,7 @@ const Login = () => {
             <input type="password" value={mot_de_passe} onChange={(e) => setMot_de_passe(e.target.value)} required/>
           </div>
 
+<<<<<<< HEAD
           {/* <div className='input-group'>
             <label>Rôle</label>
             <select className="select_login" value={role}onChange={(e) => setRole(e.target.value)}>
@@ -96,6 +109,8 @@ const Login = () => {
               <option value="technicien_labo">Technicien Laboratoire</option>
              </select>
           </div> */}
+=======
+>>>>>>> 90fa4aaa0faad32f045ddd81a1bccb19bb09a6d4
 
           <div className='input-group'>
             <button type="submit" className="login-btn">Se connecter</button>

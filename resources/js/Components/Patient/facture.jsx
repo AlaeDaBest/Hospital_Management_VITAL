@@ -1,6 +1,8 @@
 import '../../../css/patient-css/facture.css';
 import React, { useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import SideMenu from './SideMenu';
+import Header from '../Receptionniste/Header';
 const Facture = () => {
   const [current, setCurrent] = useState(0);
   const facturesPerPage = 4;
@@ -33,6 +35,8 @@ const Facture = () => {
   };
   return (
     <div className="container">
+      <Header title="Facture"/>
+      <SideMenu/>
       <div className="facture-slider">
         <button className="nav-btn" onClick={prev} disabled={current === 0}>
           <FaChevronLeft />

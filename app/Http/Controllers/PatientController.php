@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Patient;
 use App\Models\Compte;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class PatientController extends Controller
 {
@@ -49,7 +50,7 @@ class PatientController extends Controller
             $compte->role = $request->role; 
             $compte->roleable_id = $patient->id;            
             $compte->roleable_type = Patient::class;
-            $compte->password = bcrypt($request->mot_de_passe); 
+            $compte->password = Hash::make($request->password);
             $compte->save();
             return response()->json(['message' => 'Patient et compte ajouté avec succés',"id"=>$patient->id], 200);
         }catch(error){
@@ -79,19 +80,21 @@ class PatientController extends Controller
      */
     public function update(Request $request, Patient $patient)
     {
+        // dd($request->all());
         try{
-            $patient->compte->CIN=$request->input('CIN');
-            $patient->compte->nom=$request->input('nom');
-            $patient->compte->prenom=$request->input('prenom');
-            $patient->compte->genre=$request->input('genre');
-            $patient->compte->date_Naissance=$request->input('date_Naissance');
-            $patient->compte->email=$request->input('email');
-            $patient->compte->tel=$request->input('tel');
-            $patient->compte->adresse=$request->input('adresse');
-            $patient->groupeSanguin=$request->input('groupeSanguin');
-            $patient->allergie=$request->input('allergie');
-            $patient->conditions_Medicaux=$request->input('conditions_Medicaux');
+            $patient->compte->CIN=$request->CIN;
+            $patient->compte->nom=$request->nom;
+            $patient->compte->prenom=$request->prenom;
+            $patient->compte->genre=$request->genre;
+            $patient->compte->date_Naissance=$request->date_Naissance;
+            $patient->compte->email=$request->email;
+            $patient->compte->tel=$request->tel;
+            $patient->compte->adresse=$request->adresse;
+            $patient->groupeSanguin=$request->groupeSanguin;
+            $patient->allergie=$request->allergie;
+            $patient->conditions_Medicaux=$request->conditions_Medicaux;
             $patient->save();
+            $patient->compte->save();
             return response()->json(['patient'=>$patient,"message"=>"Patient modifié avec succés",200]);
         }catch(error){
             return response()->json(['message'=>'Un error a lhors de modifie le patient']);

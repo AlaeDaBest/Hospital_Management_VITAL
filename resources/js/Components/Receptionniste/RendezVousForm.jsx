@@ -46,7 +46,14 @@ const RendezVousForm=()=>{
             <SideMenu />
             <div>
             <nav id="SideBar">
-            <NavLink to="/receptionnistes/rendez_vous/list"  className={({isActive})=>(isActive? 'active-admission-link':'')} >List</NavLink> 
+             <div >
+                <div>
+                    <NavLink to='/receptionnistes/rendez_vous/ajouter' className={({isActive})=>(isActive? 'active-admission-link':'')} >Ajouter</NavLink>
+                </div>
+                <div>
+                    <NavLink to="/receptionnistes/rendez_vous/list"  className={({isActive})=>(isActive? 'active-admission-link':'')} >List</NavLink> 
+                </div>
+            </div>
             <br />
             </nav>
             </div>
@@ -95,15 +102,15 @@ const RendezVousForm=()=>{
                                 <div>
                                     <div>
                                         <input type="radio" value="programmé" name="status" id="" defaultChecked onChange={(e)=>setStatus(e.target.value)} />
-                                        <label htmlFor="">Programmé</label>
+                                        Programmé
                                         <input type="radio" value="confirmé" name="status" id="" onChange={(e)=>setStatus(e.target.value)} />
-                                        <label htmlFor="">Confirmmé</label>
+                                        Confirmmé
                                     </div>
                                     <div>
                                     <input type="radio" value="complété" name="status" id="" onChange={(e)=>setStatus(e.target.value)} />
-                                    <label htmlFor="">Complété</label>
+                                    Complété
                                     <input type="radio" value="annulé" name="status" id="" onChange={(e)=>setStatus(e.target.value)} />
-                                    <label htmlFor="">Annulé</label>
+                                    Annulé
                                     </div>
                                 </div>
                             </article>
@@ -112,7 +119,7 @@ const RendezVousForm=()=>{
             </div>
             <div id="btns" className="btns">
                     <button onClick={AddRendezVous}>Enregistrer</button>
-                    <button>Annuler</button>
+                    <button className="annuler">Annuler</button>
             </div>
         </div>
     )

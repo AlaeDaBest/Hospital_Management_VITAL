@@ -12,7 +12,7 @@
 .btns{
     position: relative;
     top: 100px;
-    left: -50px;
+    left: -350px;
 }
 #message_rdv{
     position: relative;
@@ -20,3 +20,83 @@
     left: 50px;
     width: 300px;
 }
+
+.facture-form div{
+    width: 100%;
+}
+
+
+.rdv-form h2{
+    color: #244A6A;
+    margin-left: 5%;
+}
+.payée{
+    color: #22CBC2;
+}
+.nonpayée{
+    color: #d32727;
+}
+.lit-btns{
+    position: relative;
+    top: 50px;
+    left: 150px;
+}
+#btns button, #pagination-btns button{
+    height: 20px;
+    background-color: #244A6A;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+#btns button:disabled, #pagination-btns button:disabled  ,.annuler{
+    background-color: #d3d3d3;
+    color: #a9a9a9;
+}
+#btns button:disabled:hover, #pagination-btns button:disabled:hover{
+    background-color: #d3d3d3;
+    color: #a9a9a9;
+    transform: none;
+}
+#btns button:hover, #pagination-btns button:hover{
+    /* background-color: #22CBC2; */
+    transform: scale(1.05);
+}
+#btns .annuler{
+    background-color: #d3d3d3;
+    color: #a9a9a9;
+}
+#SideBar select{
+    border: #244A6A 1px solid ;
+    color: #244A6A;
+}
+.file-attente{
+    text-align: center;
+    background-color: #22cbc34c;
+    border: #22CBC2 1px solid;
+    border-radius: 5px;
+}
+.file-attente button{
+    background-color: #244A6A;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+.message_f{
+    margin-left: 300px;
+}
+/* img{
+    width: 100%;
+} */
+/* .profile-picture{
+    width: 100px;
+} */
+ /* .profile-picture-section{
+    width: 100px;
+}
+img{
+    width: 100%;
+} */
+ .btn-ren{
+    position: relative;
+    left: 40px;
+ }

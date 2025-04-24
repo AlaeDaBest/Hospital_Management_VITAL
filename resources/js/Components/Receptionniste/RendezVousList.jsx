@@ -66,8 +66,13 @@ const RendezVousList=()=>{
                     <option value="consultation">Consultation</option>
                     <option value="idk">Idk</option>
                 </select>
-                <div id="add-rendez-vous">
-                <Link to='/receptionnistes/rendez_vous/ajouter' >Ajouter</Link>
+                <div >
+                    <div>
+                    <NavLink to='/receptionnistes/rendez_vous/ajouter' className={({isActive})=>(isActive? 'active-admission-link':'')} >Ajouter</NavLink>
+                    </div>
+                    <div>
+                    <NavLink to="/receptionnistes/rendez_vous/"  className={({isActive})=>(isActive? 'active-admission-link':'')} >List</NavLink> 
+                    </div>
                 </div>
             </nav>
             <div id="search-patient">

@@ -95,7 +95,7 @@ const BedList=()=>{
                     )}
                     </tbody>
                 </table>      
-                <div id="pagination-btns" className="lit-btns">
+                <div id="pagination-btns" className="lit-btns ">
                     <button onClick={()=>setCurrentPage(currentPage-1)} disabled={currentPage==1?true:false} >Précédent</button>
                     <span> {currentPage} </span>
                     <button onClick={()=>setCurrentPage(currentPage+1)} disabled={currentPage==totalPages?true:false}>Suivant</button>

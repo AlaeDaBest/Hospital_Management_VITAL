@@ -25,8 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Rendez_vous::observe(RendezVousObserver::class);
-        Analyse::observe(LabTestObserver::class);
-        Chirurgie::observe(ChirurgieObserver::class);
+       //
     }
 }

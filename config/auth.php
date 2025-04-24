@@ -74,6 +74,7 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Compte::class,
         ],
+        
         // Ana zidtom 3la authentification
 
         // 'users' => [

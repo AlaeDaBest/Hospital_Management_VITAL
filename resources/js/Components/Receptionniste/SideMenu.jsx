@@ -6,11 +6,22 @@ import { SiRescuetime } from "react-icons/si";
 import { FaBed } from "react-icons/fa";
 import { RiSurgicalMaskFill } from "react-icons/ri";
 import { FaFileInvoiceDollar } from "react-icons/fa";
+import { IoPersonSharp } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 
 const SideMenu=()=>{
     return(
         <nav id="SideMenu">
+            <NavLink to="/receptionnistes/profile" className={({isActive})=>(isActive? 'active-menu-link':'')}>
+                <section>
+                    <div>
+                    <IoPersonSharp  size={30} color="#244A6A" />
+                    </div>
+                    <div>
+                        <p>Profile</p>
+                    </div>
+                </section>
+            </NavLink>
             <NavLink to="/receptionnistes/admission/" className={({isActive})=>(isActive? 'active-menu-link':'')}>
                 <section>
                     <div>
@@ -61,7 +72,7 @@ const SideMenu=()=>{
                     </div>
                 </section>
             </NavLink>
-            <NavLink to="/receptionnistes/c" className={({isActive})=>(isActive? 'active-menu-link':'')}>
+            <NavLink to="/receptionnistes/chirurgies" className={({isActive})=>(isActive? 'active-menu-link':'')}>
                 <section>
                     <div>
                         <RiSurgicalMaskFill size={30} color="#244A6A" />

@@ -58,7 +58,10 @@ const EditRendezVous=()=>{
             <SideMenu />
             <div>
             <nav id="SideBar">
-            <NavLink to="/receptionnistes/rendez_vous/list"  className={({isActive})=>(isActive? 'active-admission-link':'')} >List</NavLink> 
+                <div id="add-rendez-vous">
+                    <NavLink to="/receptionnistes/rendez_vous/list"  className={({isActive})=>(isActive? 'active-admission-link':'')} >List</NavLink> 
+                </div>
+            
             <br />
             </nav>
             </div>
@@ -107,15 +110,15 @@ const EditRendezVous=()=>{
                                 <div>
                                     <div>
                                         <input type="radio" value="programmé" name="status" id="" checked={Status=="programmé"?true:""} onChange={(e)=>setStatus(e.target.value)} />
-                                        <label htmlFor="" >Programmé</label>
+                                        Programmé
                                         <input type="radio" value="confirmé" name="status" id="" checked={Status=="confirmé"?true:""} onChange={(e)=>setStatus(e.target.value)} />
-                                        <label htmlFor="">Confirmmé</label>
+                                        Confirmmé
                                     </div>
                                     <div>
                                     <input type="radio" value="complété" name="status" id="" checked={Status=="complété"?true:""} onChange={(e)=>setStatus(e.target.value)} />
-                                    <label htmlFor="">Complété</label>
+                                    Complété
                                     <input type="radio" value="annulé" name="status" id="" checked={Status=="annulé"?true:""} onChange={(e)=>setStatus(e.target.value)} />
-                                    <label htmlFor="">Annulé</label>
+                                    Annulé
                                     </div>
                                 </div>
                             </article>
@@ -124,7 +127,7 @@ const EditRendezVous=()=>{
             </div>
             <div id="btns" className="btns">
                     <button onClick={EditRendezVous}>Enregistrer</button>
-                    <button>Annuler</button>
+                    <button className="annuler">Annuler</button>
             </div>
         </div>
     )

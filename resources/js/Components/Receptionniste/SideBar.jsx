@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const SideBar=()=>{
     return(
        <nav id="SideBar">
-            <NavLink to="/receptionnistes/admission/nouveau"  className={({isActive})=>(isActive? 'active-admission-link':'')} >Nouveau</NavLink> 
+            <NavLink to="/receptionnistes/admission/"  className={({isActive})=>(isActive? 'active-admission-link':'')} >Nouveau</NavLink> 
             <br />
             <NavLink to="/receptionnistes/admission/existant" className={({isActive})=>(isActive? 'active-admission-link':'')}>Existant</NavLink>
        </nav>
