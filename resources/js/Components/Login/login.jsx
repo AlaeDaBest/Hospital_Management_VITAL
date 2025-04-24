@@ -43,12 +43,8 @@ const Login = () => {
     try {
       const response = await axios.post('http://127.0.0.1:8000/login', {
         email:email,
-<<<<<<< HEAD
         password:mot_de_passe,
         // role:role,
-=======
-        password:mot_de_passe
->>>>>>> 90fa4aaa0faad32f045ddd81a1bccb19bb09a6d4
       }, { withCredentials: true });
       
       console.log(response.data.role);  
@@ -96,22 +92,6 @@ const Login = () => {
             <label>Mot de Passe:</label>
             <input type="password" value={mot_de_passe} onChange={(e) => setMot_de_passe(e.target.value)} required/>
           </div>
-
-<<<<<<< HEAD
-          {/* <div className='input-group'>
-            <label>Rôle</label>
-            <select className="select_login" value={role}onChange={(e) => setRole(e.target.value)}>
-              <option value="patient">Patient</option>
-              <option value="receptionniste">Receptionniste</option>
-              <option value="docteur">Docteur</option>
-              <option value="infirmier">Infirmier</option>
-              <option value="directeur">Directeur</option>
-              <option value="technicien_labo">Technicien Laboratoire</option>
-             </select>
-          </div> */}
-=======
->>>>>>> 90fa4aaa0faad32f045ddd81a1bccb19bb09a6d4
-
           <div className='input-group'>
             <button type="submit" className="login-btn">Se connecter</button>
           </div>

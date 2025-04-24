@@ -12,7 +12,7 @@ const Directeur = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/patients')
+        axios.get('http://127.0.0.1:8000/doctors')
             .then((response) => {
                 console.log(response);
                 setPatients(response.data);
@@ -57,7 +57,7 @@ const Directeur = () => {
         <div id="list-patient-container">
             <Header title="Patients" />
             <SideMenu />
-            <nav id="SideBar">
+            {/* <nav id="SideBar">
                 <select name="" id="" onChange={(e) => setSelectedGenre(e.target.value)}>
                     <option value="">Genre</option>
                     <option value="masculin">Masculin</option>
@@ -74,7 +74,7 @@ const Directeur = () => {
                     <option value="O+">O+</option>
                     <option value="O-">O-</option>
                 </select>
-            </nav>
+            </nav> */}
             <div id="search-patient">
                 <label htmlFor="">Chercher :</label>
                 <input type="text" placeholder="Rechercher par nom ou prénom" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
@@ -90,8 +90,8 @@ const Directeur = () => {
                             <th>Genre</th>
                             <th>Téléphone</th>
                             <th>Email</th>
-                            <th>Groupe Sanguin</th>
-                            <th>Action</th>
+                            {/* <th>Groupe Sanguin</th> */}
+                            {/* <th>Action</th> */}
                         </tr>
                     </thead>
                     <tbody>
@@ -113,11 +113,11 @@ const Directeur = () => {
                                     <td>{patient.compte.genre}</td>
                                     <td>{patient.compte.tel}</td>
                                     <td>{patient.compte.email}</td>
-                                    <td>{patient.groupeSanguin}</td>
-                                    <td>
+                                    {/* <td>{patient.groupeSanguin}</td> */}
+                                    {/* <td>
                                         <FaEdit color="#244A6A" id="edit_icon" onClick={() => EditPatient(patient)} />
                                         <BsTrashFill color="#d32727" id="delete_icon" onClick={() => DeletePatient(patient)} />
-                                    </td>
+                                    </td> */}
                                 </tr>
                             );
                         })}

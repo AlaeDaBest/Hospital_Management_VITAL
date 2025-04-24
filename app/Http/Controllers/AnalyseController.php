@@ -16,15 +16,6 @@ class AnalyseController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-<<<<<<< HEAD
-{
-    $analyses = Analyse::with('compte') // Assure-toi que la relation est bien définie
-        ->where('resultat', 'en cours')
-        ->get();
-
-    return response()->json($analyses);
-}
-=======
     {
         $analyses = Analyse::with([
             'patient.compte',  
@@ -46,6 +37,7 @@ class AnalyseController extends Controller
                 'patient_id' => $a->patient_id,
                 'tech_id' => $a->technicien_labo_id,
                 'tech'=> $a->technicien_labo,
+                'patient'=>$a->patient?->compte
             ];
         });
         return $formatted;
@@ -56,7 +48,6 @@ class AnalyseController extends Controller
         $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('pdf.all-analyses', compact('analyses'));
         return $pdf->download('toutes_les_analyses.pdf');
     }
->>>>>>> 90fa4aaa0faad32f045ddd81a1bccb19bb09a6d4
 
 
     /**

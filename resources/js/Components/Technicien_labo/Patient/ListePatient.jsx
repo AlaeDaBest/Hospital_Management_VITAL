@@ -15,8 +15,9 @@ const ListPatient = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/patients")
+    axios.get("http://127.0.0.1:8000/analyses")
       .then(response => {
+        console.log(response)
         setPatients(response.data); // Assuming this is the list of patients
       })
       .catch(error => {
@@ -45,13 +46,10 @@ const ListPatient = () => {
 
   const filteredPatients = patients
     .filter(patient => 
-      patient.compte && 
-      (patient.compte.nom.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      patient.compte.prenom.toLowerCase().includes(searchTerm.toLowerCase())) &&
-      (selectedGenre ? patient.compte.genre === selectedGenre : true) &&
-      (selectedBloodType ? patient.groupeSanguin === selectedBloodType : true)
+      (patient.patient_nom.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      patient.patient_prenom.toLowerCase().includes(searchTerm.toLowerCase())) 
     );
-
+    console.log(filteredPatients);
   const totalPages = Math.ceil(filteredPatients.length / patientsPerPage);
   const currentPatients = filteredPatients.slice((currentPage - 1) * patientsPerPage, currentPage * patientsPerPage);
 
@@ -162,17 +160,17 @@ const ListPatient = () => {
             </thead>
             <tbody>
               {currentPatients.map((patient) => {
-                const age = calculateAge(patient.compte.date_Naissance);
+                const age = calculateAge(patient.date_Naissance);
                 return (
                   <tr key={patient.id}>
-                    <td>{patient.id}</td>
-                    <td>{patient.compte.CIN}</td>
-                    <td>{patient.compte.nom} {patient.compte.prenom}</td>
+                    <td>{patient.patient_id}</td>
+                    <td>{patient.patient_nom} {patient.patient_prenom}</td>
+                    <td>{patient.patient_nom} {patient.patient_prenom}</td>
                     <td>{age}</td>
-                    <td>Microbiologie</td>
-                    <td>9:30</td>
-                    <td>12/04/2025</td>
-                    <td>Terminé</td>
+                    <td>{patient.type}</td>
+                    <td>{patient.analyse_heure}</td>
+                    <td>{patient.analyse_date}</td>
+                    <td>{patient.resultat}</td>
                     <td>
                       <button className="logout-btn">Télécharger</button>
                     </td>
