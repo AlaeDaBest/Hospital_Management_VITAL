@@ -41,8 +41,20 @@ Route::get('tech_labo/programme', [AnalyseController::class, 'index']);
 
 Route::put('/tech_labo/programme/{analyse}', [AnalyseController::class, 'update']);
 
+
 Route::resource('/analyses',AnalyseController::class);
 Route::get('/analyses/download-all', [AnalyseController::class, 'downloadAllAnalyses']);
+
+Route::get('/analyse/{analyse}', [AnalyseController::class, 'show']);
+
+
+
+
+
+// Route::resource('/analyses',AnalyseController::class);
+Route::get('/analyses/download-all', [AnalyseController::class, 'downloadAllAnalyses']);
+
+
 use App\Http\Controllers\PatientController;
 Route::resource('/patients', PatientController::class);
 
@@ -79,6 +91,7 @@ Route::get('/facture', function () {
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
+
 // Route::middleware('auth:compte')->get('/user', function (Request $request) {
 //     return Auth::guard('compte')->user();
 // });
@@ -86,9 +99,11 @@ Route::post('/logout', [AuthController::class, 'logout']);
 
 
 
+
 // Route::get('/sanctum/csrf-cookie', function (Request $request) {
 //     return response()->json(['message' => 'CSRF cookie set']);
 // });
+
 
 
 // Route::get('/sanctum/csrf-cookie', function (Request $request) {

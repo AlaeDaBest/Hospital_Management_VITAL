@@ -9,7 +9,6 @@ import { FaFileInvoiceDollar } from "react-icons/fa";
 import { RiHealthBookFill } from "react-icons/ri";
 
 import { CiMedicalClipboard } from "react-icons/ci";
-import { NavLink } from "react-router-dom";
 
 const SideMenu=()=>{
     return(

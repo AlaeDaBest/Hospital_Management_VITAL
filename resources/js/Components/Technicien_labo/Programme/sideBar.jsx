@@ -42,8 +42,10 @@ const SideBar = () => {
         {analyses.map(analyse => (
           <li key={analyse.id} className="analyse-item">
             <strong>{analyse.type}</strong><br />
-            Patient: {analyse.patient_nom} {analyse.patient_prenom}<br />
-            <button onClick={() => handleRealiser(analyse.id)} className="btn-realiser">
+
+
+            Patient: {analyse.patient_nom} {analyse.patient_prenom}<<br />
+            <button onClick={() => handleRealiser(analyse)} className="btn-realiser">
               Réaliser
             </button>
           </li>

@@ -23,7 +23,7 @@ const FactureForm=()=>{
         }
         try {
             const response = await axios.post(apiUrl, newFacture, {
-              responseType: 'blob', // 👈 important!
+              responseType: 'blob', 
             });
         
             const blob = new Blob([response.data], { type: 'application/pdf' });

@@ -50,6 +50,7 @@ class AnalyseController extends Controller
     }
 
 
+
     /**
      * Show the form for creating a new resource.
      */
@@ -71,7 +72,16 @@ class AnalyseController extends Controller
      */
     public function show(Analyse $analyse)
     {
-        //
+         // Chargement des relations nécessaires
+    $analyse->load('technicien_labo.compte', 'patient.compte');
+
+    // Générer le PDF à partir de la vue
+    $pdf = Pdf::loadView('pdf.analyse', [
+        'analyse' => $analyse
+    ]);
+
+    // Téléchargement du PDF
+    return $pdf->download('analyse_' . $analyse->id . '.pdf');
     }
 
     /**

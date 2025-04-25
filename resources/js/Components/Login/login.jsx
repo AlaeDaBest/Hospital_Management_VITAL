@@ -43,8 +43,14 @@ const Login = () => {
     try {
       const response = await axios.post('http://127.0.0.1:8000/login', {
         email:email,
+
         password:mot_de_passe,
         // role:role,
+
+
+        password:mot_de_passe,
+        // role:role,
+
       }, { withCredentials: true });
       
       console.log(response.data.role);  
@@ -92,6 +98,7 @@ const Login = () => {
             <label>Mot de Passe:</label>
             <input type="password" value={mot_de_passe} onChange={(e) => setMot_de_passe(e.target.value)} required/>
           </div>
+
           <div className='input-group'>
             <button type="submit" className="login-btn">Se connecter</button>
           </div>
