@@ -107,7 +107,7 @@ const Profile_D = () => {
         <form action="" id="forms">
         <div className="profile-picture-section">
             <div className="profile-picture">
-              <img src="Images/Home/Doctors/doc1.jpg" alt="Profile" />
+              <img src="Images/Home/directeur.jpg" alt="Profile" />
             </div>
             <button >Upload JPG/PNG (Max: 5 MB)</button>
         </div>  
